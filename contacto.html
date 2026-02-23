@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>universidad de huánuco | contacto</title>
+  <link rel="icon" type="image/png" href="./assets/img/logo 2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontfamily: { sans: ['inter','system-ui','sans-serif'] },
+          colors: {
+            jet:'#3d3c3b',
+            primary:'#ecc138',
+            background:'#faf7f0',
+            border:'rgba(61,60,59,0.16)',
+            foreground:'#3d3c3b',
+            muted:'rgba(61,60,59,0.72)',
+            tealbtn:'#5a9e8d'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root{
+      /* fallback por si js aún no calcula */
+      --nav-h: 76px;
+      --nav-gap: 18px;
+    }
+
+    html{ scroll-behavior:smooth; }
+    body{ background:#faf7f0; }
+
+    /* navbar scroll */
+    #navbar{ transition: all .3s ease; }
+    #navbar.is-scrolled{
+      background: rgba(250,247,240,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(61,60,59,0.16);
+    }
+
+    /* para que los anchors no se vayan debajo del navbar */
+    .scroll-mt-nav{
+      scroll-margin-top: calc(var(--nav-h) + var(--nav-gap));
+    }
+
+    /* sidebar links */
+    .side-link{
+      display:block;
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:800;
+      color:rgba(255,255,255,.75);
+      transition:all .2s ease;
+    }
+    .side-link:hover{
+      background:rgba(255,255,255,.1);
+      color:#fff;
+      transform:translatex(3px);
+    }
+    .side-link.is-active{
+      background:rgba(236,193,56,.25);
+      color:#fff;
+    }
+
+    /* right cards */
+    .card{
+      background:#fff;
+      border-radius:24px;
+      padding:22px;
+      box-shadow:0 12px 30px rgba(0,0,0,.08);
+      border:1px solid rgba(61,60,59,.12);
+    }
+
+    .row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+      border-bottom:1px solid rgba(61,60,59,.10);
+    }
+    .row:last-child{ border-bottom:0; padding-bottom:0; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(90,158,141,.12);
+      color:#2b5c52;
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .callbtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      background:#5a9e8d;
+      color:#fff;
+      box-shadow:0 12px 25px rgba(90,158,141,.25);
+      transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .callbtn:hover{
+      transform:translatey(-1px);
+      box-shadow:0 16px 30px #5A9E8D;
+      filter:saturate(1.05);
+    }
+    .callbtn:active{ transform:translatey(0px); }
+
+    .softbtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      border:1px solid rgba(174, 172, 169, 0.796);
+      background:rgb(255, 255, 255);
+      text-decoration:none;
+      color:#000000;
+      transition:background .2s ease, opacity .2s ease;
+      opacity:1;
+    }
+    .softbtn:hover{ background:rgba(195, 195, 195, 0.874); opacity:1; }
+  </style>
+</head>
+
+<body class="font-sans text-foreground">
+    
+  <!-- NAVBAR -->
+
+  <div id="navbar-container"></div>
+
+  <!-- antes era pt-24, eso generaba el hueco -->
+  <main id="main">
+    <section class="grid lg:grid-cols-[360px_1fr] min-h-screen">
+
+      <!-- sidebar -->
+      <aside
+        class="hidden lg:flex flex-col justify-between bg-[#3d3c3b] text-white p-10 sticky overflow-y-auto"
+        style="top: var(--nav-h); height: calc(100vh - var(--nav-h));"
+      >
+        <div class="flex-1">
+          <p class="text-xs tracking-widest text-white/50">Contacto</p>
+          <h2 class="text-3xl font-extrabold mt-4">
+            Asesores<br>
+            de Admisión
+          </h2>
+
+          <nav class="mt-8 space-y-1" id="side">
+            <a class="side-link" href="#derecho">Doctorado en derecho</a>
+            <a class="side-link" href="#penal">Derecho penal</a>
+            <a class="side-link" href="#salud">Ciencias de la salud</a>
+            <a class="side-link" href="#educacion">Ciencias de la educación</a>
+            <a class="side-link" href="#empresariales">Ciencias empresariales</a>
+            <a class="side-link" href="#ingenieria">Ingeniería</a>
+            <a class="side-link" href="#tramites">Trámites</a>
+            <a class="side-link" href="#central">Oficina central</a>
+          </nav>
+
+          <div class="mt-10 space-y-3">
+            <a href="./admision.html" class="softbtn w-full">Volver a admisión</a>
+            <a href="./documentos.html" class="softbtn w-full">Ir a documentos</a>
+          </div>
+        </div>
+
+        <div class="pt-10">
+          <p class="text-xs text-white/50 mt-6">© 2026 universidad de huánuco — posgrado</p>
+        </div>
+      </aside>
+
+      <!-- contenido -->
+      <div class="p-10 max-w-5xl">
+        <h1 class="text-5xl font-extrabold">Contacto</h1>
+        <div class="w-16 h-2 rounded mt-4 bg-[#5A9E8D]"></div>
+
+        <p class="mt-6 text-jet/70">
+          Horario de atención:<br>
+          Lunes a Viernes de 8:00 a.m. - 1:00 p.m. y 4:00 p.m. - 7:00 p.m.
+        </p>
+
+        <div id="derecho" class="card mt-10 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Doctorado en derecho</h2>
+            <span class="badge">Unidad de posgrado</span>
+          </div>
+
+          <p class="text-sm text-jet/65 mt-2">
+            Maestrías: Derecho procesal, Derecho civil y Comercial, Derecho del trabajo y Seg. social
+          </p>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfono</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <a class="callbtn" href="tel:+51941932865">941 932 865</a>
+          </div>
+        </div>
+
+        <div id="penal" class="card mt-8 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Derecho penal</h2>
+            <span class="badge">Unidad de posgrado</span>
+          </div>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfono</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <a class="callbtn" href="tel:+51929487055">929 487 055</a>
+          </div>
+        </div>
+
+        <div id="salud" class="card mt-8 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Doctorado en ciencias de la salud</h2>
+            <span class="badge">Unidad de posgrado</span>
+          </div>
+
+          <p class="text-sm text-jet/65 mt-2">
+            Maestrías: Salud pública y Docencia universitaria, Gerencia en servicios de salud, Odontostomatología
+          </p>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfonos</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <div class="flex flex-col gap-2 items-end">
+              <a class="callbtn" href="tel:+51952075987">952 075 987</a>
+              <a class="callbtn" href="tel:+51985279704">985 279 704</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="educacion" class="card mt-8 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Doctorado en ciencias de la educación</h2>
+            <span class="badge">Unidad de posgrado</span>
+          </div>
+
+          <p class="text-sm text-jet/65 mt-2">
+            Maestrías: Docencia en educación superior e investigación, Docencia y gerencia educativa, Psicología educativa
+          </p>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfono</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <a class="callbtn" href="tel:+51952070191">952 070 191</a>
+          </div>
+        </div>
+
+        <div id="empresariales" class="card mt-8 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Ciencias empresariales</h2>
+            <span class="badge">Unidad de posgrado</span>
+          </div>
+
+          <p class="text-sm text-jet/65 mt-2">
+            Maestrías: Gestión pública, Auditoría y Tributación
+          </p>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfono</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <a class="callbtn" href="tel:+51946042178">946 042 178</a>
+          </div>
+        </div>
+
+        <div id="ingenieria" class="card mt-8 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Ingeniería</h2>
+            <span class="badge">Unidad de posgrado</span>
+          </div>
+
+          <p class="text-sm text-jet/65 mt-2">
+            Maestrías: Gestión ambiental y desarrollo sostenible, Gerencia en sistemas y tecnologías de información
+          </p>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfono</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <a class="callbtn" href="tel:+51962810627">962 810 627</a>
+          </div>
+        </div>
+
+        <div id="tramites" class="card mt-8 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Trámites para optar</h2>
+            <span class="badge">Grado maestro / Doctor</span>
+          </div>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfono</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <a class="callbtn" href="tel:+51952072724">952 072 724</a>
+          </div>
+        </div>
+
+        <div id="central" class="card mt-8 scroll-mt-nav">
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl font-extrabold">Oficina Central de Admisión</h2>
+            <span class="badge">Proceso de Inscripción</span>
+          </div>
+
+          <div class="mt-6 row">
+            <div>
+              <p class="font-extrabold">Teléfono</p>
+              <p class="text-sm text-jet/65">Llamada directa</p>
+            </div>
+            <a class="callbtn" href="tel:+51952071466">952 071 466</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+
+  <script>
+    // calcula altura real del navbar y elimina el "hueco" en todas las secciones
+    (function(){
+      const nav = document.getElementById('navbar');
+
+      const setNavH = () => {
+        const h = nav ? nav.offsetHeight : 76;
+        document.documentElement.style.setProperty('--nav-h', h + 'px');
+        // aplico el padding-top al main sin tailwind
+        const main = document.getElementById('main');
+        if(main) main.style.paddingTop = 'var(--nav-h)';
+      };
+
+      setNavH();
+      window.addEventListener('resize', setNavH);
+    })();
+    // marcar activo según sección visible
+    (function(){
+      const links = [...document.querySelectorAll('#side a[href^="#"]')];
+      const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+
+      const sections = links
+        .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+        .filter(Boolean);
+
+      const obs = new IntersectionObserver((entries)=>{
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+
+        if(!visible) return;
+
+        links.forEach(x => x.classList.remove('is-active'));
+        const id = visible.target.id;
+        const a = map.get(id);
+        if(a) a.classList.add('is-active');
+      }, { root:null, threshold:0.35 });
+
+      sections.forEach(sec => obs.observe(sec));
+    })();
+
+    // menu oferta académica
+    (function(){
+      const btn = document.getElementById("ofertaBtn");
+      const menu = document.getElementById("ofertaMenu");
+      if(!btn || !menu) return;
+
+      btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      document.addEventListener("click", (e) => {
+        if(!menu.classList.contains("hidden") && !menu.contains(e.target) && e.target !== btn){
+          menu.classList.add("hidden");
+        }
+      });
+    })();
+  </script>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>

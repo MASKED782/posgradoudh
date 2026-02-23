@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="./assets/img/logo 2.png" />
+  <title>Universidad de Huánuco | Documentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['inter','system-ui','sans-serif'] },
+          colors: {
+            jet:'#3d3c3b',
+            primary:'#ecc138',
+            background:'#faf7f0',
+            border:'rgba(61,60,59,0.16)',
+            foreground:'#3d3c3b',
+            muted:'rgba(61,60,59,0.72)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body{ background:#faf7f0; }
+
+    /* NAVBAR SCROLL FIX */
+    #navbar{
+      transition: all .3s ease;
+    }
+    #navbar.is-scrolled{
+      background: rgba(250,247,240,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(61,60,59,0.16);
+    }
+
+    /* SIDEBAR LINKS */
+    .docs-link{
+      display:block;
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:700;
+      color:rgba(255,255,255,.75);
+      transition:all .2s ease;
+    }
+    .docs-link:hover{
+      background:rgba(255,255,255,.1);
+      color:#fff;
+      transform:translateX(3px);
+    }
+    .docs-link.is-active{
+      background:rgba(236,193,56,.25);
+      color:#fff;
+    }
+
+    /* PDF VIEWER */
+    .viewer{
+      border-radius:24px;
+      overflow:hidden;
+      background:white;
+      box-shadow:0 12px 30px rgba(0,0,0,.1);
+      border:1px solid rgba(61,60,59,.16);
+      min-height:600px;
+      transition:all .25s ease;
+    }
+
+    .viewer iframe{
+      width:100%;
+      height:650px;
+      border:0;
+    }
+
+    .placeholder{
+      height:650px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:rgba(61,60,59,.6);
+    }
+
+  </style>
+</head>
+
+<body class="font-sans text-foreground">
+  
+  <!-- NAVBAR -->
+
+  <div id="navbar-container"></div>
+
+  <main>
+
+    <section class="grid lg:grid-cols-[340px_1fr] min-h-screen">
+
+      <!-- SIDEBAR (ROJO) -->
+      <aside class="hidden lg:flex flex-col justify-between
+              bg-[#3d3c3b] text-white p-10
+              sticky top-[75px]
+              h-[calc(100vh-75px)]
+              overflow-y-auto">
+
+        <div>
+          <p class="text-xs tracking-widest text-white/50">REPOSITORIO</p>
+          <h2 class="text-3xl font-extrabold mt-4">
+            Documentos<br>Posgrado
+          </h2>
+
+          <nav id="docsNav" class="mt-8 space-y-1">
+
+            <a class="docs-link" data-pdf="../assets/pdf/faq/faq_maestria_doctorado.pdf">
+              Maestrías y Doctorado | Segunda Especialidad
+            </a>
+
+          </nav>
+        </div>
+
+        <div class="mt-10">
+            <p class="text-xs text-white/50">
+            © 2026 universidad de huánuco — posgrado
+            </p>
+        </div>
+
+      </aside>
+
+      <!-- ZONA NARANJA (VISOR) -->
+      <div class="pt-24 p-10 max-w-5xl">
+
+        <h1 class="text-5xl font-extrabold">Preguntas Frecuentes</h1>
+        <div class="w-16 h-2 bg-[#5A9E8D] rounded mt-4"></div>
+
+        <div class="mt-10 viewer">
+
+          <div id="placeholder" class="placeholder">
+            <div>
+              <p class="font-extrabold text-xl">Sin documento seleccionado</p>
+              <p class="mt-2">Haz click en un documento del panel izquierdo</p>
+            </div>
+          </div>
+
+          <iframe id="pdfViewer" style="display:none;"></iframe>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+  <div id="footer-container"></div>
+
+  <script>
+    // PDF VIEWER
+    (function(){
+      const navLinks = document.querySelectorAll('.docs-link');
+      const iframe = document.getElementById('pdfViewer');
+      const placeholder = document.getElementById('placeholder');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const pdf = link.getAttribute('data-pdf');
+
+          navLinks.forEach(l => l.classList.remove('is-active'));
+          link.classList.add('is-active');
+
+          iframe.src = pdf;
+          iframe.style.display = 'block';
+          placeholder.style.display = 'none';
+        });
+      });
+    })();
+  </script>
+
+  <!-- MENU OFERTA ACADÉMICA -->
+  <script>
+    const btn = document.getElementById("ofertaBtn");
+    const menu = document.getElementById("ofertaMenu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>

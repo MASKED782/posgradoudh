@@ -1,0 +1,113 @@
+  <!-- NAVBAR -->
+
+  <header id="navbar" class="fixed left-0 right-0 z-50 top-0 bg-transparent transition-all duration-300">
+    <div class="container mx-auto px-4 flex items-center justify-between py-4 gap-4">
+
+      <!-- LOGO (dentro del contenedor flex) -->
+      <a href="index.html" class="flex items-center gap-3 no-underline">
+        <img id="udhLogo" src="assets/img/logoposgradoblanco.png" alt="Universidad de Huánuco" class="udh-logo">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="index.html#diplomados"
+          class="px-4 py-2 rounded-full font-bold border border-border text-jet/90 hover:bg-black/5 transition-colors no-underline">
+          Diplomados
+        </a>
+
+        <div class="relative">
+          <button id="ofertaBtn"
+            class="px-4 py-2 rounded-full font-bold text-jet/90 hover:bg-black/5 transition-colors inline-flex items-center gap-2">
+            Oferta Académica
+            <svg class="w-4 h-4 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div id="ofertaMenu"
+            class="hidden absolute top-full left-0 mt-2 w-56 bg-white/90 backdrop-blur border border-border rounded-2xl shadow-lg p-2">
+            <a href="index.html#maestrias"
+              class="block px-4 py-2.5 rounded-xl text-jet/85 font-semibold hover:bg-black/5 transition-colors no-underline">Maestrías</a>
+            <a href="index.html#doctorados"
+              class="block px-4 py-2.5 rounded-xl text-jet/85 font-semibold hover:bg-black/5 transition-colors no-underline">Doctorados</a>
+            <a href="index.html#segunda-especialidad"
+              class="block px-4 py-2.5 rounded-xl text-jet/85 font-semibold hover:bg-black/5 transition-colors no-underline">Segunda
+              Especialidad</a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <button id="infoBtn"class="px-4 py-2 rounded-full font-bold text-jet/90 hover:bg-black/5 transition-colors inline-flex items-center gap-2">
+            Información
+            <svg class="w-4 h-4 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div id="infoMenu"class="hidden absolute top-full left-0 mt-2 w-56 bg-white/90 backdrop-blur border border-border rounded-2xl shadow-lg p-2">
+            <a href="requisitos.html"
+              class="block px-4 py-2.5 rounded-xl text-jet/85 font-semibold hover:bg-black/5 transition-colors no-underline">
+              Requisitos
+            </a>
+
+            <a href="faq.html"
+              class="block px-4 py-2.5 rounded-xl text-jet/85 font-semibold hover:bg-black/5 transition-colors no-underline">
+              Preguntas Frecuentes
+            </a>
+
+            <a href="contacto.html"
+              class="block px-4 py-2.5 rounded-xl text-jet/85 font-semibold hover:bg-black/5 transition-colors no-underline">
+              Contacto
+            </a>
+          </div>
+        </div>
+        <a href="admision.html"
+          class="px-4 py-2 rounded-full font-bold text-jet/90 hover:bg-black/5 transition-colors no-underline">Admisión</a>
+        <a href="documentos.html"
+          class="px-4 py-2 rounded-full font-bold text-jet/90 hover:bg-black/5 transition-colors no-underline">Documentos</a>
+
+        <a href="https://admision-udh-posgrado.web.app/inscripcion" target="_blank" rel="noopener"
+          class="ml-2 px-5 py-2.5 rounded-full font-bold bg-primary text-jet shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow no-underline">
+          Portal del Postulante
+        </a>
+      </nav>
+
+      <button id="menuBtn"
+        class="lg:hidden w-11 h-11 rounded-xl border border-border bg-white/70 backdrop-blur-sm flex items-center justify-center text-jet"
+        aria-label="Abrir menú">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div id="drawerOverlay" class="hidden fixed inset-0 z-[60]">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute top-0 right-0 h-full w-[320px] max-w-[90vw] bg-white border-l border-border shadow-2xl p-6">
+      <div class="flex items-center justify-between mb-6">
+        <span class="font-extrabold text-jet">Menú</span>
+        <button id="drawerClose"
+          class="w-10 h-10 rounded-xl border border-border bg-white/70 flex items-center justify-center text-jet"
+          aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid gap-2">
+        <a class="drawerLink" href="#diplomados">Diplomados</a>
+        <a class="drawerLink" href="#maestrias">Maestrías</a>
+        <a class="drawerLink" href="#doctorados">Doctorados</a>
+        <a class="drawerLink" href="#segunda-especialidad">Segunda Especialidad</a>
+        <a class="drawerLink" href="#faq">Admisión</a>
+        <a class="drawerLink" href="#footer">Documentos</a>
+        <a class="mt-2 px-5 py-3 rounded-full font-bold bg-primary text-jet text-center shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow no-underline"
+          href="https://admision-udh-posgrado.web.app/inscripcion" target="_blank" rel="noopener">
+          Portal del Postulante
+        </a>
+      </div>
+    </div>
+  </div>

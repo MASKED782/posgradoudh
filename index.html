@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universidad de Huánuco | Posgrado</title>
+  <meta name="description" content="Posgrado UDH — Diplomados, Maestrías, Doctorados y Segunda Especialidad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+
+  <!-- Tailwind (CDN) para que tu carpeta “simple” se vea igual sin Vite/React -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            jet: '#3D3C3B',
+            zomp: '#5A9E8D',
+            saffron: '#ECC138',
+            primary: '#ECC138',
+            background: '#FAF7F0',
+            card: 'rgba(255,255,255,0.72)',
+            border: 'rgba(61,60,59,0.16)',
+            muted: 'rgba(90,158,141,0.10)',
+            foreground: '#3D3C3B',
+            'muted-foreground': 'rgba(61,60,59,0.72)',
+            'primary-foreground': '#3D3C3B'
+          },
+          boxShadow: { soft: '0 12px 30px rgba(61,60,59,0.22)' }
+        }
+      }
+    }
+  </script>
+
+  
+</head>
+
+<body class="font-sans bg-background text-foreground">
+  </div>
+  </div>
+
+  <!-- NAVBAR -->
+
+  <div id="navbar-container"></div>
+  
+  <!-- HERO -->
+  <section class="hero-section" aria-label="Presentación">
+    <div class="hero-bg">
+      <img src="assets/img/fondo1.JPG" alt="" />
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-inner container mx-auto px-4">
+      <div class="hero-max">
+        <h1 class="hero-title">
+          Lleva tu desarrollo académico
+          <span class="hero-title-soft"> al siguiente nivel.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptates debitis voluptatem omnis dolores,
+          eaque doloremque aliquam expedita animi consequuntur, natus quibusdam non sint et. Accusamus consequuntur
+          explicabo impedit eveniet!
+        </p>
+
+        <div class="hero-actions">
+          <a href="#diplomados" class="hero-btn hero-btn-primary">Conversa con un Asesor</a>
+          <a href="https://admision-udh-posgrado.web.app/inscripcion" class="hero-btn hero-btn-primary">Inscríbete</a>
+          <button id="brochureBtn" class="hero-btn hero-btn-ghost">Descargar brochure</button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <p class="hero-stat-label">Modalidad</p>
+            <p class="hero-stat-value">Virtual / Presencial</p>
+          </div>
+          <div class="hero-stat">
+            <p class="hero-stat-label">Inscripción</p>
+            <p class="hero-stat-value">100% en línea</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MAESTRÍAS -->
+  <section id="maestrias" class="masters-section">
+    <!-- fondo -->
+    <div class="absolute inset-0">
+      <img src="assets/img/hero-bg.jpg" alt="Maestrías" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 masters-overlay"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 z-10">
+      <!-- 👇 grid real: izquierda + derecha -->
+      <div class="masters-grid">
+
+        <!-- IZQUIERDA -->
+        <div class="masters-copy">
+          <span class="masters-chip">Sede Huánuco</span>
+
+          <h2 class="masters-title">
+            Maestrías
+          </h2>
+
+          <p class="masters-subtitle">
+            Selecciona una mención para ver información disponible.
+          </p>
+
+          <div class="masters-mentions">
+            <p class="masters-small-label">Selecciona una mención:</p>
+
+            <div class="mentions-row">
+              <button class="mention-arrow" type="button" data-dir="-1" aria-label="Anterior">‹</button>
+
+              <div id="mentionsTrack" class="mentions-track">
+                <!-- JS llenará aquí TODAS las menciones automáticamente -->
+              </div>
+
+              <button class="mention-arrow" type="button" data-dir="1" aria-label="Siguiente">›</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DERECHA -->
+        <div class="masters-panel">
+          <h3 class="masters-panel-title">
+            <span class="masters-accent-bar"></span>
+            Modalidades de Ingreso
+          </h3>
+
+          <div class="masters-list">
+            <div class="masters-row">
+              <span>Examen de Admisión General</span>
+              <span class="masters-price">S/ 150.00</span>
+            </div>
+            <div class="masters-row">
+              <span>Traslado Interno</span>
+              <span class="masters-price">S/ 250.00</span>
+            </div>
+            <div class="masters-row">
+              <span>Traslado Externo</span>
+              <span class="masters-price">S/ 350.00</span>
+            </div>
+            <div class="masters-row">
+              <span>Segunda Maestría</span>
+              <span class="masters-price">S/ 150.00</span>
+            </div>
+          </div>
+
+          <div class="masters-cta">
+            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="masters-btn masters-btn-primary">
+              Ver tasas de pensiones
+            </a>
+
+            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="masters-btn masters-btn-ghost">
+              Ver planes de estudios y malla curricular
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- DOCTORADOS -->
+  <section id="doctorados" class="doc-section">
+    <!-- fondo -->
+    <div class="absolute inset-0">
+      <img src="assets/img/hero-bg.jpg" alt="Doctorados" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 doc-overlay"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 z-10">
+      <div class="doc-grid">
+
+        <!-- IZQUIERDA -->
+        <div class="doc-copy">
+          <span class="doc-chip">Sede Huánuco</span>
+
+          <h2 class="doc-title">Doctorados</h2>
+
+          <p class="doc-subtitle">
+            Selecciona un programa para ver información disponible.
+          </p>
+
+          <div class="doc-mentions">
+            <p class="doc-small-label">Selecciona un doctorado:</p>
+
+            <div class="doc-row">
+              <button class="doc-arrow" type="button" data-dir="-1" aria-label="Anterior">‹</button>
+
+              <div id="phdTrack" class="doc-track">
+                <!-- JS llena aquí los 3 doctorados -->
+              </div>
+
+              <button class="doc-arrow" type="button" data-dir="1" aria-label="Siguiente">›</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DERECHA (panel glass) -->
+        <div class="doc-panel">
+          <h3 class="doc-panel-title">
+            <span class="doc-accent-bar"></span>
+            Modalidades de Ingreso
+          </h3>
+
+          <div class="doc-list">
+            <div class="doc-rowitem">
+              <span>Examen de Admisión General</span>
+              <span class="doc-price">S/ 200.00</span>
+            </div>
+
+            <div class="doc-rowitem">
+              <span>Traslado Interno</span>
+              <span class="doc-price">S/ 250.00</span>
+            </div>
+
+            <div class="doc-rowitem">
+              <span>Traslado Externo</span>
+              <span class="doc-price">S/ 350.00</span>
+            </div>
+
+            <div class="doc-rowitem">
+              <span>Segundo Doctorado</span>
+              <span class="doc-price">S/ 200.00</span>
+            </div>
+          </div>
+
+          <div class="doc-cta">
+            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="doc-btn doc-btn-primary">
+              Ver tasas de pensiones
+            </a>
+
+            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="doc-btn doc-btn-ghost">
+              Ver planes de estudios y malla curricular
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SEGUNDA ESPECIALIDAD (nuevo estilo tipo Maestrías/Doctorados) -->
+  <section id="segunda-especialidad" class="se2-section">
+    <!-- fondo -->
+    <div class="absolute inset-0">
+      <img src="assets/img/hero-bg.jpg" alt="Segunda Especialidad" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 se2-overlay"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 z-10">
+      <div class="se2-grid">
+
+        <!-- IZQUIERDA -->
+        <div class="se2-copy">
+          <span class="se2-chip">Oferta Académica</span>
+
+          <h2 class="se2-title">Segunda Especialidad</h2>
+
+          <p class="se2-subtitle">
+            Selecciona un programa para ver información disponible.
+          </p>
+
+          <div class="se2-mentions">
+            <p class="se2-small-label">Selecciona un programa:</p>
+
+            <div class="se2-row">
+              <button class="se2-arrow" type="button" data-dir="-1" aria-label="Anterior">‹</button>
+
+              <div id="seTrack" class="se2-track">
+                <!-- JS llena aquí los 2 programas -->
+              </div>
+
+              <button class="se2-arrow" type="button" data-dir="1" aria-label="Siguiente">›</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DERECHA -->
+        <div class="se2-panel">
+          <h3 class="se2-panel-title">
+            <span class="se2-accent-bar"></span>
+            Modalidades de Ingreso
+          </h3>
+
+          <div class="se2-list">
+            <div class="se2-rowitem">
+              <span>Examen de Admisión General</span>
+              <span class="se2-price">S/ 200.00</span>
+            </div>
+
+            <div class="se2-rowitem">
+              <span>Traslado Externo</span>
+              <span class="se2-price">S/ 350.00</span>
+            </div>
+          </div>
+
+          <div class="se2-cta">
+            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="se2-btn se2-btn-primary">
+              Ver tasas de pensiones
+            </a>
+
+            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="se2-btn se2-btn-ghost">
+              Ver planes de estudios y malla curricular
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DIPLOMADOS (pro) -->
+  <section id="diplomados" class="dip-section dip-section--dark">
+    <!-- Fondo tipo hero -->
+    <div class="dip-bg">
+      <img id="dipBgImg" src="assets/img/diplomado.jpg" alt="Diplomados" />
+      <div class="dip-bgOverlay"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 z-10">
+      <!-- Header -->
+      <div class="dip-header">
+        <div>
+          <p class="dip-kicker">Oferta Académica</p>
+          <h2 class="dip-title">Diplomados</h2>
+          <p class="dip-subtitle">Programas de especialización con enfoque aplicado.</p>
+        </div>
+
+        <div class="dip-arrows">
+          <button class="dip-arrow" id="dipPrev" aria-label="Anterior">‹</button>
+          <button class="dip-arrow" id="dipNext" aria-label="Siguiente">›</button>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <article class="dip-card dip-card--dark">
+        <!-- media -->
+        <div class="dip-media">
+          <img src="assets/img/diplomado.jpg" alt="Diplomado" loading="lazy">
+          <div class="dip-mediaOverlay"></div>
+
+          <div class="dip-mediaChips">
+            <span class="dip-chip">Diplomado</span>
+            <span class="dip-chip dip-chip-ghost">Vacantes limitadas</span>
+          </div>
+        </div>
+
+        <!-- content -->
+        <div class="dip-content">
+          <div class="dip-badgeRow">
+            <span class="dip-badge">Certificación</span>
+            <span class="dip-dotSep">•</span>
+            <span class="dip-meta">Modalidad mixta</span>
+          </div>
+
+          <h3 class="dip-program">Gestión de Proyectos</h3>
+          <p class="dip-desc">Lidera proyectos con herramientas y estándares internacionales.</p>
+
+          <div class="dip-infoGrid">
+            <div class="dip-infoItem">
+              <p class="dip-infoLabel">Duración</p>
+              <p class="dip-infoValue">3 meses</p>
+            </div>
+            <div class="dip-infoItem">
+              <p class="dip-infoLabel">Inicio</p>
+              <p class="dip-infoValue">Próximamente</p>
+            </div>
+            <div class="dip-infoItem">
+              <p class="dip-infoLabel">Horario</p>
+              <p class="dip-infoValue">Flexible</p>
+            </div>
+          </div>
+
+          <div class="dip-actions">
+            <a href="#" class="dip-btn dip-btnPrimary">Ver detalle</a>
+            <a href="#" class="dip-btn dip-btnGhost">Hablar con un asesor</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dots -->
+      <div class="dip-dots" aria-label="Indicadores">
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+
+
+  <!-- MODAL BROCHURE -->
+  <div id="brochureModal" class="hidden fixed inset-0 z-[80]">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div
+      class="absolute left-1/2 top-1/2 w-[92vw] max-w-xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="m-0 text-white/70 font-bold">Brochure</p>
+          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">Descargar información</h3>
+        </div>
+        <button id="brochureClose"
+          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
+          aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <p class="mt-4 text-white/70 leading-relaxed">
+        Aquí puedes enlazar el PDF del brochure cuando lo tengas listo.
+      </p>
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a href="#"
+          class="px-6 py-3 rounded-full font-bold bg-primary text-white text-center shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow no-underline">
+          Descargar PDF
+        </a>
+        <button id="brochureClose2"
+          class="px-6 py-3 rounded-full font-bold border border-white/25 text-white/90 hover:bg-white/10 transition-colors">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
