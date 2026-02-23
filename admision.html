@@ -1,198 +1,226 @@
 <!doctype html>
-  <html lang="es">
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Universidad de Huánuco | Admisión</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="assets/css/app.css" />
-      <script src="https://cdn.tailwindcss.com"></script> 
+<html lang="es">
 
-      <style>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universidad de Huánuco | Admisión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        body{ background:#faf7f0; }
+  <style>
+    body {
+      background: #faf7f0;
+    }
 
-        /* NAV SCROLL */
-        #navbar{ transition:.3s ease; }
-        #navbar.is-scrolled{
-          background:rgba(250,247,240,.95);
-          backdrop-filter:blur(10px);
-          border-bottom:1px solid rgba(61,60,59,.16);
-        }
+    /* NAV SCROLL */
+    #navbar {
+      transition: .3s ease;
+    }
 
-        /* SIDEBAR */
-        .step-link{
-          display:block;
-          padding:10px 12px;
-          border-radius:14px;
-          font-weight:700;
-          color:rgba(255,255,255,.75);
-          transition:.2s ease;
-        }
-        .step-link:hover{
-          background:rgba(255,255,255,.1);
-          color:#fff;
-          transform:translateX(3px);
-        }
-        .step-link.is-active{
-          background:rgba(236,193,56,.25);
-          color:#fff;
-        }
+    #navbar.is-scrolled {
+      background: rgba(250, 247, 240, .95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(61, 60, 59, .16);
+    }
 
-        /* STEP CARD */
-        .step-card{
-          background:white;
-          border-radius:24px;
-          padding:30px;
-          box-shadow:0 15px 40px rgba(0,0,0,.08);
-          border:1px solid rgba(61,60,59,.12);
-          margin-bottom:30px;
-        }
+    /* SIDEBAR */
+    .step-link {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .75);
+      transition: .2s ease;
+    }
 
-        .step-card h3{
-          font-size:22px;
-          font-weight:900;
-          margin-bottom:15px;
-        }
+    .step-link:hover {
+      background: rgba(255, 255, 255, .1);
+      color: #fff;
+      transform: translateX(3px);
+    }
 
-        .step-card ul{
-          list-style:disc;
-          padding-left:20px;
-          color:rgba(61,60,59,.85);
-        }
+    .step-link.is-active {
+      background: rgba(236, 193, 56, .25);
+      color: #fff;
+    }
 
-        .step-card ul li{
-          margin-bottom:10px;
-        }
+    /* STEP CARD */
+    .step-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+      border: 1px solid rgba(61, 60, 59, .12);
+      margin-bottom: 30px;
+    }
 
-        [id^="paso"]{
-          scroll-margin-top:120px;
-        }
-      </style>
+    .step-card h3 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
 
-    </head>
+    .step-card ul {
+      list-style: disc;
+      padding-left: 20px;
+      color: rgba(61, 60, 59, .85);
+    }
+
+    .step-card ul li {
+      margin-bottom: 10px;
+    }
+
+    [id^="paso"] {
+      scroll-margin-top: 120px;
+    }
+  </style>
+
+</head>
 
 
-    <body class="font-sans text-[#3d3c3b]">
+<body class="font-sans text-[#3d3c3b]">
 
-      <!-- NAVBAR -->
+  <!-- NAVBAR -->
 
-      <div id="navbar-container"></div>
-        
-      <div class="hidden lg:block fixed top-0 left-0 w-[340px] h-screen bg-[#3d3c3b] z-0 pointer-events-none"></div>
+  <div id="navbar-container"></div>
 
-      <main class="pt-24 relative z-10">
+  <div class="hidden lg:block fixed top-0 left-0 w-[340px] h-screen bg-[#3d3c3b] z-0 pointer-events-none"></div>
 
-      <section class="grid lg:grid-cols-[340px_1fr] min-h-screen">
+  <main class="pt-24 relative z-10">
+
+    <section class="grid lg:grid-cols-[340px_1fr] min-h-screen">
 
       <!-- SIDEBAR IZQUIERDO -->
-      <aside class="hidden lg:flex flex-col justify-between bg-[#3d3c3b] text-white p-10 sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto relative z-10">
+      <aside
+        class="hidden lg:flex flex-col justify-between bg-[#3d3c3b] text-white p-10 sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto relative z-10">
 
-      <div>
-      <p class="text-xs tracking-widest opacity-50">POSTULACIÓN</p>
-      <h2 class="text-3xl font-extrabold mt-4">Admisión<br>Posgrado</h2>
+        <div>
+          <p class="text-xs tracking-widest opacity-50">POSTULACIÓN</p>
+          <h2 class="text-3xl font-extrabold mt-4">Admisión<br>Posgrado</h2>
 
-      <nav class="mt-8 space-y-1">
-      <a class="step-link" href="#paso1"># Paso 1</a>
-      <a class="step-link" href="#paso2"># Paso 2</a>
-      <a class="step-link" href="#paso3"># Paso 3</a>
-      <a class="step-link" href="#paso4"># Paso 4</a>
-      <a class="step-link" href="#paso5"># Paso 5</a>
-      <a class="step-link" href="#paso8"># Resultados</a>
-      </nav>
-      </div>
+          <nav class="mt-8 space-y-1">
+            <a class="step-link" href="#paso1"># Paso 1</a>
+            <a class="step-link" href="#paso2"># Paso 2</a>
+            <a class="step-link" href="#paso3"># Paso 3</a>
+            <a class="step-link" href="#paso4"># Paso 4</a>
+            <a class="step-link" href="#paso5"># Paso 5</a>
+            <a class="step-link" href="#paso8"># Resultados</a>
+          </nav>
+        </div>
 
-      <div class="space-y-4">
-      <!-- <a href="documentos.html" class="block text-center bg-white text-[#3d3c3b] py-3 rounded-full font-bold">
+        <div class="space-y-4">
+          <!-- <a href="documentos.html" class="block text-center bg-white text-[#3d3c3b] py-3 rounded-full font-bold">
       ver documentos
       </a>
       <a href="index.html" class="block text-center border border-white/30 py-3 rounded-full font-bold">
       volver al inicio
       </a> -->
-      <p class="text-xs text-white/50">© 2026 universidad de huánuco — posgrado</p>
-      </div>
+          <p class="text-xs text-white/50">© 2026 universidad de huánuco — posgrado</p>
+        </div>
 
       </aside>
 
       <!-- CONTENIDO DERECHO -->
       <div class="p-10 max-w-5xl">
 
-      <h1 class="text-5xl font-extrabold">Admisión.</h1>
-      <div class="w-16 h-2 bg-green-600 rounded mt-4"></div>
+        <h1 class="text-5xl font-extrabold">Admisión.</h1>
+        <div class="w-16 h-2 bg-green-600 rounded mt-4"></div>
 
-      <p class="mt-6 text-gray-600">
-      Guía del Proceso de Admisión
-      </p>
+        <p class="mt-6 text-gray-600">
+          Guía del Proceso de Admisión
+        </p>
 
-      <!-- PASO 1 -->
-      <div id="paso1" class="step-card mt-10">
-      <h3># Paso 1: Infórmate</h3>
-      <ul>
-      <li>Definir la carrera profesional a estudiar según Maestría, Doctorado o Segunda Especialidad.</li>
-      <li>Identificar la modalidad de ingreso (admisión general, traslado, profesionales, otros).</li>
-      <li>Contar con todos los requisitos para postular (medio digital formato PDF).</li>
-      </ul>
+        <!-- PASO 1 -->
+        <div id="paso1" class="step-card mt-10">
+          <h3># Paso 1: Infórmate</h3>
+          <ul>
+            <li>Definir la carrera profesional a estudiar según Maestría , Doctorado o Segunda Especialidad.</li>
+            <li>Identificar la modalidad de ingreso (admisión general, traslado, profesionales, otros).</li>
+            <li>Contar con todos los requisitos para postular (medio digital formato PDF).</li>
+          </ul>
+        </div>
+
+        <!-- PASO 2 -->
+        <div id="paso2" class="step-card">
+          <h3># Paso 2: Inscríbete</h3>
+          <ul>
+            <li>Contar con correo electrónico, de preferencia en Gmail.</li>
+            <li>Actualmente todas las clases son desarrolladas de manera No Presencial (Virtual), hasta que el gobierno
+              disponga el reinicio de clases presenciales.</li>
+            <li>Para inscribirte dar <a href="https://admision-udh-posgrado.web.app/inscripcion" target="_blank">click
+                aquí</a></li>
+            <li>Al inscribirte, se enviará al correo registrado tu cuenta de acceso al Portal del Postulante - Posgrado
+              UDH.</li>
+          </ul>
+        </div>
+
+        <!-- PASO 3 -->
+        <div id="paso3" class="step-card">
+          <h3># Paso 3: Portal del Postulante</h3>
+          <ul>
+            <li>Ingresa al correo registrado.</li>
+            <li>Ingresa al correo de bienvenida UDH de tu bandeja de entrada o bandeja de spam.</li>
+            <a href="contacto.html"> En caso de no encontrar el correo de bienvenida, comunícate con tu asesor de
+              admisión. [Ver Asesores]</a>
+            <li><a href="requisitos.html">Adjuntar tus requisitos establecidos según modalidad de ingreso en formato
+                PDF. [Ver Requisitos]</a></li>
+            <li>Adjuntar el compromiso de honor en formato PDF de presentar todos los requisitos en condiciones de
+              originalidad.</li>
+            <li>Esperar validación de requisitos por parte del asesor de admisión.</li>
+            <li>En caso exista alguna observación con los requisitos presentados, deberá subsanar las observaciones.
+            </li>
+            <li>Una vez validado correctamente los requisitos, se generará un codigo único de pago.</li>
+          </ul>
+        </div>
+
+        <!-- PASO 4 -->
+        <div id="paso4" class="step-card">
+          <h3># Paso 4: Realiza el de pago al BBVA o BCP con tu codigo de postulante al día siguiente útil</h3>
+          <ul>
+            <li>Pagar en el Banco Continental o Banco de Crédito del Perú (BBVA - BCP), por medio de la web, aplicación
+              para celular o en los agentes autorizados. Una vez que visualices el código de pago, puedes acercarte a
+              pagar al día hábil siguiente.</li>
+            <li>Una vez notificado en el Portal del Postulante - UDH, tiene plazo de 48 horas para realizar el pago.
+            </li>
+            <li>Una vez pagado, estará correctamente inscrito.</li>
+          </ul>
+        </div>
+
+        <!-- PASO 5 -->
+        <div id="paso5" class="step-card">
+          <h3># Paso 5: Registro de Identidad Facial - UDH (Obligatorio)</h3>
+          <ul>
+            <li>La Universidad de Huánuco empleará herramientas tecnológicas para verificar la autenticidad de los
+              postulantes durante el desarrollo del examen, así como el buen desarrollo del mismo. El plagio, el fraude,
+              la suplantación de identidad de los postulantes son acciones sujetas a sanción legal o penal, según
+              corresponda.</li>
+            <li>Una vez actualizado el pago ( siguiente día útil), el postulante podrá registrar su rostro en nuestro
+              SISTEMA DE RECONOCIMIENTO FACIAL.</li>
+            <li>Es responsabilidad del postulante verificar que cumple con todos los requerimientos técnicos para el
+              examen de admisión.</li>
+            <li> Los postulantes que ya realizaron el pago y completarón la validación de los requisitos, deberán
+              registrar su rostro desde su Portal del Postulante Posgrado UDH. Dentro del portal encontrará un
+              videotutorial.</li>
+          </ul>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div id="paso8" class="step-card">
+          <h3># Publicación de Resultados</h3>
+          <ul>
+            <li>Resultados publicados oficialmente según cronograma.</li>
+          </ul>
+        </div>
+
       </div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+  <script src="./assets/js/app.js"></script>
+</body>
 
-      <!-- PASO 2 -->
-      <div id="paso2" class="step-card">
-      <h3># Paso 2: Inscríbete</h3>
-      <ul>
-      <li>Contar con correo electrónico (preferencia Gmail).</li>
-      <li>Clases desarrolladas de manera No Presencial (Virtual) hasta nueva disposición.</li>
-      <li>Dar clic en inscripción.</li>
-      <li>Recibirás acceso al Portal del Postulante - Posgrado UDH.</li>
-      </ul>
-      </div>
-
-      <!-- PASO 3 -->
-      <div id="paso3" class="step-card">
-      <h3># Paso 3: Portal del Postulante</h3>
-      <ul>
-      <li>Revisar correo registrado.</li>
-      <li>Buscar correo de bienvenida UDH (entrada o spam).</li>
-      <li>Adjuntar requisitos en PDF.</li>
-      <li>Adjuntar compromiso de honor en PDF.</li>
-      <li>Esperar validación del asesor.</li>
-      <li>Subsanar observaciones si existen.</li>
-      <li>Generación de código único de pago.</li>
-      </ul>
-      </div>
-
-      <!-- PASO 4 -->
-      <div id="paso4" class="step-card">
-      <h3># Paso 4: Realiza el Pago</h3>
-      <ul>
-      <li>Pagar en BBVA o BCP vía web, app o agentes autorizados.</li>
-      <li>Plazo de 48 horas luego de notificación.</li>
-      <li>Una vez pagado, inscripción confirmada.</li>
-      </ul>
-      </div>
-
-      <!-- PASO 5 -->
-      <div id="paso5" class="step-card">
-      <h3># Paso 5: Registro de Identidad Facial</h3>
-      <ul>
-      <li>Registro obligatorio en sistema de reconocimiento facial.</li>
-      <li>Verificación de autenticidad del postulante.</li>
-      <li>Plagio o fraude sujeto a sanción legal.</li>
-      <li>Registrar rostro desde el Portal del Postulante.</li>
-      </ul>
-      </div>
-
-      <!-- RESULTADOS -->
-      <div id="paso8" class="step-card">
-      <h3># Publicación de Resultados</h3>
-      <ul>
-      <li>Resultados publicados oficialmente según cronograma.</li>
-      </ul>
-      </div>
-
-      </div>
-      </section>
-      </main>
-      <div id="footer-container"></div>
-      <script src="./assets/js/app.js"></script>
-    </body>
-  </html>
+</html>

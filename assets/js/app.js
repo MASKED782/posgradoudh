@@ -336,8 +336,7 @@ function initProgramsSlider(){
   safeImage(imgEl);
 
   const programs = [
-    { title: "Gestión de Proyectos", desc: "Lidera proyectos con herramientas y estándares internacionales.", img: "assets/img/diplomado.jpg" },
-    { title: "Transformación Digital", desc: "Impulsa procesos digitales en organizaciones modernas.", img: "assets/img/diplomado2.jpg" },
+    { title: "Diplomado en Gestión Estratégica de Proyectos de Desarrollo Social", desc: "Diseña y gestiona iniciativas que transforman comunidades con impacto real y sostenible.", img: "assets/img/diplomado.jpg" }
   ];
 
   let current = 0;
