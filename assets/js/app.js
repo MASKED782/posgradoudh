@@ -398,3 +398,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.scrollTo(0, 0);
 
 });
+
+
