@@ -82,15 +82,15 @@
 
           <nav class="mt-8 space-y-2" id="reqnav">
             <!-- mejor: button (evita bugs de <a> sin href) -->
-            <button type="button" class="req-link" data-pdf="../assets/pdf/requisitos/requisitos_maestrias.pdf">
+            <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitos_maestrias.pdf">
               Maestrías
             </button>
 
-            <button type="button" class="req-link" data-pdf="../assets/pdf/requisitos/requisitos_doctorado.pdf">
+            <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitos_doctorado.pdf">
               Doctorados
             </button>
 
-            <button type="button" class="req-link" data-pdf="../assets/pdf/requisitos/requisitossegundaespecialidad.pdf">
+            <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitossegundaespecialidad.pdf">
               Segunda especialidad
             </button>
           </nav>
@@ -163,26 +163,7 @@
     })
   })
 
-  // menu oferta académica (cierra afuera + esc)
-  const ofertabtn = document.getElementById("ofertabtn")
-  const ofertamenu = document.getElementById("ofertamenu")
-
-  ofertabtn.addEventListener("click", (e) => {
-    e.stopPropagation()
-    ofertamenu.classList.toggle("hidden")
-  })
-
-  document.addEventListener("click", (e) => {
-    if (!ofertamenu.classList.contains("hidden")) {
-      if (!ofertamenu.contains(e.target) && e.target !== ofertabtn) {
-        ofertamenu.classList.add("hidden")
-      }
-    }
-  })
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "escape") ofertamenu.classList.add("hidden")
-  })
+  // dropdowns handled by app.js initNavbar()
 </script>
 <script src="assets/js/app.js"></script>
 

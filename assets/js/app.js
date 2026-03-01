@@ -7,9 +7,37 @@ function $(sel) { return document.querySelector(sel); }
 function $all(sel) { return Array.from(document.querySelectorAll(sel)); }
 
 async function loadComponent(id, file) {
-  const response = await fetch(file);
-  const html = await response.text();
-  document.getElementById(id).innerHTML = html;
+  const container = document.getElementById(id);
+  if (!container) {
+    console.error(`[loadComponent] No existe el elemento con id="${id}" en el HTML.`);
+    return;
+  }
+
+  // Si ya tiene contenido (navbar inline), no sobreescribir
+  if (container.innerHTML.trim() !== "") {
+    console.log(`[loadComponent] "${id}" ya tiene contenido, se omite fetch.`);
+    return;
+  }
+
+  // Protocolo file:// no soporta fetch — avisar claramente
+  if (window.location.protocol === "file:") {
+    console.error(
+      `[loadComponent] Estás abriendo el archivo con file://. ` +
+      `fetch() no funciona sin un servidor local. ` +
+      `Usa Live Server (VS Code), http-server, o similar.`
+    );
+    return;
+  }
+
+  try {
+    const response = await fetch(file);
+    if (!response.ok) throw new Error(`HTTP ${response.status} al cargar: ${file}`);
+    const html = await response.text();
+    container.innerHTML = html;
+    console.log(`[loadComponent] ✅ "${file}" cargado en #${id}`);
+  } catch (err) {
+    console.error(`[loadComponent] ❌ Error cargando "${file}":`, err.message);
+  }
 }
 
 /* =========================
@@ -64,7 +92,7 @@ function initNavbar() {
   }
 
   /* =========================
-     2DROPDOWNS (SIEMPRE)
+     2️⃣ DROPDOWNS (SIEMPRE)
   ========================= */
 
   const ofertaBtn = document.getElementById("ofertaBtn");
@@ -99,6 +127,49 @@ function initNavbar() {
 }
 
 /* =========================
+   Mobile Drawer
+========================= */
+function initDrawer() {
+
+  function openDrawer() {
+    const drawer = document.getElementById("drawerOverlay");
+    const btn = document.getElementById("menuBtn");
+    if (!drawer) return;
+    drawer.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    if (btn) btn.innerHTML = "&#10005;"; // cambia a ✕
+  }
+
+  function closeDrawer() {
+    const drawer = document.getElementById("drawerOverlay");
+    const btn = document.getElementById("menuBtn");
+    if (!drawer) return;
+    drawer.classList.add("hidden");
+    document.body.style.overflow = "";
+    if (btn) btn.innerHTML = "&#9776;"; // vuelve a ☰
+  }
+
+  function isDrawerOpen() {
+    const drawer = document.getElementById("drawerOverlay");
+    return drawer && !drawer.classList.contains("hidden");
+  }
+
+  // Delegación de eventos en document — no depende del timing del DOM
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#menuBtn")) {
+      isDrawerOpen() ? closeDrawer() : openDrawer();
+      return;
+    }
+    if (e.target.id === "drawerBackdrop") { closeDrawer(); return; }
+    if (e.target.closest(".drawerLink")) { closeDrawer(); return; }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDrawer();
+  });
+}
+
+/* =========================
    Smooth scroll (con offset por navbar fijo)
 ========================= */
 function initSmoothAnchors() {
@@ -120,7 +191,10 @@ function initSmoothAnchors() {
 
       // cerrar drawer si estaba abierto
       const drawer = $("#drawerOverlay");
-      if (drawer && !drawer.classList.contains("hidden")) drawer.classList.add("hidden");
+      if (drawer && !drawer.classList.contains("hidden")) {
+        drawer.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
     });
   });
 }
@@ -384,9 +458,23 @@ function initYear() {
 ========================= */
 document.addEventListener("DOMContentLoaded", async () => {
 
-  await loadComponent("navbar-container", "components/navbar.html");
-  await loadComponent("footer-container", "components/footer.html");
+  const isIndex =
+    window.location.pathname.includes("index.html") ||
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/");
+
+  // Todas las subpáginas están en la raíz junto a index.html,
+  // así que basePath siempre es "" — no hay subcarpetas.
+  const basePath = "";
+
+  // Esperar a los DOS componentes antes de inicializar
+  await Promise.all([
+    loadComponent("navbar-container", basePath + "components/navbar.html"),
+    loadComponent("footer-container", basePath + "components/footer.html"),
+  ]);
+
   initNavbar();
+  initDrawer();
   initSmoothAnchors();
   initBrochureModal();
   initMentions();
@@ -394,9 +482,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initSegundaEspecialidad();
   initProgramsSlider();
   initYear();
+
   window.history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
-
 });
-
-

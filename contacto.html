@@ -369,7 +369,22 @@
         .map(a => document.getElementById(a.getAttribute('href').slice(1)))
         .filter(Boolean);
 
+      let manualClick = false;
+
+      // Al hacer click manual, marcar activo inmediatamente y bloquear el observer brevemente
+      links.forEach(a => {
+        a.addEventListener('click', () => {
+          manualClick = true;
+          links.forEach(x => x.classList.remove('is-active'));
+          a.classList.add('is-active');
+          // Desbloquear observer después de que el scroll termina (~800ms)
+          setTimeout(() => { manualClick = false; }, 800);
+        });
+      });
+
       const obs = new IntersectionObserver((entries)=>{
+        if (manualClick) return; // ignorar mientras el usuario hizo click
+
         const visible = entries
           .filter(e => e.isIntersecting)
           .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
