@@ -153,64 +153,177 @@ function initBrochureModal() {
 }
 
 /* =========================
-   Maestrías — menciones (se llenan por JS)
+   Maestrías — menciones y Ventana Emergente
 ========================= */
-const mastersMentions = [
-  "DERECHO PENAL",
-  "DERECHO PROCESAL",
-  "DERECHO CIVIL Y COMERCIAL",
-  "DERECHO DEL TRABAJO Y SEGURIDAD SOCIAL",
-  "AUDITORÍA Y TRIBUTACIÓN",
-  "GESTIÓN PÚBLICA",
-  "GERENCIA EN SERVICIOS DE SALUD",
-  "ODONTOESTOMATOLOGÍA",
-  "SALUD PÚBLICA Y DOCENCIA UNIVERSITARIA",
-  "GERENCIA EN SISTEMAS Y TECNOLOGÍAS DE INFORMACIÓN",
-  "GESTIÓN AMBIENTAL Y DESARROLLO SOSTENIBLE",
-  "DOCENCIA EN EDUCACIÓN SUPERIOR E INVESTIGACIÓN",
-  "PSICOLOGÍA EDUCATIVA",
-  "DOCENCIA Y GERENCIA EDUCATIVA",
-];
-
 function initMentions() {
+  // INGENIERIA
   const track = document.getElementById("mentionsTrack");
   if (!track) return;
-
-  track.innerHTML = mastersMentions
-    .map(
-      (m, i) =>
-        `<button class="mention-card ${i === 0 ? "active" : ""}" type="button" data-index="${i}">${m}</button>`
-    )
-    .join("");
-
+  
   const cards = Array.from(track.querySelectorAll(".mention-card"));
-  if (!cards.length) return;
+  const arrows = document.querySelectorAll("#maestrias .mention-arrow");
+  const ingenieriaModal = document.getElementById("ingenieriaModal");
+  const closeBtn = document.getElementById("closeIngenieriaModal");
 
   const setActive = (idx) => {
     cards.forEach((b) => b.classList.remove("active"));
-    const btn = cards[idx];
-    if (!btn) return;
-    btn.classList.add("active");
-    btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    if (cards[idx]) {
+      cards[idx].classList.add("active");
+      cards[idx].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
   };
 
-  // Click para activar
-  cards.forEach((btn) => {
-    btn.addEventListener("click", () => setActive(Number(btn.dataset.index)));
-  });
-
-  // Flechas (usa data-dir="-1" / "1")
-  document.querySelectorAll("#maestrias .mention-arrow").forEach((arrow) => {
-    arrow.addEventListener("click", () => {
-      const dir = Number(arrow.dataset.dir || 1);
-      const activeIdx = Math.max(0, cards.findIndex((c) => c.classList.contains("active")));
-      const next = (activeIdx + dir + cards.length) % cards.length;
-      setActive(next);
+  cards.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      setActive(index);
+      // Si es el botón de Ingeniería (índice 0), abrir modal
+      if (index === 0) {
+        ingenieriaModal?.classList.remove("hidden");
+        document.body.style.overflow = "hidden"; // Congelar scroll
+      }
     });
   });
 
-  setActive(0);
+  // ADMINISTRATIVAS
+  const adminModal = document.getElementById("adminModal");
+  const btnAdmin = document.querySelector('.mention-card[data-index="1"]');
+  const closeAdminBtn = document.getElementById("closeAdminModal");
+
+  // Abrir modal de Administración
+  btnAdmin?.addEventListener("click", () => {
+    adminModal?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  // Cerrar modal de Administración
+  closeAdminBtn?.addEventListener("click", () => {
+    adminModal?.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
+
+  // Cerrar al hacer clic en el fondo oscuro
+  adminModal?.addEventListener("click", (e) => {
+    if (e.target === adminModal) {
+      adminModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+  });
+
+  // EDUCACION
+  const educacionModal = document.getElementById("educacionModal");
+  const btnEducacion = document.querySelector('.mention-card[data-index="2"]');
+  const closeEducacionBtn = document.getElementById("closeEducacionModal");
+
+  btnEducacion?.addEventListener("click", () => {
+    educacionModal?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeEducacionBtn?.addEventListener("click", () => {
+    educacionModal?.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
+
+  // Cerrar al hacer clic en el fondo
+  educacionModal?.addEventListener("click", (e) => {
+    if (e.target === educacionModal) {
+      educacionModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+  });
+
+  //SALUD
+  const saludModal = document.getElementById("saludModal");
+  const btnSalud = document.querySelector('.mention-card[data-index="3"]');
+  const closeSaludBtn = document.getElementById("closeSaludModal");
+
+  btnSalud?.addEventListener("click", () => {
+    saludModal?.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // Bloquea scroll
+  });
+
+  closeSaludBtn?.addEventListener("click", () => {
+    saludModal?.classList.add("hidden");
+    document.body.style.overflow = ""; // Libera scroll
+  });
+
+  // Cerrar al hacer clic en el fondo
+  saludModal?.addEventListener("click", (e) => {
+    if (e.target === saludModal) {
+      saludModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+  });
+
+  //DERECHO
+  const derechoModal = document.getElementById("derechoModal");
+  const btnDerecho = document.querySelector('.mention-card[data-index="4"]');
+  const closeDerechoBtn = document.getElementById("closeDerechoModal");
+
+  btnDerecho?.addEventListener("click", () => {
+    derechoModal?.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // Bloquea scroll
+  });
+
+  closeDerechoBtn?.addEventListener("click", () => {
+    derechoModal?.classList.add("hidden");
+    document.body.style.overflow = ""; // Libera scroll
+  });
+
+  // Cerrar al hacer clic en el fondo
+  derechoModal?.addEventListener("click", (e) => {
+    if (e.target === derechoModal) {
+      derechoModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Lógica de las FLECHAS (Navegación circular)
+  arrows.forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.preventDefault(); // Evita comportamiento por defecto
+      e.stopImmediatePropagation(); // IMPORTANTE: Evita que el clic se dispare dos veces
+      
+      const dir = Number(arrow.dataset.dir); // -1 o 1
+      const activeIdx = cards.findIndex((c) => c.classList.contains("active"));
+      
+      // Cálculo lineal de 1 en 1
+      let next = activeIdx + dir;
+      
+      // Lógica circular para que nunca se "rompa"
+      if (next < 0) {
+        next = cards.length - 1; // Si estás en el primero, vuelve al último
+      } else if (next >= cards.length) {
+        next = 0; // Si estás en el último, vuelve al primero
+      }
+      
+      // Ejecutamos la activación una única vez
+      setActive(next);
+      
+      if (next === 0) {
+      } else {
+        const ingenieriaModal = document.getElementById("ingenieriaModal");
+        ingenieriaModal?.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    });
+  });
+
+  // 4. Lógica de Cierre
+  const closeModal = () => {
+    ingenieriaModal?.classList.add("hidden");
+    document.body.style.overflow = ""; // Restaurar scroll
+  };
+
+  closeBtn?.addEventListener("click", closeModal);
+  ingenieriaModal?.addEventListener("click", (e) => {
+    if (e.target === ingenieriaModal) closeModal();
+  });
 }
+
+// IMPORTANTE: Asegúrate de llamar a la función al cargar
+document.addEventListener('DOMContentLoaded', initMentions);
+
 
 /* =========================
    Doctorados — 3 programas dinámicos (pills)
