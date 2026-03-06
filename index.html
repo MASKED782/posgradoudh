@@ -42,8 +42,11 @@
 </head>
 
 <body class="font-sans bg-background text-foreground">
+  </div>
+  </div>
 
-  <!-- NAVBAR + DRAWER (mobile) se inyectan aquí -->
+  <!-- NAVBAR -->
+
   <div id="navbar-container"></div>
 
   <!-- HERO -->
@@ -80,6 +83,7 @@
       </div>
     </div>
   </section>
+  
   <!-- MAESTRÍAS -->
   <section id="maestrias" class="masters-section">
     <!-- fondo -->
@@ -104,19 +108,169 @@
             Selecciona una mención para ver información disponible.
           </p>
 
-          <div class="masters-mentions">
-            <p class="masters-small-label">Selecciona una mención:</p>
+          <div class="mentions-row relative">
+            <button class="mention-arrow" type="button" data-dir="-1">‹</button>
 
-            <div class="mentions-row">
-              <button class="mention-arrow" type="button" data-dir="-1" aria-label="Anterior">‹</button>
+            <div id="mentionsTrack" class="mentions-track">
+              <button class="mention-card active" type="button" data-index="0">INGENIERIA</button>
+              <button class="mention-card" type="button" data-index="1">CIENCIAS ADMINISTRATIVAS</button>
+              <button class="mention-card" type="button" data-index="2">CIENCIAS DE LA EDUCACIÓN</button>
+              <button class="mention-card" type="button" data-index="3">CIENCIAS DE LA SALUD</button>
+              <button class="mention-card" type="button" data-index="4">DERECHO Y CIENCIAS POLÍTICAS</button>
+            </div>
 
-              <div id="mentionsTrack" class="mentions-track">
-                <!-- JS llenará aquí TODAS las menciones automáticamente -->
+            <button class="mention-arrow" type="button" data-dir="1">›</button>
+
+              <div id="ingenieriaModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                
+                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <p class="m-0 text-white/70 font-bold">Maestría</p>
+                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ingeniería</h3>
+                    </div>
+                    <button id="closeIngenieriaModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border border-white/20 text-white">
+                      <thead class="bg-white/5">
+                        <tr>
+                          <th class="p-3 border border-white/20 font-bold text-sm">Menciones</th>
+                          <th class="p-3 border border-white/20 font-bold text-sm text-center">Pensión</th>
+                          <th class="p-3 border border-white/20 font-bold text-sm text-center">Matrícula</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-white/90">
+                        <tr>
+                          <td class="p-3 border border-white/20 leading-snug">Gerencia en Sistemas y Tecnologías de Información</td>
+                          <td class="p-3 border border-white/20 text-center font-medium">S/.401.12</td>
+                          <td class="p-3 border border-white/20 text-center font-medium">S/.157.50</td>
+                        </tr>
+                        <tr>
+                          <td class="p-3 border border-white/20 leading-snug">Gestión Ambiental y Desarrollo Sostenible</td>
+                          <td class="p-3 border border-white/20 text-center font-medium">S/.401.12</td>
+                          <td class="p-3 border border-white/20 text-center font-medium">S/.157.50</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
 
-              <button class="mention-arrow" type="button" data-dir="1" aria-label="Siguiente">›</button>
+              <div id="adminModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <p class="m-0 text-white/70 font-bold">Maestría</p>
+                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias Administrativas</h3>
+                    </div>
+                    <button id="closeAdminModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+                    </button>
+                  </div>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border border-white/20 text-white">
+                      <thead class="bg-white/5">
+                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
+                      </thead>
+                      <tbody class="text-white/90">
+                        <tr><td class="p-3 border border-white/20">Gestión Pública</td><td class="p-3 border border-white/20 text-center">S/.467.96</td><td class="p-3 border border-white/20 text-center">S/.183.75</td></tr>
+                        <tr><td class="p-3 border border-white/20">Auditoría y Tributación</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div id="educacionModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <p class="m-0 text-white/70 font-bold">Maestría</p>
+                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Educación</h3>
+                    </div>
+                    <button id="closeEducacionModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+                    </button>
+                  </div>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border border-white/20 text-white">
+                      <thead class="bg-white/5">
+                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
+                      </thead>
+                      <tbody class="text-white/90">
+                        <tr><td class="p-3 border border-white/20">Docencia en Educación Superior e Investigación</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                        <tr><td class="p-3 border border-white/20">Docencia y Gerencia Educativa</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                        <tr><td class="p-3 border border-white/20">Psicología Educativa</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div id="saludModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <p class="m-0 text-white/70 font-bold">Maestría</p>
+                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Salud</h3>
+                    </div>
+                    <button id="closeSaludModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+                    </button>
+                  </div>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border border-white/20 text-white">
+                      <thead class="bg-white/5">
+                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
+                      </thead>
+                      <tbody class="text-white/90">
+                        <tr><td class="p-3 border border-white/20">Salud Pública y Docencia Universitaria</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                        <tr><td class="p-3 border border-white/20">Odontoestomatología</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                        <tr><td class="p-3 border border-white/20">Gerencia en Servicios de Salud</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div id="derechoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <p class="m-0 text-white/70 font-bold">Maestría</p>
+                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Derecho y Ciencias Políticas</h3>
+                    </div>
+                    <button id="closeDerechoModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+                    </button>
+                  </div>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border border-white/20 text-white">
+                      <thead class="bg-white/5">
+                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
+                      </thead>
+                      <tbody class="text-white/90">
+                        <tr><td class="p-3 border border-white/20">Derecho Penal</td><td class="p-3 border border-white/20 text-center">S/.467.96</td><td class="p-3 border border-white/20 text-center">S/.183.75</td></tr>
+                        <tr><td class="p-3 border border-white/20">Derecho Procesal</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                        <tr><td class="p-3 border border-white/20">Derecho Civil y Comercial</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                        <tr><td class="p-3 border border-white/20">Derecho del Trabajo y Seguridad Social</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
 
         <!-- DERECHA -->
@@ -430,6 +584,7 @@
       </div>
     </div>
   </div>
+
 
   <script src="assets/js/app.js"></script>
 </body>

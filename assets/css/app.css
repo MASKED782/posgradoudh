@@ -573,6 +573,7 @@
   background: rgba(255,255,255,0.12);
 }
 
+
 /* Responsive */
 @media (max-width: 1024px){
   #maestrias.masters-section{
@@ -605,6 +606,7 @@
     font-size: 11px;
   }
 }
+
 
 
 /* Ocultar scrollbar (helper global, UNA SOLA VEZ en tu CSS) */
