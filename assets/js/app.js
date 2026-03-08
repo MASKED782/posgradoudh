@@ -209,25 +209,58 @@ function initSmoothAnchors() {
 ========================= */
 function initBrochureModal() {
   const btn = $("#brochureBtn");
-  const modal = $("#brochureModal");
-  const close = $("#brochureClose");
-  const close2 = $("#brochureClose2");
+  const modal = document.getElementById("welcome-modal");
+  const closeBtn = document.getElementById("close-welcome-modal");
+  const image = document.getElementById("welcome-image");
 
-  if (!btn || !modal) return;
+  if (!btn || !modal || !closeBtn || !image) return;
 
-  const openModal = () => modal.classList.remove("hidden");
-  const closeModal = () => modal.classList.add("hidden");
+  function openModal() {
+    modal.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+  }
 
   btn.addEventListener("click", openModal);
-  close?.addEventListener("click", closeModal);
-  close2?.addEventListener("click", closeModal);
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  image.addEventListener("click", closeModal);
+}
+
+function initPdfModal() {
+  const openBtn = document.getElementById("openPdfModal");
+  const modal = document.getElementById("pdfModal");
+  const closeBtn = document.getElementById("closePdfModal");
+
+  if (!openBtn || !modal || !closeBtn) return;
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
 
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
   });
 }
 
@@ -714,6 +747,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initDrawer();
   initSmoothAnchors();
   initBrochureModal();
+  initPdfModal();
   initMentions();
   initDoctorados();
   initDoctoradosModals();
@@ -722,7 +756,38 @@ document.addEventListener("DOMContentLoaded", async () => {
   initHeroReadMore();
   //initProgramsSlider();
   initYear();
+  initWelcomeModal();
 
   window.history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
 });
+
+/* =========================
+  Anuncio
+========================= */
+function initWelcomeModal() {
+  const modal = document.getElementById("welcome-modal");
+  const closeBtn = document.getElementById("close-welcome-modal");
+  const image = document.getElementById("welcome-image");
+
+  if (!modal || !closeBtn || !image) return;
+
+  // Mostrar siempre al cargar
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+
+  function closeWelcomeModal() {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  closeBtn.addEventListener("click", closeWelcomeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeWelcomeModal();
+    }
+  });
+
+  image.addEventListener("click", closeWelcomeModal);
+}
