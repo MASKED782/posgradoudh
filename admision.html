@@ -12,72 +12,127 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body {
-      background: #faf7f0;
+  body {
+    background: #faf7f0;
+  }
+
+  /* NAV SCROLL */
+  #navbar {
+    transition: .3s ease;
+  }
+
+  #navbar.is-scrolled {
+    background: rgba(250, 247, 240, .95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(61, 60, 59, .16);
+  }
+
+  /* SIDEBAR */
+  .step-link {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .75);
+    transition: .2s ease;
+  }
+
+  .step-link:hover {
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    transform: translateX(3px);
+  }
+
+  .step-link.is-active {
+    background: rgba(236, 193, 56, .25);
+    color: #fff;
+  }
+
+  /* STEP CARD */
+  .step-card {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+    border: 1px solid rgba(61, 60, 59, .12);
+    margin-bottom: 30px;
+  }
+
+  .step-card h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 15px;
+  }
+
+  .step-card ul {
+    list-style: disc;
+    padding-left: 20px;
+    color: rgba(61, 60, 59, .85);
+  }
+
+  .step-card ul li {
+    margin-bottom: 10px;
+  }
+
+  [id^="paso"] {
+    scroll-margin-top: 120px;
+  }
+
+  /* PASO 5 — identidad facial */
+  .face-step-layout {
+    display: grid;
+    grid-template-columns: 1fr 170px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .face-step-figure {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .face-step-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid rgba(61, 60, 59, .12);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
+    background: #fff;
+  }
+
+  .face-step-caption {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    color: rgba(61, 60, 59, .68);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .face-step-layout {
+      grid-template-columns: 1fr;
     }
 
-    /* NAV SCROLL */
-    #navbar {
-      transition: .3s ease;
+    .face-step-figure {
+      justify-content: flex-start;
+      margin-top: 8px;
     }
 
-    #navbar.is-scrolled {
-      background: rgba(250, 247, 240, .95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(61, 60, 59, .16);
+    .face-step-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 18px;
     }
 
-    /* SIDEBAR */
-    .step-link {
-      display: block;
-      padding: 10px 12px;
-      border-radius: 14px;
-      font-weight: 700;
-      color: rgba(255, 255, 255, .75);
-      transition: .2s ease;
+    .face-step-caption {
+      text-align: left;
+      max-width: 220px;
     }
-
-    .step-link:hover {
-      background: rgba(255, 255, 255, .1);
-      color: #fff;
-      transform: translateX(3px);
-    }
-
-    .step-link.is-active {
-      background: rgba(236, 193, 56, .25);
-      color: #fff;
-    }
-
-    /* STEP CARD */
-    .step-card {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
-      border: 1px solid rgba(61, 60, 59, .12);
-      margin-bottom: 30px;
-    }
-
-    .step-card h3 {
-      font-size: 22px;
-      font-weight: 900;
-      margin-bottom: 15px;
-    }
-
-    .step-card ul {
-      list-style: disc;
-      padding-left: 20px;
-      color: rgba(61, 60, 59, .85);
-    }
-
-    .step-card ul li {
-      margin-bottom: 10px;
-    }
-
-    [id^="paso"] {
-      scroll-margin-top: 120px;
-    }
-  </style>
+  }
+</style>
 
 </head>
 
@@ -193,19 +248,30 @@
         <!-- PASO 5 -->
         <div id="paso5" class="step-card">
           <h3># Paso 5: Registro de Identidad Facial - UDH (Obligatorio)</h3>
-          <ul>
-            <li>La Universidad de Huánuco empleará herramientas tecnológicas para verificar la autenticidad de los
-              postulantes durante el desarrollo del examen, así como el buen desarrollo del mismo. El plagio, el fraude,
-              la suplantación de identidad de los postulantes son acciones sujetas a sanción legal o penal, según
-              corresponda.</li>
-            <li>Una vez actualizado el pago ( siguiente día útil), el postulante podrá registrar su rostro en nuestro
-              SISTEMA DE RECONOCIMIENTO FACIAL.</li>
-            <li>Es responsabilidad del postulante verificar que cumple con todos los requerimientos técnicos para el
-              examen de admisión.</li>
-            <li> Los postulantes que ya realizaron el pago y completarón la validación de los requisitos, deberán
-              registrar su rostro desde su Portal del Postulante Posgrado UDH. Dentro del portal encontrará un
-              videotutorial.</li>
-          </ul>
+
+          <div class="face-step-layout">
+            <div>
+              <ul>
+                <li>La Universidad de Huánuco empleará herramientas tecnológicas para verificar la autenticidad de los postulantes durante el desarrollo del examen, así como el buen desarrollo del mismo. El plagio, el fraude, la suplantación de identidad de los postulantes son acciones sujetas a sanción legal o penal, según corresponda.</li>
+                <li>Una vez actualizado el pago (siguiente día útil), el postulante podrá registrar su rostro en nuestro SISTEMA DE RECONOCIMIENTO FACIAL.</li>
+                <li>Es responsabilidad del postulante verificar que cumple con todos los requerimientos técnicos para el examen de admisión.</li>
+                <li>Los postulantes que ya realizaron el pago y completaron la validación de los requisitos, deberán registrar su rostro desde su Portal del Postulante Posgrado UDH. Dentro del portal encontrará un videotutorial.</li>
+              </ul>
+            </div>
+
+            <figure class="face-step-figure">
+              <div>
+                <img
+                  class="face-step-img"
+                  src="assets/img/Reconocimiento-facial.jpg"
+                  alt="Ejemplo de registro de identidad facial"
+                >
+                <figcaption class="face-step-caption">
+                  Ejemplo referencial del registro de identidad facial.
+                </figcaption>
+              </div>
+            </figure>
+          </div>
         </div>
 
         <!-- RESULTADOS -->
@@ -220,6 +286,7 @@
     </section>
   </main>
   <div id="footer-container"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="./assets/js/app.js"></script>
 </body>
 

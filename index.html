@@ -42,8 +42,6 @@
 </head>
 
 <body class="font-sans bg-background text-foreground">
-  </div>
-  </div>
 
   <!-- NAVBAR -->
 
@@ -63,10 +61,20 @@
           <span class="hero-title-soft"> AL SIGUIENTE NIVEL</span>
         </h1>
 
-        <p class="hero-subtitle">
-          Transforma tu experiencia en liderazgo y competitividad. Con nuestra oferta de maestrías, doctorados y
-          certificaciones, alcanzarás nuevos estándares de excelencia para destacar en el mercado global.
-        </p>
+        <div class="hero-text-wrap">
+          <p class="hero-subtitle" id="heroSubtitle">
+            <span class="hero-text-short">
+              Transforma tu experiencia en liderazgo y competitividad.
+            </span>
+            <span class="hero-text-more">
+              Con nuestra oferta de maestrías, doctorados y certificaciones, alcanzarás nuevos estándares de excelencia para destacar en el mercado global.
+            </span>
+          </p>
+
+          <button type="button" class="hero-readmore" id="heroReadMoreBtn">
+            Leer más
+          </button>
+        </div>
 
         <div class="hero-actions">
           <a href="https://wa.me/message/FIMXSUMKAWMPH1" class="hero-btn hero-btn-primary">Conversa con un Asesor</a>
@@ -88,12 +96,11 @@
   <section id="maestrias" class="masters-section">
     <!-- fondo -->
     <div class="absolute inset-0">
-      <img src="assets/img/hero-bg.jpg" alt="Maestrías" class="w-full h-full object-cover" />
+      <img src="assets/img/fondom2.png" alt="Maestrías" class="w-full h-full object-cover" />
       <div class="absolute inset-0 masters-overlay"></div>
     </div>
 
     <div class="relative container mx-auto px-4 z-10">
-      <!-- 👇 grid real: izquierda + derecha -->
       <div class="masters-grid">
 
         <!-- IZQUIERDA -->
@@ -160,6 +167,10 @@
                       </tbody>
                     </table>
                   </div>
+                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
+                  </div>
                 </div>
               </div>
 
@@ -185,6 +196,10 @@
                         <tr><td class="p-3 border border-white/20">Auditoría y Tributación</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
                       </tbody>
                     </table>
+                  </div>
+                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
                   </div>
                 </div>
               </div>
@@ -213,6 +228,10 @@
                       </tbody>
                     </table>
                   </div>
+                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
+                  </div>
                 </div>
               </div>
 
@@ -239,6 +258,10 @@
                         <tr><td class="p-3 border border-white/20">Gerencia en Servicios de Salud</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
                       </tbody>
                     </table>
+                  </div>
+                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
                   </div>
                 </div>
               </div>
@@ -267,6 +290,10 @@
                         <tr><td class="p-3 border border-white/20">Derecho del Trabajo y Seguridad Social</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
                       </tbody>
                     </table>
+                  </div>
+                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
                   </div>
                 </div>
               </div>
@@ -319,7 +346,7 @@
   <section id="doctorados" class="doc-section">
     <!-- fondo -->
     <div class="absolute inset-0">
-      <img src="assets/img/hero-bg.jpg" alt="Doctorados" class="w-full h-full object-cover" />
+      <img src="assets/img/fondodoc.png" alt="Doctorados" class="w-full h-full object-cover" />
       <div class="absolute inset-0 doc-overlay"></div>
     </div>
 
@@ -396,11 +423,11 @@
   </section>
 
 
-  <!-- SEGUNDA ESPECIALIDAD (nuevo estilo tipo Maestrías/Doctorados) -->
+  <!-- SEGUNDA ESPECIALIDAD  -->
   <section id="segunda-especialidad" class="se2-section">
     <!-- fondo -->
     <div class="absolute inset-0">
-      <img src="assets/img/hero-bg.jpg" alt="Segunda Especialidad" class="w-full h-full object-cover" />
+      <img src="assets/img/fondose.png" alt="Segunda Especialidad" class="w-full h-full object-cover" />
       <div class="absolute inset-0 se2-overlay"></div>
     </div>
 
@@ -409,7 +436,7 @@
 
         <!-- IZQUIERDA -->
         <div class="se2-copy">
-          <span class="se2-chip">Oferta Académica</span>
+          <span class="se2-chip">Modalidad presencial/virtual</span>
 
           <h2 class="se2-title">Segunda Especialidad</h2>
 
@@ -466,83 +493,167 @@
     </div>
   </section>
 
-  <!-- DIPLOMADOS (pro) -->
+<!-- DIPLOMADOS -->
   <section id="diplomados" class="dip-section dip-section--dark">
-    <!-- Fondo tipo hero -->
     <div class="dip-bg">
-      <img id="dipBgImg" src="assets/img/diplomado.jpg" alt="Diplomados" />
+      <img id="dipBgImg" src="assets/img/fondodip.png" alt="Diplomados" />
       <div class="dip-bgOverlay"></div>
     </div>
 
     <div class="relative container mx-auto px-4 z-10">
-      <!-- Header -->
-      <div class="dip-header">
-        <div>
-          <p class="dip-kicker">Oferta Académica</p>
+      <div class="dip-grid">
+        
+        <!-- IZQUIERDA -->
+        <div class="dip-copy">
+          <span class="dip-kicker">OFERTA ACADÉMICA</span>
           <h2 class="dip-title">Diplomados</h2>
-          <p class="dip-subtitle">Programas de especialización con enfoque aplicado.</p>
+          <p class="dip-subtitle">
+            Programas orientados al fortalecimiento profesional y al desarrollo de competencias aplicadas.
+          </p>
         </div>
 
-        <div class="dip-arrows">
-          <button class="dip-arrow" id="dipPrev" aria-label="Anterior">‹</button>
-          <button class="dip-arrow" id="dipNext" aria-label="Siguiente">›</button>
-        </div>
+        <!-- DERECHA -->
+        <article class="dip-card dip-card--dark">
+          <div class="dip-content">
+            <div class="dip-badgeRow">
+              <span class="dip-badge">Certificación</span>
+              <span class="dip-dotSep">•</span>
+              <span class="dip-meta">Modalidad mixta</span>
+            </div>
+
+            <h3 class="dip-program">
+              Diplomado en Gestión Estratégica de Proyectos de Desarrollo Social
+            </h3>
+
+            <p class="dip-desc">
+              Diseña y gestiona iniciativas que transforman comunidades con impacto real y sostenible.
+            </p>
+
+            <div class="dip-infoGrid">
+              <div class="dip-infoItem">
+                <p class="dip-infoLabel">Duración</p>
+                <p class="dip-infoValue">3 meses</p>
+              </div>
+              <div class="dip-infoItem">
+                <p class="dip-infoLabel">Inicio</p>
+                <p class="dip-infoValue">Próximamente</p>
+              </div>
+              <div class="dip-infoItem">
+                <p class="dip-infoLabel">Horario</p>
+                <p class="dip-infoValue">Flexible</p>
+              </div>
+            </div>
+
+            <div class="dip-actions">
+              <a href="#" class="dip-btn dip-btnPrimary">Ver detalle</a>
+              <a href="#" class="dip-btn dip-btnGhost">Hablar con un asesor</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section> 
+
+  <!-- ¿POR QUÉ ESCOGERNOS? -->
+  <section id="porque-escogernos" class="why-section">
+    <div class="why-bg">
+      <div class="why-overlay"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="why-header">
+        <span class="why-chip">VENTAJAS DIFERENCIALES</span>
+        <h2 class="why-title">¿Por qué escogernos?</h2>
+        <p class="why-subtitle">
+          Formamos profesionales con visión actual, respaldo académico y una experiencia de aprendizaje conectada con el mundo real.
+        </p>
       </div>
 
-      <!-- Card -->
-      <article class="dip-card dip-card--dark">
-        <!-- media -->
-        <div class="dip-media">
-          <img src="assets/img/diplomado.jpg" alt="Diplomado" loading="lazy">
-          <div class="dip-mediaOverlay"></div>
-
-          <div class="dip-mediaChips">
-            <span class="dip-chip">Diplomado</span>
-            <span class="dip-chip dip-chip-ghost">Vacantes limitadas</span>
+      <div class="why-grid">
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="badge-check"></i>
           </div>
-        </div>
-
-        <!-- content -->
-        <div class="dip-content">
-          <div class="dip-badgeRow">
-            <span class="dip-badge">Certificación</span>
-            <span class="dip-dotSep">•</span>
-            <span class="dip-meta">Modalidad mixta</span>
+          <div class="why-content">
+            <h3>Grado Académico reconocido por la SUNEDU</h3>
+            <p>Programas respaldados por reconocimiento oficial y valor académico para tu desarrollo profesional.</p>
           </div>
+        </article>
 
-          <h3 class="dip-program">Diplomado en Gestión Estratégica de Proyectos de Desarrollo Social</h3>
-          <p class="dip-desc">Diseña y gestiona iniciativas que transforman comunidades con impacto real y sostenible.</p>
-
-          <div class="dip-infoGrid">
-            <div class="dip-infoItem">
-              <p class="dip-infoLabel">Duración</p>
-              <p class="dip-infoValue">3 meses</p>
-            </div>
-            <div class="dip-infoItem">
-              <p class="dip-infoLabel">Inicio</p>
-              <p class="dip-infoValue">Próximamente</p>
-            </div>
-            <div class="dip-infoItem">
-              <p class="dip-infoLabel">Horario</p>
-              <p class="dip-infoValue">Flexible</p>
-            </div>
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="file-badge"></i>
           </div>
-
-          <div class="dip-actions">
-            <a href="#" class="dip-btn dip-btnPrimary">Ver detalle</a>
-            <a href="#" class="dip-btn dip-btnGhost">Hablar con un asesor</a>
+          <div class="why-content">
+            <h3>Certificación Modular</h3>
+            <p>Certificaciones progresivas que fortalecen tu CV incluso antes de culminar el programa.</p>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Dots -->
-      <div class="dip-dots" aria-label="Indicadores">
-        <span class="dot"></span>
-        <span class="dot active"></span>
-        <span class="dot"></span>
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="network"></i>
+          </div>
+          <div class="why-content">
+            <h3>Jornadas de Networking</h3>
+            <p>Participa en eventos con referentes nacionales e internacionales y amplía tus oportunidades.</p>
+          </div>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="flask-conical"></i>
+          </div>
+          <div class="why-content">
+            <h3>Acceso a Laboratorios de Innovación</h3>
+            <p>Espacios y recursos orientados a la experimentación, la tecnología y la innovación aplicada.</p>
+          </div>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="globe-2"></i>
+          </div>
+          <div class="why-content">
+            <h3>Seminarios Internacionales</h3>
+            <p>Aprende con experiencias globales, tendencias actuales y enfoques académicos de alcance internacional.</p>
+          </div>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <div class="why-content">
+            <h3>Docentes Especialistas</h3>
+            <p>Profesionales con experiencia académica y práctica que conectan la teoría con la realidad profesional.</p>
+          </div>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="refresh-cw"></i>
+          </div>
+          <div class="why-content">
+            <h3>Programas actualizados</h3>
+            <p>Planes de estudio alineados con las demandas del entorno profesional y las nuevas tendencias.</p>
+          </div>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i data-lucide="lightbulb"></i>
+          </div>
+          <div class="why-content">
+            <h3>Investigación aplicada</h3>
+            <p>Formación orientada al mundo real, con enfoque práctico y soluciones para contextos actuales.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+
 
   <!-- Footer -->
   <div id="footer-container"></div>
@@ -585,8 +696,276 @@
     </div>
   </div>
 
+    <!-- MODAL DOCTORADO EN DERECHO -->
+  <div id="doctoradoDerechoModal" class="hidden fixed inset-0 z-[90]">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
+    <div
+      class="absolute left-1/2 top-1/2 w-[92vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <p class="m-0 text-white/70 font-bold">Doctorado</p>
+          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Derecho</h3>
+        </div>
+
+        <button id="closeDoctoradoDerechoModal"
+          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
+          aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5">
+            <tr>
+              <th class="p-3 border border-white/20">Mención</th>
+              <th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th>
+              <th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th>
+            </tr>
+          </thead>
+          <tbody class="text-white/90">
+            <tr>
+              <td class="p-3 border border-white/20">Derecho</td>
+              <td class="p-3 border border-white/20 text-center">S/.534.83</td>
+              <td class="p-3 border border-white/20 text-center">S/.210.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed space-y-2">
+        <p class="font-semibold text-white">Información desarrollo de los estudios del Doctorado:</p>
+        <p>• Unidad de Posgrado: 941 932 865</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DOCTORADO EN CIENCIAS DE LA EDUCACIÓN -->
+  <div id="doctoradoEducacionModal" class="hidden fixed inset-0 z-[90]">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+    <div
+      class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <p class="m-0 text-white/70 font-bold">Doctorado</p>
+          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Educación</h3>
+        </div>
+
+        <button id="closeDoctoradoEducacionModal"
+          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
+          aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5">
+            <tr>
+              <th class="p-3 border border-white/20">Mención</th>
+              <th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th>
+              <th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th>
+            </tr>
+          </thead>
+          <tbody class="text-white/90">
+            <tr>
+              <td class="p-3 border border-white/20">Ciencias de la Educación</td>
+              <td class="p-3 border border-white/20 text-center">S/.534.83</td>
+              <td class="p-3 border border-white/20 text-center">S/.210.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed space-y-2">
+        <p>✓ Clases presenciales</p>
+        <p>✓ Duración: 06 semestres</p>
+        <p>✓ Horarios: Sábados – Mañana: 8:00 a.m. – 12:30 p.m.</p>
+        <p>✓ Horarios: Tardes: 4:15 p.m. – 7:15 p.m.</p>
+        <p>✓ Domingos: 8:00 a.m. – 12:30 p.m.</p>
+        <p>• Unidad de Posgrado en Ciencias de la Educación – 952 070 191</p>
+        <p>• Posgrado.educacion@udh.edu.pe</p>
+        <p>• Soporte Informático – 952 072 178</p>
+        <p>• computo@udh.edu.pe</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DOCTORADO EN CIENCIAS DE LA SALUD -->
+  <div id="doctoradoSaludModal" class="hidden fixed inset-0 z-[90]">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+    <div
+      class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <p class="m-0 text-white/70 font-bold">Doctorado</p>
+          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Salud</h3>
+        </div>
+
+        <button id="closeDoctoradoSaludModal"
+          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
+          aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5">
+            <tr>
+              <th class="p-3 border border-white/20">Mención</th>
+              <th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th>
+              <th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th>
+            </tr>
+          </thead>
+          <tbody class="text-white/90">
+            <tr>
+              <td class="p-3 border border-white/20">Ciencias de la Salud</td>
+              <td class="p-3 border border-white/20 text-center">S/.534.83</td>
+              <td class="p-3 border border-white/20 text-center">S/.210.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed space-y-2">
+        <p>✓ Clases presenciales</p>
+        <p>✓ Duración: 06 semestres</p>
+        <p>✓ Horarios: Sábados – Mañana: 8:00 a.m. – 1:00 p.m.</p>
+        <p>✓ Horarios: Tardes: 3:00 p.m. – 7:00 p.m.</p>
+        <p>✓ Domingos: 8:00 a.m. – 2:00 p.m.</p>
+        <p>• Coordinación Unidad de Posgrado en Ciencias de la Salud – 985 279 704</p>
+        <p>• Secretaría Unidad de Posgrado en Ciencias de la Salud – 952 075 987</p>
+        <p>• Soporte Informático Unidad de Posgrado en Ciencias de la Salud – 962 656 510</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- MODAL SEGUNDA ESPECIALIDAD: ALTO RIESGO OBSTÉTRICO -->
+  <div id="seAltoRiesgoModal" class="hidden fixed inset-0 z-[90]">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+    <div class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <p class="m-0 text-white/70 font-bold">Segunda Especialidad</p>
+          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">Alto Riesgo Obstétrico</h3>
+        </div>
+
+        <button id="closeSeAltoRiesgoModal"
+          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
+          aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
+          <p class="font-bold text-white mb-2">Requisitos</p>
+          <ul class="space-y-1 list-disc list-inside">
+            <li>Fotocopia ampliada del DNI</li>
+            <li>Fotocopia del título (registrado en SUNEDU)</li>
+            <li>Certificado original de estudios universitarios</li>
+            <li>Currículum vitae detallado y documentado (copias)</li>
+            <li>Inscripción S/. 200.00</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
+          <ul class="space-y-1 list-disc list-inside">
+            <li>Costo pensión mensual: S/. 401.12</li>
+            <li>Matrícula (inicio ciclo): S/. 157.50</li>
+            <li>Clases presenciales</li>
+            <li>Duración: 03 semestres</li>
+            <li>Duración del ciclo: 04 meses</li>
+          </ul>
+
+          <div class="mt-3">
+            <p class="font-bold text-white">Horarios</p>
+            <p>Sábado de 8.00 a.m. – 1.00 p.m. y 3.00 p.m. – 7.00 p.m.</p>
+            <p>Domingo de 8.00 a.m. – 2.00 p.m.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
+        <p class="font-semibold text-white">Información sobre el desarrollo de la especialidad</p>
+        <p>Coordinación: 985 279 704</p>
+        <p>Secretaría: 952 075 987</p>
+        <p>Soporte Informático: 962 656 510</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL SEGUNDA ESPECIALIDAD: ORTODONCIA Y ORTOPEDIA MAXILAR -->
+  <div id="seOrtodonciaModal" class="hidden fixed inset-0 z-[90]">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+    <div class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <p class="m-0 text-white/70 font-bold">Segunda Especialidad</p>
+          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">Ortodoncia y Ortopedia Maxilar</h3>
+        </div>
+
+        <button id="closeSeOrtodonciaModal"
+          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
+          aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
+          <p class="font-bold text-white mb-2">Requisitos</p>
+          <ul class="space-y-1 list-disc list-inside">
+            <li>Fotocopia ampliada del DNI</li>
+            <li>Fotocopia del título (registrado en SUNEDU)</li>
+            <li>Certificado original de estudios universitarios</li>
+            <li>Currículum vitae detallado y documentado (copias)</li>
+            <li>Inscripción S/. 200.00</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
+          <ul class="space-y-1 list-disc list-inside">
+            <li>Costo pensión mensual: S/. 1337.06</li>
+            <li>Matrícula (inicio ciclo): S/. 525.00</li>
+            <li>Duración: 36 meses (03 años)</li>
+            <li>Clases teóricas en virtuales dos veces por semana a partir de las 7.00 p.m. (dependiendo del curso)</li>
+            <li>Clases presenciales prácticas se desarrollan un fin de semana al mes: viernes (tarde), sábado (todo el día), domingo (medio día)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
+        <p class="font-semibold text-white">Información desarrollo de la especialidad</p>
+        <p>Coordinación: 985 003 399</p>
+        <p>Secretaría: 952 075 987</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>

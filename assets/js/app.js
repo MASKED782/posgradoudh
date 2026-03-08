@@ -34,6 +34,9 @@ async function loadComponent(id, file) {
     if (!response.ok) throw new Error(`HTTP ${response.status} al cargar: ${file}`);
     const html = await response.text();
     container.innerHTML = html;
+    if (window.lucide) {
+      lucide.createIcons();
+    }
     console.log(`[loadComponent] ✅ "${file}" cargado en #${id}`);
   } catch (err) {
     console.error(`[loadComponent] ❌ Error cargando "${file}":`, err.message);
@@ -60,11 +63,11 @@ function initNavbar() {
   ========================= */
 
   if (!isIndex) {
-    // Subpáginas → modo claro fijo
+
     navbar.classList.add("iscrolled");
     if (logo) logo.src = "assets/img/logoposgradonegro.png";
   } else {
-    // Index → comportamiento dinámico con hero
+    
     const hero = document.querySelector('section[aria-label="Presentación"]');
 
     const syncNavbar = () => {
@@ -91,6 +94,8 @@ function initNavbar() {
     syncNavbar();
   }
 
+
+  
   /* =========================
      2️⃣ DROPDOWNS (SIEMPRE)
   ========================= */
@@ -223,6 +228,24 @@ function initBrochureModal() {
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
+  });
+}
+
+
+function initHeroReadMore() {
+  const wrap = document.querySelector(".hero-text-wrap");
+  const btn = document.getElementById("heroReadMoreBtn");
+
+  if (!wrap || !btn) return;
+
+  btn.addEventListener("click", () => {
+    wrap.classList.toggle("is-expanded");
+
+    if (wrap.classList.contains("is-expanded")) {
+      btn.textContent = "Leer menos";
+    } else {
+      btn.textContent = "Leer más";
+    }
   });
 }
 
@@ -407,16 +430,19 @@ const phdPrograms = [
     tab: "Ciencias de la Educación",
     title: "DOCTORADO EN CIENCIAS DE LA EDUCACIÓN",
     desc: "Investigación y formación avanzada en educación.",
+    modal: "doctoradoEducacionModal"
   },
   {
     tab: "Ciencias de la Salud",
     title: "DOCTORADO EN CIENCIAS DE LA SALUD",
     desc: "Investigación y desarrollo en el ámbito de la salud.",
+    modal: "doctoradoSaludModal"
   },
   {
     tab: "Derecho",
     title: "DOCTORADO EN DERECHO",
     desc: "Investigación jurídica avanzada y especialización.",
+    modal: "doctoradoDerechoModal"
   },
 ];
 
@@ -424,11 +450,16 @@ function initDoctorados() {
   const track = document.getElementById("phdTrack");
   if (!track) return;
 
-  // Render pills (3 doctorados)
   track.innerHTML = phdPrograms
     .map(
       (p, i) =>
-        `<button class="doc-pill ${i === 0 ? "active" : ""}" type="button" data-index="${i}">${p.tab}</button>`
+        `<button 
+          class="doc-pill ${i === 0 ? "active" : ""}" 
+          type="button" 
+          data-index="${i}"
+          data-modal="${p.modal}">
+          ${p.tab}
+        </button>`
     )
     .join("");
 
@@ -443,12 +474,20 @@ function initDoctorados() {
     pills[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }
 
-  // Click en pills
   pills.forEach((btn) => {
-    btn.addEventListener("click", () => setActive(Number(btn.dataset.index)));
+    btn.addEventListener("click", () => {
+      setActive(Number(btn.dataset.index));
+
+      const modalId = btn.dataset.modal;
+      const modal = document.getElementById(modalId);
+
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    });
   });
 
-  // Flechas (prev/next)
   document.querySelectorAll("#doctorados .doc-arrow").forEach((arrow) => {
     arrow.addEventListener("click", () => {
       const dir = Number(arrow.dataset.dir || 1);
@@ -460,13 +499,58 @@ function initDoctorados() {
   setActive(0);
 }
 
+function initDoctoradosModals() {
+  const derechoModal = document.getElementById("doctoradoDerechoModal");
+  const educacionModal = document.getElementById("doctoradoEducacionModal");
+  const saludModal = document.getElementById("doctoradoSaludModal");
+
+  const closeDerecho = document.getElementById("closeDoctoradoDerechoModal");
+  const closeEducacion = document.getElementById("closeDoctoradoEducacionModal");
+  const closeSalud = document.getElementById("closeDoctoradoSaludModal");
+
+  const closeModal = (modal) => {
+    if (!modal) return;
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  };
+
+  closeDerecho?.addEventListener("click", () => closeModal(derechoModal));
+  closeEducacion?.addEventListener("click", () => closeModal(educacionModal));
+  closeSalud?.addEventListener("click", () => closeModal(saludModal));
+
+  derechoModal?.addEventListener("click", (e) => {
+    if (e.target === derechoModal) closeModal(derechoModal);
+  });
+
+  educacionModal?.addEventListener("click", (e) => {
+    if (e.target === educacionModal) closeModal(educacionModal);
+  });
+
+  saludModal?.addEventListener("click", (e) => {
+    if (e.target === saludModal) closeModal(saludModal);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal(derechoModal);
+      closeModal(educacionModal);
+      closeModal(saludModal);
+    }
+  });
+}
 
 /* =========================
    Segunda Especialidad — 2 programas dinámicos (pills)
 ========================= */
 const sePrograms = [
-  { tab: "ALTO RIESGO OBSTÉTRICO" },
-  { tab: "ORTODONCIA Y ORTOPEDIA MAXILAR" },
+  {
+    tab: "ALTO RIESGO OBSTÉTRICO",
+    modal: "seAltoRiesgoModal"
+  },
+  {
+    tab: "ORTODONCIA Y ORTOPEDIA MAXILAR",
+    modal: "seOrtodonciaModal"
+  },
 ];
 
 function initSegundaEspecialidad() {
@@ -474,11 +558,17 @@ function initSegundaEspecialidad() {
   if (!track) return;
 
   track.innerHTML = sePrograms
-    .map(
-      (p, i) =>
-        `<button class="se2-pill ${i === 0 ? "active" : ""}" type="button" data-index="${i}">${p.tab}</button>`
-    )
-    .join("");
+  .map(
+    (p, i) =>
+      `<button 
+        class="se2-pill ${i === 0 ? "active" : ""}" 
+        type="button" 
+        data-index="${i}" 
+        data-modal="${p.modal}">
+        ${p.tab}
+      </button>`
+  )
+  .join("");
 
   const pills = Array.from(track.querySelectorAll(".se2-pill"));
   if (!pills.length) return;
@@ -492,7 +582,17 @@ function initSegundaEspecialidad() {
   }
 
   pills.forEach((btn) => {
-    btn.addEventListener("click", () => setActive(Number(btn.dataset.index)));
+    btn.addEventListener("click", () => {
+      setActive(Number(btn.dataset.index));
+
+      const modalId = btn.dataset.modal;
+      const modal = document.getElementById(modalId);
+
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    });
   });
 
   document.querySelectorAll("#segunda-especialidad .se2-arrow").forEach((arrow) => {
@@ -506,11 +606,39 @@ function initSegundaEspecialidad() {
   setActive(0);
 }
 
+function initSegundaEspecialidadModals() {
+  const altoRiesgoModal = document.getElementById("seAltoRiesgoModal");
+  const ortodonciaModal = document.getElementById("seOrtodonciaModal");
+
+  const closeAltoRiesgo = document.getElementById("closeSeAltoRiesgoModal");
+  const closeOrtodoncia = document.getElementById("closeSeOrtodonciaModal");
+
+  const closeModal = (modal) => {
+    if (!modal) return;
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  };
+
+  closeAltoRiesgo?.addEventListener("click", () => closeModal(altoRiesgoModal));
+  closeOrtodoncia?.addEventListener("click", () => closeModal(ortodonciaModal));
+
+  altoRiesgoModal?.addEventListener("click", (e) => {
+    if (e.target === altoRiesgoModal) closeModal(altoRiesgoModal);
+  });
+
+  ortodonciaModal?.addEventListener("click", (e) => {
+    if (e.target === ortodonciaModal) closeModal(ortodonciaModal);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal(altoRiesgoModal);
+      closeModal(ortodonciaModal);
+    }
+  });
+}
 
 
-/* =========================
-   Diplomados slider (el que usa tu HTML actual)
-========================= */
 function initProgramsSlider(){
   const nextBtn = document.getElementById("dipNext");
   const prevBtn = document.getElementById("dipPrev");
@@ -575,12 +703,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.pathname.includes("index.html") ||
     window.location.pathname === "/" ||
     window.location.pathname.endsWith("/");
-
-  // Todas las subpáginas están en la raíz junto a index.html,
-  // así que basePath siempre es "" — no hay subcarpetas.
   const basePath = "";
 
-  // Esperar a los DOS componentes antes de inicializar
   await Promise.all([
     loadComponent("navbar-container", basePath + "components/navbar.html"),
     loadComponent("footer-container", basePath + "components/footer.html"),
@@ -592,8 +716,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   initBrochureModal();
   initMentions();
   initDoctorados();
+  initDoctoradosModals();
   initSegundaEspecialidad();
-  initProgramsSlider();
+  initSegundaEspecialidadModals();
+  initHeroReadMore();
+  //initProgramsSlider();
   initYear();
 
   window.history.scrollRestoration = "manual";
