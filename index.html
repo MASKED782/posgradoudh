@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Universidad de Huánuco | Posgrado</title>
+  <title>UDH - Posgrado</title>
   <meta name="description" content="Posgrado UDH — Diplomados, Maestrías, Doctorados y Segunda Especialidad." />
+  <link rel="icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="shortcut icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/app.css" />
-
-  <!-- Tailwind (CDN) para que tu carpeta “simple” se vea igual sin Vite/React -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,6 +39,75 @@
     }
   </script>
 
+  <style>
+    .hero-title-line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .hero-title-line-inner {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
+
+    .hero-parallax-bg {
+      will-change: transform;
+      transform: scale(1.04);
+    }
+
+    .hero-btn,
+    .masters-video-btn,
+    .doc-video-btn,
+    .se2-video-btn,
+    .masters-panel,
+    .doc-panel,
+    .se2-panel,
+    .mention-card,
+    .doc-card,
+    .se-card,
+    .why-card {
+      will-change: transform, opacity;
+    }
+
+    .hero-btn,
+    .masters-video-btn,
+    .doc-video-btn,
+    .se2-video-btn {
+      transition: transform .28s ease, box-shadow .28s ease, filter .28s ease, background-color .28s ease, border-color .28s ease;
+    }
+
+    .hero-btn:hover,
+    .masters-video-btn:hover,
+    .doc-video-btn:hover,
+    .se2-video-btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.03);
+    }
+
+    .hero-btn:active,
+    .masters-video-btn:active,
+    .doc-video-btn:active,
+    .se2-video-btn:active {
+      transform: translateY(-1px) scale(.99);
+    }
+
+    .hero-btn-primary:hover {
+      box-shadow: 0 16px 34px rgba(236, 193, 56, 0.28);
+    }
+
+    .hero-btn-ghost:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+    }
+
+    .hero-stat {
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .hero-stat:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, .14);
+    }
+  </style>
 
 </head>
 
@@ -73,18 +143,19 @@
   <!-- HERO -->
   <section class="hero-section" aria-label="Presentación">
     <div class="hero-bg">
-      <img src="assets/img/fondo1.JPG" alt="" />
+      <img src="assets/img/fondo1.JPG" alt="" class="hero-parallax-bg" />
       <div class="hero-overlay"></div>
     </div>
 
     <div class="hero-inner container mx-auto px-4">
       <div class="hero-max">
-        <h1 class="hero-title">
-          LLEVA TU DESARROLLO ACADÉMICO Y PROFESIONAL
-          <span class="hero-title-soft"> AL SIGUIENTE NIVEL</span>
+        <h1 class="hero-title hero-animate-title" aria-label="LLEVA TU DESARROLLO ACADÉMICO Y PROFESIONAL AL SIGUIENTE NIVEL">
+          <span class="hero-title-line"><span class="hero-title-line-inner">LLEVA TU DESARROLLO</span></span>
+          <span class="hero-title-line"><span class="hero-title-line-inner">ACADÉMICO Y PROFESIONAL</span></span>
+          <span class="hero-title-line hero-title-soft"><span class="hero-title-line-inner">AL SIGUIENTE NIVEL</span></span>
         </h1>
 
-        <div class="hero-text-wrap">
+        <div class="hero-text-wrap hero-animate-text">
           <p class="hero-subtitle" id="heroSubtitle">
             <span class="hero-text-short">
               Transforma tu experiencia en liderazgo y competitividad.
@@ -99,25 +170,24 @@
           </button>
         </div>
 
-        <div class="hero-actions">
+        <div class="hero-actions hero-animate-actions">
           <a href="https://wa.me/message/FIMXSUMKAWMPH1" class="hero-btn hero-btn-primary">Conversa con un Asesor</a>
           <button id="brochureBtn" class="hero-btn hero-btn-ghost" type="button">Ver anuncio</button>
           <button id="openPdfModal" class="hero-btn hero-btn-ghost" type="button">Ver brochure</button>
         </div>
 
-        <div class="hero-stats">
+        <div class="hero-stats hero-animate-card">
           <div class="hero-stat">
             <p class="hero-stat-label">EXAMEN DE ADMISIÓN</p>
             <p class="hero-stat-value">Sábado 28 de Marzo</p>
           </div>
-
         </div>
       </div>
     </div>
   </section>
-  
+    
   <!-- MAESTRÍAS -->
-  <section id="maestrias" class="masters-section">
+  <section id="maestrias" class="masters-section reveal-section">
     <!-- fondo -->
     <div class="absolute inset-0">
       <img src="assets/img/fondom2.png" alt="Maestrías" class="w-full h-full object-cover" />
@@ -136,12 +206,25 @@
           </h2>
 
           <p class="masters-subtitle">
-            Selecciona una mención para ver información disponible.
+            Selecciona una facultad para ver las menciones disponibles.
           </p>
+          <div class="masters-video-wrap">
+            <a
+              href="https://youtu.be/Ik7irLhWsyU"
+              target="_blank"
+              class="masters-video-btn"
+              aria-label="Ver video promocional en YouTube"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="masters-video-icon">
+                <path d="M23.5 6.2a2.97 2.97 0 0 0-2.09-2.1C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.41.6A2.97 2.97 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 2.97 2.97 0 0 0 2.09 2.1c1.87.6 9.41.6 9.41.6s7.54 0 9.41-.6a2.97 2.97 0 0 0 2.09-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.75 15.5v-7l6 3.5-6 3.5Z"/>
+              </svg>
+              Ver video
+            </a>
+          </div>
 
           <div class="mentions-row relative">
+            
             <button class="mention-arrow" type="button" data-dir="-1">‹</button>
-
             <div id="mentionsTrack" class="mentions-track">
               <button class="mention-card active" type="button" data-index="0">INGENIERIA</button>
               <button class="mention-card" type="button" data-index="1">CIENCIAS ADMINISTRATIVAS</button>
@@ -367,7 +450,7 @@
 
 
   <!-- DOCTORADOS -->
-  <section id="doctorados" class="doc-section">
+  <section id="doctorados" class="doc-section reveal-section">
     <!-- fondo -->
     <div class="absolute inset-0">
       <img src="assets/img/fondodoc.png" alt="Doctorados" class="w-full h-full object-cover" />
@@ -386,6 +469,19 @@
           <p class="doc-subtitle">
             Selecciona un programa para ver información disponible.
           </p>
+          <div class="masters-video-wrap">
+            <a
+              href="https://youtu.be/Ik7irLhWsyU"
+              target="_blank"
+              class="masters-video-btn"
+              aria-label="Ver video promocional en YouTube"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="masters-video-icon">
+                <path d="M23.5 6.2a2.97 2.97 0 0 0-2.09-2.1C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.41.6A2.97 2.97 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 2.97 2.97 0 0 0 2.09 2.1c1.87.6 9.41.6 9.41.6s7.54 0 9.41-.6a2.97 2.97 0 0 0 2.09-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.75 15.5v-7l6 3.5-6 3.5Z"/>
+              </svg>
+              Ver video
+            </a>
+          </div>
 
           <div class="doc-mentions">
             <p class="doc-small-label">Selecciona un doctorado:</p>
@@ -448,7 +544,7 @@
 
 
   <!-- SEGUNDA ESPECIALIDAD  -->
-  <section id="segunda-especialidad" class="se2-section">
+  <section id="segunda-especialidad" class="se2-section reveal-section">
     <!-- fondo -->
     <div class="absolute inset-0">
       <img src="assets/img/fondose.png" alt="Segunda Especialidad" class="w-full h-full object-cover" />
@@ -467,6 +563,19 @@
           <p class="se2-subtitle">
             Selecciona un programa para ver información disponible.
           </p>
+          <div class="se2-video-wrap">
+            <a
+              href="https://www.youtube.com/watch?v=3CecBxGEJDA&t=7s"
+              target="_blank"
+              class="se2-video-btn"
+              aria-label="Ver video promocional en YouTube"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="se2-video-icon">
+                <path d="M23.5 6.2a2.97 2.97 0 0 0-2.09-2.1C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.41.6A2.97 2.97 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 2.97 2.97 0 0 0 2.09 2.1c1.87.6 9.41.6 9.41.6s7.54 0 9.41-.6a2.97 2.97 0 0 0 2.09-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.75 15.5v-7l6 3.5-6 3.5Z"/>
+              </svg>
+              Ver video
+            </a>
+          </div>
 
           <div class="se2-mentions">
             <p class="se2-small-label">Selecciona un programa:</p>
@@ -518,7 +627,7 @@
   </section>
 
 <!-- DIPLOMADOS -->
-  <section id="diplomados" class="dip-section dip-section--dark">
+  <section id="diplomados" class="dip-section dip-section--dark reveal-section">
     <div class="dip-bg">
       <img id="dipBgImg" src="assets/img/fondodip.png" alt="Diplomados" />
       <div class="dip-bgOverlay"></div>
@@ -539,20 +648,19 @@
         <!-- DERECHA -->
         <article class="dip-card dip-card--dark">
           <div class="dip-content">
+            <!-- 
             <div class="dip-badgeRow">
               <span class="dip-badge">Certificación</span>
               <span class="dip-dotSep">•</span>
               <span class="dip-meta">Modalidad mixta</span>
             </div>
+            -->
 
             <h3 class="dip-program">
               Diplomado en Gestión Estratégica de Proyectos de Desarrollo Social
             </h3>
 
-            <p class="dip-desc">
-              Diseña y gestiona iniciativas que transforman comunidades con impacto real y sostenible.
-            </p>
-
+            <!-- 
             <div class="dip-infoGrid">
               <div class="dip-infoItem">
                 <p class="dip-infoLabel">Duración</p>
@@ -567,11 +675,12 @@
                 <p class="dip-infoValue">Flexible</p>
               </div>
             </div>
-
+            -->
             <div class="dip-actions">
-              <a href="#" class="dip-btn dip-btnPrimary">Ver detalle</a>
-              <a href="#" class="dip-btn dip-btnGhost">Hablar con un asesor</a>
+              <!-- <a href="#" class="dip-btn dip-btnPrimary">Ver detalle</a>-->
+              <a href="https://wa.me/message/FIMXSUMKAWMPH1" class="dip-btn dip-btnGhost">Hablar con un asesor</a>
             </div>
+
           </div>
         </article>
 
@@ -580,7 +689,7 @@
   </section> 
 
   <!-- ¿POR QUÉ ESCOGERNOS? -->
-  <section id="porque-escogernos" class="why-section">
+  <section id="porque-escogernos" class="why-section reveal-section">
     <div class="why-bg">
       <div class="why-overlay"></div>
     </div>
@@ -973,7 +1082,131 @@
 
   
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener("load", () => {
+      function animateNavbarWhenReady() {
+        const navbar = document.querySelector("#navbar");
+
+        if (navbar) {
+          gsap.fromTo(
+            navbar,
+            { opacity: 0, y: -18 },
+            { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }
+          );
+        } else {
+          setTimeout(animateNavbarWhenReady, 200);
+        }
+      }
+
+      gsap.set(".hero-title-line-inner", { opacity: 0, yPercent: 115, rotateX: -12, transformOrigin: "0% 100%" });
+      gsap.set(".hero-animate-text", { opacity: 0, y: 28 });
+      gsap.set(".hero-animate-actions .hero-btn", { opacity: 0, y: 22 });
+      gsap.set(".hero-animate-card", { opacity: 0, y: 30, scale: 0.96 });
+
+      const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      heroTl
+        .to(".hero-title-line-inner", {
+          opacity: 1,
+          yPercent: 0,
+          rotateX: 0,
+          duration: 0.9,
+          stagger: 0.12
+        })
+        .to(".hero-animate-text", {
+          opacity: 1,
+          y: 0,
+          duration: 0.7
+        }, "-=0.42")
+        .to(".hero-animate-actions .hero-btn", {
+          opacity: 1,
+          y: 0,
+          duration: 0.58,
+          stagger: 0.11
+        }, "-=0.28")
+        .to(".hero-animate-card", {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.62
+        }, "-=0.2");
+
+      gsap.to(".hero-parallax-bg", {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      gsap.utils.toArray(".reveal-section").forEach((section) => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 42,
+          duration: 0.88,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 84%",
+            toggleActions: "play none none none"
+          }
+        });
+      });
+
+      const internalReveals = [
+        { trigger: ".masters-section", left: ".masters-copy", right: ".masters-panel", items: ".mention-card" },
+        { trigger: ".doc-section", left: ".doc-copy", right: ".doc-panel", items: "#phdTrack > *" },
+        { trigger: ".se2-section", left: ".se2-copy", right: ".se2-panel", items: "#seTrack > *" }
+      ];
+
+      internalReveals.forEach(({ trigger, left, right, items }) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger,
+            start: "top 72%",
+            toggleActions: "play none none none"
+          }
+        });
+
+        tl
+          .from(left, { opacity: 0, x: -34, duration: 0.7, ease: "power2.out" })
+          .from(right, { opacity: 0, x: 34, duration: 0.7, ease: "power2.out" }, "-=0.48");
+
+        if (document.querySelector(items)) {
+          tl.from(items, {
+            opacity: 0,
+            y: 16,
+            duration: 0.45,
+            stagger: 0.08,
+            ease: "power2.out"
+          }, "-=0.3");
+        }
+      });
+
+      gsap.from(".why-card", {
+        opacity: 0,
+        y: 24,
+        duration: 0.58,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".why-section",
+          start: "top 75%",
+          toggleActions: "play none none none"
+        }
+      });
+      animateNavbarWhenReady();
+    });
+    
+  </script>
   <script>
     lucide.createIcons();
   </script>

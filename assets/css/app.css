@@ -1,8 +1,4 @@
 /* =========================
-   UDH Posgrado
-========================= */
-
-/* =========================
    Tokens / base
 ========================= */
 :root{
@@ -73,13 +69,10 @@
   background: transparent;
   transition: all 0.3s ease;
 }
-
-/* Quitamos completamente el overlay oscuro */
 #navbar::before{
   display: none;
 }
 
-/* Cuando se hace scroll */
 #navbar.iscrolled{
   background: rgba(250,247,240,.95);
   backdrop-filter: blur(10px);
@@ -87,19 +80,16 @@
   box-shadow: 0 12px 30px rgba(0,0,0,0.10);
 }
 
-/* Links en hero (blancos) */
 #navbar nav > a,
 #navbar nav > div > button{
   color: rgba(255,255,255,0.95);
   transition: color .3s ease;
 }
 
-/* Texto oscuro SIEMPRE dentro del dropdown */
 .nav-dropdown a{
   color: rgba(61,60,59,0.92) !important;
 }
 
-/* Links cuando scrollea */
 #navbar.iscrolled nav a,
 #navbar.iscrolled nav button{
   color: rgba(61,60,59,0.92);
@@ -166,7 +156,7 @@
 }
 
 /* =========================
-   HERO — institucional (Jet + Zomp + Saffron)
+   HERO 
 ========================= */
 .hero-section{
   position: relative;
@@ -174,7 +164,7 @@
   min-height: 92vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 84px; /* compensa navbar fijo + aire pro */
+  padding: 140px 0 84px; 
   color: rgba(255,255,255,0.92);
 }
 
@@ -208,7 +198,7 @@
 }
 
 .hero-max{
-  max-width: 56rem; /* similar a max-w-3xl */
+  max-width: 56rem;
 }
 
 .hero-title{
@@ -331,6 +321,27 @@
   opacity: .85;
 }
 
+
+
+.hero-parallax-bg {
+  will-change: transform;
+}
+
+.hero-btn,
+.hero-stat,
+.why-card {
+  will-change: transform, opacity;
+}
+
+.hero-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
 /* responsive */
 @media (max-width: 900px){
   .hero-section{ padding: 120px 0 72px; }
@@ -338,7 +349,7 @@
 }
 
 /* =========================================
-   MAESTRÍAS (corregido + refinado)
+   MAESTRÍAS 
 ========================================= */
 
 #maestrias.masters-section{
@@ -350,7 +361,6 @@
   align-items: center;
 }
 
-/* Fondo y overlay (verde institucional + dorado sutil) */
 #maestrias .masters-overlay{
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.42), rgba(0,0,0,0.80)),
@@ -358,7 +368,6 @@
     radial-gradient(110% 110% at 85% 15%, rgba(236,193,56,0.18) 0%, rgba(236,193,56,0.00) 58%);
 }
 
-/* Grid real 2 columnas */
 #maestrias .masters-grid{
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -366,7 +375,6 @@
   align-items: center;
 }
 
-/* Izquierda */
 #maestrias .masters-copy{
   color: rgba(255,255,255,0.92);
 }
@@ -404,36 +412,27 @@
   line-height: 1.65;
   opacity: .92;
 }
-
-/* Menciones */
 #maestrias .masters-mentions{
   margin-top: 22px;
 }
 
-#maestrias .masters-small-label{
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  opacity: .85;
-  margin-bottom: 12px;
-}
-
-/* Fila: flecha - track - flecha */
 #maestrias .mentions-row{
   display: grid;
   grid-template-columns: 44px 1fr 44px;
   gap: 12px;
   align-items: center;
+  overflow: visible;
 }
 
-/* Track horizontal */
 #maestrias .mentions-track,
 #maestrias #mentionsTrack{
   display: flex;
+  align-items: center;
   gap: 14px;
   overflow-x: auto;
-  padding: 6px 2px;
+  overflow-y: visible;
+  padding: 10px 2px 12px;
+  min-height: 76px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
@@ -444,7 +443,6 @@
   display: none;
 }
 
-/* Flechas */
 #maestrias .mention-arrow{
   width: 44px;
   height: 44px;
@@ -466,7 +464,6 @@
   transform: translateY(-1px);
 }
 
-/* Pills (mention-card) */
 #maestrias .mention-card{
   flex: 0 0 240px;
   height: 56px;
@@ -501,7 +498,6 @@
   box-shadow: 0 16px 35px rgba(0,0,0,0.18);
 }
 
-/* Panel derecha (glass oscuro, corregido) */
 #maestrias .masters-panel{
   border-radius: 22px;
   border: 1px solid rgba(255,255,255,0.14);
@@ -529,7 +525,6 @@
   box-shadow: 0 0 20px rgba(236,193,56,0.35);
 }
 
-/* Lista */
 #maestrias .masters-list{
   display: grid;
   gap: 10px;
@@ -560,7 +555,6 @@
   font-weight: 900;
 }
 
-/* Botones */
 #maestrias .masters-cta{
   margin-top: 16px;
   display: grid;
@@ -635,14 +629,10 @@
   }
 }
 
-
-
-/* Ocultar scrollbar (helper global, UNA SOLA VEZ en tu CSS) */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 /* =========================================
-   DOCTORADOS — refinado (con responsive)
-   Paleta: Zomp #5A9E8D | Saffron #ECC138 | Jet #3D3C3B
+   DOCTORADOS 
 ========================================= */
 
 #doctorados{
@@ -654,7 +644,6 @@
   align-items: center;
 }
 
-/* Overlay (más verde institucional, dorado MUY sutil) */
 #doctorados .doc-overlay{
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.42), rgba(0,0,0,0.82)),
@@ -662,7 +651,6 @@
     radial-gradient(110% 110% at 85% 15%, rgba(236,193,56,0.14) 0%, rgba(236,193,56,0.00) 58%);
 }
 
-/* Grid 2 columnas */
 #doctorados .doc-grid{
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -670,7 +658,6 @@
   align-items: center;
 }
 
-/* Izquierda */
 #doctorados .doc-copy{ color: rgba(255,255,255,0.92); }
 
 #doctorados .doc-chip{
@@ -707,7 +694,6 @@
   opacity: .92;
 }
 
-/* Carrusel */
 #doctorados .doc-mentions{ margin-top: 22px; }
 
 #doctorados .doc-small-label{
@@ -718,20 +704,22 @@
   opacity: .85;
   margin-bottom: 12px;
 }
-
-/* flecha - track - flecha */
 #doctorados .doc-row{
   display: grid;
   grid-template-columns: 44px 1fr 44px;
   gap: 12px;
   align-items: center;
+  overflow: visible;
 }
 
 #doctorados .doc-track{
   display: flex;
+  align-items: center;
   gap: 14px;
   overflow-x: auto;
-  padding: 6px 2px;
+  overflow-y: visible;
+  padding: 10px 2px 12px;
+  min-height: 76px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
@@ -760,7 +748,6 @@
   transform: translateY(-1px);
 }
 
-/* Pills del carrusel (más premium) */
 #doctorados .doc-pill{
   flex: 0 0 240px;
   height: 56px;
@@ -795,7 +782,6 @@
   box-shadow: 0 16px 35px rgba(0,0,0,0.18);
 }
 
-/* Panel derecho (glass refinado: menos blur, mejor contraste) */
 #doctorados .doc-panel{
   border-radius: 22px;
   border: 1px solid rgba(255,255,255,0.14);
@@ -823,7 +809,6 @@
   box-shadow: 0 0 20px rgba(90,158,141,0.30);
 }
 
-/* Card del doctorado seleccionado */
 #doctorados .doc-card{
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,0.12);
@@ -856,7 +841,6 @@
   line-height: 1.45;
 }
 
-/* Modalidades (lista) */
 #doctorados .doc-list{
   margin-top: 12px;
   display: grid;
@@ -886,7 +870,6 @@
   font-weight: 900;
 }
 
-/* Botones */
 #doctorados .doc-cta{
   margin-top: 16px;
   display: grid;
@@ -960,8 +943,7 @@
   }
 }
 /* =========================================
-   SEGUNDA ESPECIALIDAD — refinado (JET protagonista)
-   Paleta: Jet #3D3C3B | Saffron #ECC138
+   SEGUNDA ESPECIALIDAD 
 ========================================= */
 
 #segunda-especialidad.se2-section{
@@ -973,7 +955,6 @@
   align-items: center;
 }
 
-/* Overlay: Jet sobrio + brillo saffron MUY sutil (más limpio) */
 #segunda-especialidad .se2-overlay{
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.50), rgba(0,0,0,0.86)),
@@ -992,7 +973,6 @@
   align-items: center;
 }
 
-/* izquierda */
 #segunda-especialidad .se2-copy{ color: rgba(255,255,255,0.92); }
 
 #segunda-especialidad .se2-chip{
@@ -1039,20 +1019,22 @@
   opacity: .85;
   margin-bottom: 12px;
 }
-
-/* flecha - track - flecha */
 #segunda-especialidad .se2-row{
   display: grid;
   grid-template-columns: 44px 1fr 44px;
   gap: 12px;
   align-items: center;
+  overflow: visible;
 }
 
 #segunda-especialidad .se2-track{
   display: flex;
+  align-items: center;
   gap: 14px;
   overflow-x: auto;
-  padding: 6px 2px;
+  overflow-y: visible;
+  padding: 10px 2px 12px;
+  min-height: 76px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
@@ -1081,7 +1063,6 @@
   transform: translateY(-1px);
 }
 
-/* pill */
 #segunda-especialidad .se2-pill{
   flex: 0 0 300px;
   height: 56px;
@@ -1116,7 +1097,6 @@
   box-shadow: 0 16px 35px rgba(0,0,0,0.18);
 }
 
-/* panel derecha (glass refinado) */
 #segunda-especialidad .se2-panel{
   border-radius: 22px;
   border: 1px solid rgba(255,255,255,0.14);
@@ -1136,7 +1116,6 @@
   margin-bottom: 14px;
 }
 
-/* Accent bar: Jet con “firma” saffron */
 #segunda-especialidad .se2-accent-bar{
   width: 6px;
   height: 28px;
@@ -1145,7 +1124,6 @@
   box-shadow: 0 0 20px rgba(236,193,56,0.20);
 }
 
-/* lista */
 #segunda-especialidad .se2-list{
   display: grid;
   gap: 10px;
@@ -1170,13 +1148,11 @@
   font-weight: 700;
 }
 
-/* Precio neutro */
 #segunda-especialidad .se2-price{
   color: rgba(255,255,255,0.88);
   font-weight: 900;
 }
 
-/* botones */
 #segunda-especialidad .se2-cta{
   margin-top: 16px;
   display: grid;
@@ -1196,7 +1172,6 @@
   box-sizing: border-box;
 }
 
-/* Botón principal: Jet con borde saffron (CTA claro) */
 #segunda-especialidad .se2-btn-primary{
   background: rgba(61,60,59,0.95);
   color: #ffffff;
@@ -1208,7 +1183,6 @@
   box-shadow: 0 22px 45px rgba(0,0,0,0.30);
 }
 
-/* Botón secundario */
 #segunda-especialidad .se2-btn-ghost{
   border: 1px solid rgba(255,255,255,0.22);
   background: rgba(255,255,255,0.08);
@@ -1220,7 +1194,6 @@
   background: rgba(255,255,255,0.12);
 }
 
-/* responsive */
 @media (max-width: 1024px){
   #segunda-especialidad.se2-section{
     min-height: auto;
@@ -1250,7 +1223,7 @@
 }
 
 /* =========================
-   Diplomados — compacto y alineado al resto
+  DIPLOMADOS
 ========================= */
 
 #diplomados.dip-section--dark{
@@ -1675,7 +1648,7 @@
 }
 
 /* =========================
-   Footer — claro institucional
+   Footer
 ========================= */
 
 .site-footer{
@@ -1896,10 +1869,89 @@
   }
 }
 
+/* =========================
+   VIDEOS
+========================= */
+
 .modal-anuncio {
   animation: modalEntrada 0.6s ease forwards;
 }
 
 #welcome-image {
   animation: flotarSuave 2.5s ease-in-out infinite;
+}
+
+
+.masters-video-wrap {
+  margin-top: 18px;
+}
+
+.masters-video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all .25s ease;
+}
+
+.masters-video-btn:hover {
+  transform: translateY(-2px);
+  background: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 12px 24px rgba(255, 0, 0, 0.25);
+}
+
+.masters-video-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+
+
+
+
+
+
+
+
+
+.se2-video-wrap {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.se2-video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all .25s ease;
+}
+
+.se2-video-btn:hover {
+  transform: translateY(-2px);
+  background: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 12px 24px rgba(255, 0, 0, 0.25);
+}
+
+.se2-video-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }

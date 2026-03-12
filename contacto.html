@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>universidad de huánuco | contacto</title>
-  <link rel="icon" type="image/png" href="./assets/img/logo 2.png" />
+  <title>UDH - Contacto</title>
+  <link rel="icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="shortcut icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/app.css" />
@@ -31,7 +33,6 @@
 
   <style>
     :root{
-      /* fallback por si js aún no calcula */
       --nav-h: 76px;
       --nav-gap: 18px;
     }
@@ -46,8 +47,6 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(61,60,59,0.16);
     }
-
-    /* para que los anchors no se vayan debajo del navbar */
     .scroll-mt-nav{
       scroll-margin-top: calc(var(--nav-h) + var(--nav-gap));
     }
@@ -148,7 +147,6 @@
 
   <div id="navbar-container"></div>
 
-  <!-- antes era pt-24, eso generaba el hueco -->
   <main id="main">
     <section class="grid lg:grid-cols-[360px_1fr] min-h-screen">
 
@@ -345,14 +343,14 @@
   <div id="footer-container"></div>
 
   <script>
-    // calcula altura real del navbar y elimina el "hueco" en todas las secciones
+    
     (function(){
       const nav = document.getElementById('navbar');
 
       const setNavH = () => {
         const h = nav ? nav.offsetHeight : 76;
         document.documentElement.style.setProperty('--nav-h', h + 'px');
-        // aplico el padding-top al main sin tailwind
+    
         const main = document.getElementById('main');
         if(main) main.style.paddingTop = 'var(--nav-h)';
       };
@@ -360,7 +358,7 @@
       setNavH();
       window.addEventListener('resize', setNavH);
     })();
-    // marcar activo según sección visible
+
     (function(){
       const links = [...document.querySelectorAll('#side a[href^="#"]')];
       const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
@@ -371,19 +369,19 @@
 
       let manualClick = false;
 
-      // Al hacer click manual, marcar activo inmediatamente y bloquear el observer brevemente
+      
       links.forEach(a => {
         a.addEventListener('click', () => {
           manualClick = true;
           links.forEach(x => x.classList.remove('is-active'));
           a.classList.add('is-active');
-          // Desbloquear observer después de que el scroll termina (~800ms)
+          
           setTimeout(() => { manualClick = false; }, 800);
         });
       });
 
       const obs = new IntersectionObserver((entries)=>{
-        if (manualClick) return; // ignorar mientras el usuario hizo click
+        if (manualClick) return;
 
         const visible = entries
           .filter(e => e.isIntersecting)

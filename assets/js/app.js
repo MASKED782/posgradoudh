@@ -1,5 +1,3 @@
-/**
- * UDH Posgrado — app.js
 /* =========================
    Helpers
 ========================= */
@@ -13,13 +11,12 @@ async function loadComponent(id, file) {
     return;
   }
 
-  // Si ya tiene contenido (navbar inline), no sobreescribir
   if (container.innerHTML.trim() !== "") {
     console.log(`[loadComponent] "${id}" ya tiene contenido, se omite fetch.`);
     return;
   }
 
-  // Protocolo file:// no soporta fetch — avisar claramente
+  
   if (window.location.protocol === "file:") {
     console.error(
       `[loadComponent] Estás abriendo el archivo con file://. ` +
@@ -59,7 +56,7 @@ function initNavbar() {
     window.location.pathname.endsWith("/");
 
   /* =========================
-     1️⃣ ESTILO (index vs internas)
+    ESTILO
   ========================= */
 
   if (!isIndex) {
@@ -97,7 +94,7 @@ function initNavbar() {
 
   
   /* =========================
-     2️⃣ DROPDOWNS (SIEMPRE)
+    DROPDOWNS 
   ========================= */
 
   const ofertaBtn = document.getElementById("ofertaBtn");
@@ -142,7 +139,7 @@ function initDrawer() {
     if (!drawer) return;
     drawer.classList.remove("hidden");
     document.body.style.overflow = "hidden";
-    if (btn) btn.innerHTML = "&#10005;"; // cambia a ✕
+    if (btn) btn.innerHTML = "&#10005;"; 
   }
 
   function closeDrawer() {
@@ -151,7 +148,7 @@ function initDrawer() {
     if (!drawer) return;
     drawer.classList.add("hidden");
     document.body.style.overflow = "";
-    if (btn) btn.innerHTML = "&#9776;"; // vuelve a ☰
+    if (btn) btn.innerHTML = "&#9776;"; 
   }
 
   function isDrawerOpen() {
@@ -159,7 +156,7 @@ function initDrawer() {
     return drawer && !drawer.classList.contains("hidden");
   }
 
-  // Delegación de eventos en document — no depende del timing del DOM
+  
   document.addEventListener("click", (e) => {
     if (e.target.closest("#menuBtn")) {
       isDrawerOpen() ? closeDrawer() : openDrawer();
@@ -175,7 +172,7 @@ function initDrawer() {
 }
 
 /* =========================
-   Smooth scroll (con offset por navbar fijo)
+   Smooth scroll
 ========================= */
 function initSmoothAnchors() {
   const navbar = $("#navbar");
@@ -194,7 +191,6 @@ function initSmoothAnchors() {
       const y = window.scrollY + target.getBoundingClientRect().top - getOffset();
       window.scrollTo({ top: y, behavior: "smooth" });
 
-      // cerrar drawer si estaba abierto
       const drawer = $("#drawerOverlay");
       if (drawer && !drawer.classList.contains("hidden")) {
         drawer.classList.add("hidden");
@@ -283,7 +279,7 @@ function initHeroReadMore() {
 }
 
 /* =========================
-   Maestrías — menciones y Ventana Emergente
+   Maestrías
 ========================= */
 function initMentions() {
   // INGENIERIA
@@ -306,10 +302,10 @@ function initMentions() {
   cards.forEach((btn, index) => {
     btn.addEventListener("click", () => {
       setActive(index);
-      // Si es el botón de Ingeniería (índice 0), abrir modal
+     
       if (index === 0) {
         ingenieriaModal?.classList.remove("hidden");
-        document.body.style.overflow = "hidden"; // Congelar scroll
+        document.body.style.overflow = "hidden"; 
       }
     });
   });
@@ -319,19 +315,19 @@ function initMentions() {
   const btnAdmin = document.querySelector('.mention-card[data-index="1"]');
   const closeAdminBtn = document.getElementById("closeAdminModal");
 
-  // Abrir modal de Administración
+  
   btnAdmin?.addEventListener("click", () => {
     adminModal?.classList.remove("hidden");
     document.body.style.overflow = "hidden";
   });
 
-  // Cerrar modal de Administración
+  
   closeAdminBtn?.addEventListener("click", () => {
     adminModal?.classList.add("hidden");
     document.body.style.overflow = "";
   });
 
-  // Cerrar al hacer clic en el fondo oscuro
+  
   adminModal?.addEventListener("click", (e) => {
     if (e.target === adminModal) {
       adminModal.classList.add("hidden");
@@ -354,7 +350,7 @@ function initMentions() {
     document.body.style.overflow = "";
   });
 
-  // Cerrar al hacer clic en el fondo
+
   educacionModal?.addEventListener("click", (e) => {
     if (e.target === educacionModal) {
       educacionModal.classList.add("hidden");
@@ -369,15 +365,15 @@ function initMentions() {
 
   btnSalud?.addEventListener("click", () => {
     saludModal?.classList.remove("hidden");
-    document.body.style.overflow = "hidden"; // Bloquea scroll
+    document.body.style.overflow = "hidden"; 
   });
 
   closeSaludBtn?.addEventListener("click", () => {
     saludModal?.classList.add("hidden");
-    document.body.style.overflow = ""; // Libera scroll
+    document.body.style.overflow = ""; 
   });
 
-  // Cerrar al hacer clic en el fondo
+  
   saludModal?.addEventListener("click", (e) => {
     if (e.target === saludModal) {
       saludModal.classList.add("hidden");
@@ -392,15 +388,14 @@ function initMentions() {
 
   btnDerecho?.addEventListener("click", () => {
     derechoModal?.classList.remove("hidden");
-    document.body.style.overflow = "hidden"; // Bloquea scroll
+    document.body.style.overflow = "hidden"; 
   });
 
   closeDerechoBtn?.addEventListener("click", () => {
     derechoModal?.classList.add("hidden");
-    document.body.style.overflow = ""; // Libera scroll
+    document.body.style.overflow = ""; 
   });
 
-  // Cerrar al hacer clic en el fondo
   derechoModal?.addEventListener("click", (e) => {
     if (e.target === derechoModal) {
       derechoModal.classList.add("hidden");
@@ -408,26 +403,22 @@ function initMentions() {
     }
   });
 
-  // Lógica de las FLECHAS (Navegación circular)
   arrows.forEach((arrow) => {
     arrow.addEventListener("click", (e) => {
-      e.preventDefault(); // Evita comportamiento por defecto
-      e.stopImmediatePropagation(); // IMPORTANTE: Evita que el clic se dispare dos veces
+      e.preventDefault(); 
+      e.stopImmediatePropagation();
       
-      const dir = Number(arrow.dataset.dir); // -1 o 1
+      const dir = Number(arrow.dataset.dir); 
       const activeIdx = cards.findIndex((c) => c.classList.contains("active"));
       
-      // Cálculo lineal de 1 en 1
       let next = activeIdx + dir;
       
-      // Lógica circular para que nunca se "rompa"
       if (next < 0) {
-        next = cards.length - 1; // Si estás en el primero, vuelve al último
+        next = cards.length - 1; 
       } else if (next >= cards.length) {
-        next = 0; // Si estás en el último, vuelve al primero
+        next = 0; 
       }
       
-      // Ejecutamos la activación una única vez
       setActive(next);
       
       if (next === 0) {
@@ -439,10 +430,9 @@ function initMentions() {
     });
   });
 
-  // 4. Lógica de Cierre
   const closeModal = () => {
     ingenieriaModal?.classList.add("hidden");
-    document.body.style.overflow = ""; // Restaurar scroll
+    document.body.style.overflow = ""; 
   };
 
   closeBtn?.addEventListener("click", closeModal);
@@ -451,12 +441,11 @@ function initMentions() {
   });
 }
 
-// IMPORTANTE: Asegúrate de llamar a la función al cargar
 document.addEventListener('DOMContentLoaded', initMentions);
 
 
 /* =========================
-   Doctorados — 3 programas dinámicos (pills)
+   Doctorados 
 ========================= */
 const phdPrograms = [
   {
@@ -573,7 +562,7 @@ function initDoctoradosModals() {
 }
 
 /* =========================
-   Segunda Especialidad — 2 programas dinámicos (pills)
+   Segunda Especialidad 
 ========================= */
 const sePrograms = [
   {
@@ -772,7 +761,7 @@ function initWelcomeModal() {
 
   if (!modal || !closeBtn || !image) return;
 
-  // Mostrar siempre al cargar
+  
   modal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
 

@@ -1,207 +1,209 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>universidad de huánuco | requisitos</title>
-<link rel="icon" type="image/png" href="../assets/img/logo 2.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/app.css" />
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UDH - Requisitos</title>
+  <link rel="icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="shortcut icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/icon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-  :root{ --nav-h: 80px; }
+  <style>
+    :root{ --nav-h: 80px; }
 
-  body{ background:#faf7f0; }
+    body{ background:#faf7f0; }
 
-  .gradient-primary{
-    background: linear-gradient(135deg, #ecc138 0%, #5a9e8d 100%);
-  }
+    .gradient-primary{
+      background: linear-gradient(135deg, #ecc138 0%, #5a9e8d 100%);
+    }
 
-  #navbar{ transition:.3s ease; }
-  #navbar.is-scrolled{
-    background:rgba(250,247,240,.95);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(61,60,59,.16);
-  }
+    #navbar{ transition:.3s ease; }
+    #navbar.is-scrolled{
+      background:rgba(250,247,240,.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(61,60,59,.16);
+    }
 
-  /* sidebar link */
-  .req-link{
-    display:block;
-    width:100%;
-    text-align:left;
-    padding:12px 16px;
-    border-radius:14px;
-    font-weight:700;
-    color:rgba(255,255,255,.75);
-    transition:.2s ease;
-    cursor:pointer;
-    user-select:none;
-  }
-  .req-link:hover{
-    background:rgba(255,255,255,.1);
-    color:#fff;
-  }
-  .req-link.is-active{
-    background:rgba(90,158,141,.35);
-    color:#fff;
-  }
+    /* sidebar link */
+    .req-link{
+      display:block;
+      width:100%;
+      text-align:left;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:700;
+      color:rgba(255,255,255,.75);
+      transition:.2s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .req-link:hover{
+      background:rgba(255,255,255,.1);
+      color:#fff;
+    }
+    .req-link.is-active{
+      background:rgba(90,158,141,.35);
+      color:#fff;
+    }
 
-  /* visor card */
-  .viewer-card{
-    background:white;
-    border-radius:24px;
-    padding:30px;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-    border:1px solid rgba(61,60,59,.12);
-  }
+    /* visor card */
+    .viewer-card{
+      background:white;
+      border-radius:24px;
+      padding:30px;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
+      border:1px solid rgba(61,60,59,.12);
+    }
 
-  /* MOBILE DROPDOWN */
-  .mobile-nav-select {
-    display: none;
-    position: relative;
-    margin-bottom: 24px;
-  }
+    /* MOBILE DROPDOWN */
+    .mobile-nav-select {
+      display: none;
+      position: relative;
+      margin-bottom: 24px;
+    }
 
-  .mobile-nav-btn {
-    width: 100%;
-    padding: 14px 18px;
-    background: #3d3c3b;
-    color: #fff;
-    border: none;
-    border-radius: 14px;
-    font-size: 15px;
-    font-weight: 700;
-    font-family: inherit;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  }
+    .mobile-nav-btn {
+      width: 100%;
+      padding: 14px 18px;
+      background: #3d3c3b;
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
 
-  .mobile-nav-btn .chevron {
-    font-size: 18px;
-    transition: transform 0.2s ease;
-    opacity: 0.7;
-  }
-  .mobile-nav-btn .chevron.open {
-    transform: rotate(180deg);
-  }
+    .mobile-nav-btn .chevron {
+      font-size: 18px;
+      transition: transform 0.2s ease;
+      opacity: 0.7;
+    }
+    .mobile-nav-btn .chevron.open {
+      transform: rotate(180deg);
+    }
 
-  .mobile-nav-menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0; right: 0;
-    background: #3d3c3b;
-    border-radius: 14px;
-    overflow: hidden;
-    z-index: 100;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-  }
-  .mobile-nav-menu.is-open {
-    display: block;
-  }
+    .mobile-nav-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0; right: 0;
+      background: #3d3c3b;
+      border-radius: 14px;
+      overflow: hidden;
+      z-index: 100;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+    }
+    .mobile-nav-menu.is-open {
+      display: block;
+    }
 
-  .mobile-nav-option {
-    display: block;
-    width: 100%;
-    padding: 13px 18px;
-    background: none;
-    border: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.75);
-    font-size: 14px;
-    font-weight: 700;
-    font-family: inherit;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-  }
-  .mobile-nav-option:last-child { border-bottom: none; }
-  .mobile-nav-option:hover { background: rgba(255,255,255,0.08); color: #fff; }
-  .mobile-nav-option.is-active { background: rgba(90,158,141,0.30); color: #fff; }
+    .mobile-nav-option {
+      display: block;
+      width: 100%;
+      padding: 13px 18px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .mobile-nav-option:last-child { border-bottom: none; }
+    .mobile-nav-option:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .mobile-nav-option.is-active { background: rgba(90,158,141,0.30); color: #fff; }
 
-  @media (max-width: 1023px) {
-    .mobile-nav-select { display: block; }
-  }
-</style>
+    @media (max-width: 1023px) {
+      .mobile-nav-select { display: block; }
+    }
+  </style>
 </head>
 
 <body class="font-sans text-[#3d3c3b]">
 
   <div id="navbar-container"></div>
 
-  <main style="padding-top: var(--nav-h);">
-    <section class="grid lg:grid-cols-[340px_1fr] min-h-screen">
+    <main style="padding-top: var(--nav-h);">
+      <section class="grid lg:grid-cols-[340px_1fr] min-h-screen">
 
-      <!-- sidebar desktop -->
-      <aside class="hidden lg:flex flex-col justify-between bg-[#3d3c3b] text-white p-10 sticky overflow-y-auto"
-             style="top: var(--nav-h); height: calc(100vh - var(--nav-h));">
-        <div>
-          <p class="text-xs tracking-widest text-white/50">Repositorio</p>
-          <h2 class="text-3xl font-extrabold mt-4">Requisitos<br>posgrado</h2>
+        <!-- sidebar desktop -->
+        <aside class="hidden lg:flex flex-col justify-between bg-[#3d3c3b] text-white p-10 sticky overflow-y-auto"
+              style="top: var(--nav-h); height: calc(100vh - var(--nav-h));">
+          <div>
+            <p class="text-xs tracking-widest text-white/50">Repositorio</p>
+            <h2 class="text-3xl font-extrabold mt-4">Requisitos<br>posgrado</h2>
 
-          <nav class="mt-8 space-y-2" id="reqnav">
-            <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitos_maestrias.pdf">Maestrías</button>
-            <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitos_doctorado.pdf">Doctorados</button>
-            <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitossegundaespecialidad.pdf">Segunda especialidad</button>
-          </nav>
-        </div>
+            <nav class="mt-8 space-y-2" id="reqnav">
+              <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitos_maestrias.pdf">Maestrías</button>
+              <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitos_doctorado.pdf">Doctorados</button>
+              <button type="button" class="req-link" data-pdf="./assets/pdf/requisitos/requisitossegundaespecialidad.pdf">Segunda especialidad</button>
+            </nav>
+          </div>
 
-        <div class="mt-10">
-          <p class="text-xs text-white/50">© 2026 universidad de huánuco — posgrado</p>
-        </div>
-      </aside>
+          <div class="mt-10">
+            <p class="text-xs text-white/50">© 2026 universidad de huánuco — posgrado</p>
+          </div>
+        </aside>
 
-      <!-- contenido derecho -->
-      <div class="p-6 lg:p-10 max-w-5xl">
-        <h1 class="text-5xl font-extrabold">Requisitos</h1>
-        <div class="w-16 h-2 bg-[#5a9e8d] rounded mt-4"></div>
+        <!-- contenido derecho -->
+        <div class="p-6 lg:p-10 max-w-5xl">
+          <h1 class="text-5xl font-extrabold">Requisitos</h1>
+          <div class="w-16 h-2 bg-[#5a9e8d] rounded mt-4"></div>
 
-        <!-- DROPDOWN MÓVIL -->
-        <div class="mobile-nav-select mt-8" id="mobileReqNav">
-          <button class="mobile-nav-btn" id="mobileReqBtn" type="button">
-            <span id="mobileReq_label">Selecciona una categoría</span>
-            <span class="chevron" id="mobileReq_chevron">▾</span>
-          </button>
-          <div class="mobile-nav-menu" id="mobileReq_menu">
-            <button class="mobile-nav-option" data-pdf="./assets/pdf/requisitos/requisitos_maestrias.pdf">Maestrías</button>
-            <button class="mobile-nav-option" data-pdf="./assets/pdf/requisitos/requisitos_doctorado.pdf">Doctorados</button>
-            <button class="mobile-nav-option" data-pdf="./assets/pdf/requisitos/requisitossegundaespecialidad.pdf">Segunda especialidad</button>
+          <!-- DROPDOWN MÓVIL -->
+          <div class="mobile-nav-select mt-8" id="mobileReqNav">
+            <button class="mobile-nav-btn" id="mobileReqBtn" type="button">
+              <span id="mobileReq_label">Selecciona una categoría</span>
+              <span class="chevron" id="mobileReq_chevron">▾</span>
+            </button>
+            <div class="mobile-nav-menu" id="mobileReq_menu">
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/requisitos/requisitos_maestrias.pdf">Maestrías</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/requisitos/requisitos_doctorado.pdf">Doctorados</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/requisitos/requisitossegundaespecialidad.pdf">Segunda especialidad</button>
+            </div>
+          </div>
+
+          <div class="viewer-card mt-6 lg:mt-10">
+            <div id="pdfcontainer" class="w-full h-[70vh] min-h-[520px] bg-gray-100 rounded-xl flex items-center justify-center text-gray-500">
+              Selecciona un requisito del panel izquierdo
+            </div>
+
+            <div class="mt-8 text-center">
+              <a id="downloadbtn"
+                href=""
+                target="_blank"
+                rel="noopener"
+                class="hidden inline-flex items-center justify-center gap-3
+                        bg-[#5a9e8d] hover:bg-[#4c8778]
+                        text-white font-semibold
+                        px-8 py-3 rounded-full
+                        shadow-md hover:shadow-lg
+                        transition-all duration-300">
+                descargar pdf
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentcolor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 16v-8m0 8l-3-3m3 3l3-3m-10 7h14"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="viewer-card mt-6 lg:mt-10">
-          <div id="pdfcontainer" class="w-full h-[70vh] min-h-[520px] bg-gray-100 rounded-xl flex items-center justify-center text-gray-500">
-            Selecciona un requisito del panel izquierdo
-          </div>
-
-          <div class="mt-8 text-center">
-            <a id="downloadbtn"
-               href=""
-               target="_blank"
-               rel="noopener"
-               class="hidden inline-flex items-center justify-center gap-3
-                      bg-[#5a9e8d] hover:bg-[#4c8778]
-                      text-white font-semibold
-                      px-8 py-3 rounded-full
-                      shadow-md hover:shadow-lg
-                      transition-all duration-300">
-              descargar pdf
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentcolor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 16v-8m0 8l-3-3m3 3l3-3m-10 7h14"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </main>
+      </section>
+    </main>
 
   <div id="footer-container"></div>
 
