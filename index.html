@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,8 +10,7 @@
   <link rel="apple-touch-icon" href="assets/img/icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/app.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -21,123 +19,72 @@
         extend: {
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
           colors: {
-            jet: '#3D3C3B',
-            zomp: '#5A9E8D',
-            saffron: '#ECC138',
-            primary: '#ECC138',
-            background: '#FAF7F0',
-            card: 'rgba(255,255,255,0.72)',
-            border: 'rgba(61,60,59,0.16)',
-            muted: 'rgba(90,158,141,0.10)',
-            foreground: '#3D3C3B',
-            'muted-foreground': 'rgba(61,60,59,0.72)',
-            'primary-foreground': '#3D3C3B'
+            jet: '#3D3C3B', zomp: '#5A9E8D', saffron: '#ECC138', primary: '#ECC138',
+            background: '#FAF7F0', card: 'rgba(255,255,255,0.72)', border: 'rgba(61,60,59,0.16)',
+            muted: 'rgba(90,158,141,0.10)', foreground: '#3D3C3B',
+            'muted-foreground': 'rgba(61,60,59,0.72)', 'primary-foreground': '#3D3C3B'
           },
           boxShadow: { soft: '0 12px 30px rgba(61,60,59,0.22)' }
         }
       }
     }
   </script>
-
   <style>
-    .hero-title-line {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero-title-line-inner {
-      display: inline-block;
-      will-change: transform, opacity;
-    }
-
-    .hero-parallax-bg {
-      will-change: transform;
-      transform: scale(1.04);
-    }
-
-    .hero-btn,
-    .masters-video-btn,
-    .doc-video-btn,
-    .se2-video-btn,
-    .masters-panel,
-    .doc-panel,
-    .se2-panel,
-    .mention-card,
-    .doc-card,
-    .se-card,
-    .why-card {
-      will-change: transform, opacity;
-    }
-
-    .hero-btn,
-    .masters-video-btn,
-    .doc-video-btn,
-    .se2-video-btn {
-      transition: transform .28s ease, box-shadow .28s ease, filter .28s ease, background-color .28s ease, border-color .28s ease;
-    }
-
-    .hero-btn:hover,
-    .masters-video-btn:hover,
-    .doc-video-btn:hover,
-    .se2-video-btn:hover {
-      transform: translateY(-3px);
-      filter: brightness(1.03);
-    }
-
-    .hero-btn:active,
-    .masters-video-btn:active,
-    .doc-video-btn:active,
-    .se2-video-btn:active {
-      transform: translateY(-1px) scale(.99);
-    }
-
-    .hero-btn-primary:hover {
-      box-shadow: 0 16px 34px rgba(236, 193, 56, 0.28);
-    }
-
-    .hero-btn-ghost:hover {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
-    }
-
-    .hero-stat {
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-    }
-
-    .hero-stat:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, .14);
-    }
+    .hero-title-line { display: block; overflow: hidden; }
+    .hero-title-line-inner { display: inline-block; will-change: transform, opacity; }
+    .hero-parallax-bg { will-change: transform; transform: scale(1.04); }
+    .hero-btn,.masters-video-btn,.doc-video-btn,.se2-video-btn,.masters-panel,.doc-panel,.se2-panel,.mention-card,.doc-card,.se-card,.why-card { will-change: transform, opacity; }
+    .hero-btn,.masters-video-btn,.doc-video-btn,.se2-video-btn { transition: transform .28s ease, box-shadow .28s ease, filter .28s ease, background-color .28s ease, border-color .28s ease; }
+    .hero-btn:hover,.masters-video-btn:hover,.doc-video-btn:hover,.se2-video-btn:hover { transform: translateY(-3px); filter: brightness(1.03); }
+    .hero-btn:active,.masters-video-btn:active,.doc-video-btn:active,.se2-video-btn:active { transform: translateY(-1px) scale(.99); }
+    .hero-btn-primary:hover { box-shadow: 0 16px 34px rgba(236,193,56,0.28); }
+    .hero-btn-ghost:hover { box-shadow: 0 14px 28px rgba(0,0,0,0.14); }
+    .hero-stat { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+    .hero-stat:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0,0,0,.14); }
   </style>
-
 </head>
+<body class="font-sans bg-background text-foreground has-top-admission">
 
-<body class="font-sans bg-background text-foreground">
+
+<!-- BARRA DE ADMISIÓN DESTACADA -->
+<div class="top-admission-bar" aria-label="Accesos rápidos de admisión posgrado UDH">
+  <span class="top-admission-badge">ADMISIÓN ABIERTA</span>
+  <span class="top-admission-text">
+    Portal del postulante de Posgrado disponible. Haz tu inscripción aquí.
+  </span>
+
+  <div class="top-admission-actions">
+    <a
+      href="requisitos.html"
+      class="top-admission-cta top-admission-cta-secondary"
+      aria-label="Ir a la página de requisitos"
+    >
+      Ver requisitos
+    </a>
+
+    <a
+      href="https://portalpostulante.udh.edu.pe/posgrado/inscripcion"
+      target="_blank"
+      rel="noopener"
+      class="top-admission-cta"
+      aria-label="Ir al portal de inscripción de admisión posgrado UDH"
+    >
+      Inscribirme ahora
+    </a>
+  </div>
+</div>
 
   <!-- VENTANA PUBLICITARIA -->
   <div id="welcome-modal" class="fixed inset-0 z-[9999] hidden bg-black/70">
     <div class="w-full h-full flex items-center justify-center p-4 sm:p-5">
       <div id="welcome-box" class="relative modal-anuncio max-w-[92vw] sm:max-w-[85vw] md:max-w-3xl lg:max-w-4xl">
-        <button
-          id="close-welcome-modal"
-          class="absolute -top-3 -right-3 z-10 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-black text-2xl font-bold shadow-lg hover:scale-110 transition"
-          aria-label="Cerrar"
-          type="button"
-        >
-          &times;
-        </button>
-
-        <img
-          id="welcome-image"
-          src="assets/img/Flyer EPG ADMISIÓN 2026-1.png"
-          alt="Anuncio Posgrado UDH"
-          class="block w-auto max-w-full max-h-[82vh] sm:max-h-[85vh] rounded-2xl shadow-2xl cursor-pointer object-contain"
-        />
+        <button id="close-welcome-modal" class="absolute -top-3 -right-3 z-10 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-black text-2xl font-bold shadow-lg hover:scale-110 transition" aria-label="Cerrar" type="button">&times;</button>
+        <img id="welcome-image" src="assets/img/Flyer EPG ADMISIÓN 2026-1.png" alt="Anuncio Posgrado UDH" class="block w-auto max-w-full max-h-[82vh] sm:max-h-[85vh] rounded-2xl shadow-2xl cursor-pointer object-contain" />
       </div>
     </div>
   </div>
 
   <!-- NAVBAR -->
-
   <div id="navbar-container"></div>
 
   <!-- HERO -->
@@ -146,7 +93,6 @@
       <img src="assets/img/fondo1.JPG" alt="" class="hero-parallax-bg" />
       <div class="hero-overlay"></div>
     </div>
-
     <div class="hero-inner container mx-auto px-4">
       <div class="hero-max">
         <h1 class="hero-title hero-animate-title" aria-label="LLEVA TU DESARROLLO ACADÉMICO Y PROFESIONAL AL SIGUIENTE NIVEL">
@@ -154,77 +100,47 @@
           <span class="hero-title-line"><span class="hero-title-line-inner">ACADÉMICO Y PROFESIONAL</span></span>
           <span class="hero-title-line hero-title-soft"><span class="hero-title-line-inner">AL SIGUIENTE NIVEL</span></span>
         </h1>
-
         <div class="hero-text-wrap hero-animate-text">
           <p class="hero-subtitle" id="heroSubtitle">
-            <span class="hero-text-short">
-              Transforma tu experiencia en liderazgo y competitividad.
-            </span>
-            <span class="hero-text-more">
-              Con nuestra oferta de maestrías, doctorados y certificaciones, alcanzarás nuevos estándares de excelencia para destacar en el mercado global.
-            </span>
+            <span class="hero-text-short">Transforma tu experiencia en liderazgo y competitividad.</span>
+            <span class="hero-text-more">Con nuestra oferta de maestrías, doctorados y certificaciones, alcanzarás nuevos estándares de excelencia para destacar en el mercado global.</span>
           </p>
-
-          <button type="button" class="hero-readmore" id="heroReadMoreBtn">
-            Leer más
-          </button>
+          <button type="button" class="hero-readmore" id="heroReadMoreBtn">Leer más</button>
         </div>
-
         <div class="hero-actions hero-animate-actions">
-          <a href="https://wa.me/message/FIMXSUMKAWMPH1" class="hero-btn hero-btn-primary">Conversa con un Asesor</a>
+          <a href="https://portalpostulante.udh.edu.pe/posgrado/inscripcion" target="_blank" rel="noopener" class="hero-btn hero-btn-primary">Inscríbete ahora</a>
+          <a href="https://wa.me/message/FIMXSUMKAWMPH1" class="hero-btn hero-btn-ghost">Conversa con un Asesor</a>
           <button id="brochureBtn" class="hero-btn hero-btn-ghost" type="button">Ver anuncio</button>
           <button id="openPdfModal" class="hero-btn hero-btn-ghost" type="button">Ver brochure</button>
         </div>
-
         <div class="hero-stats hero-animate-card">
+          <a href="https://portalpostulante.udh.edu.pe/posgrado/inscripcion" target="_blank" rel="noopener" class="hero-stat hero-stat-highlight">
+            <p class="hero-stat-label">ADMISIÓN POSGRADO</p>
+            <p class="hero-stat-value">Accede aquí al Portal del Postulante</p>
+            <span class="hero-stat-link">Ir a inscripción</span>
+          </a>
           <div class="hero-stat">
             <p class="hero-stat-label">EXAMEN DE ADMISIÓN</p>
-            <p class="hero-stat-value">Sábado 28 de Marzo</p>
+            <p class="hero-stat-value">Sábado 28 de marzo</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-    
+
   <!-- MAESTRÍAS -->
   <section id="maestrias" class="masters-section reveal-section">
-    <!-- fondo -->
     <div class="absolute inset-0">
       <img src="assets/img/fondom2.png" alt="Maestrías" class="w-full h-full object-cover" />
       <div class="absolute inset-0 masters-overlay"></div>
     </div>
-
     <div class="relative container mx-auto px-4 z-10">
       <div class="masters-grid">
-
-        <!-- IZQUIERDA -->
         <div class="masters-copy">
           <span class="masters-chip">Modalidad a Distancia</span>
-
-          <h2 class="masters-title">
-            Maestrías
-          </h2>
-
-          <p class="masters-subtitle">
-            Selecciona una facultad para ver las menciones disponibles.
-          </p>
-          <!-- 
-          <div class="masters-video-wrap">
-            <a
-              href="https://youtu.be/Ik7irLhWsyU"
-              target="_blank"
-              class="masters-video-btn"
-              aria-label="Ver video promocional en YouTube"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="masters-video-icon">
-                <path d="M23.5 6.2a2.97 2.97 0 0 0-2.09-2.1C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.41.6A2.97 2.97 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 2.97 2.97 0 0 0 2.09 2.1c1.87.6 9.41.6 9.41.6s7.54 0 9.41-.6a2.97 2.97 0 0 0 2.09-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.75 15.5v-7l6 3.5-6 3.5Z"/>
-              </svg>
-              Ver video
-            </a>
-          </div>
-          -->
+          <h2 class="masters-title">Maestrías</h2>
+          <p class="masters-subtitle">Selecciona una facultad para ver las menciones disponibles.</p>
           <div class="mentions-row relative">
-            
             <button class="mention-arrow" type="button" data-dir="-1">‹</button>
             <div id="mentionsTrack" class="mentions-track">
               <button class="mention-card active" type="button" data-index="0">INGENIERIA</button>
@@ -233,630 +149,313 @@
               <button class="mention-card" type="button" data-index="3">CIENCIAS DE LA SALUD</button>
               <button class="mention-card" type="button" data-index="4">DERECHO Y CIENCIAS POLÍTICAS</button>
             </div>
-
             <button class="mention-arrow" type="button" data-dir="1">›</button>
-
-              <div id="ingenieriaModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
-                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-                
-                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
-                  <div class="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <p class="m-0 text-white/70 font-bold">Maestría</p>
-                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ingeniería</h3>
-                    </div>
-                    <button id="closeIngenieriaModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 6 6 18M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border border-white/20 text-white">
-                      <thead class="bg-white/5">
-                        <tr>
-                          <th class="p-3 border border-white/20 font-bold text-sm">Menciones</th>
-                          <th class="p-3 border border-white/20 font-bold text-sm text-center">Pensión</th>
-                          <th class="p-3 border border-white/20 font-bold text-sm text-center">Matrícula</th>
-                        </tr>
-                      </thead>
-                      <tbody class="text-white/90">
-                        <tr>
-                          <td class="p-3 border border-white/20 leading-snug">Gerencia en Sistemas y Tecnologías de Información</td>
-                          <td class="p-3 border border-white/20 text-center font-medium">S/.401.12</td>
-                          <td class="p-3 border border-white/20 text-center font-medium">S/.157.50</td>
-                        </tr>
-                        <tr>
-                          <td class="p-3 border border-white/20 leading-snug">Gestión Ambiental y Desarrollo Sostenible</td>
-                          <td class="p-3 border border-white/20 text-center font-medium">S/.401.12</td>
-                          <td class="p-3 border border-white/20 text-center font-medium">S/.157.50</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
-                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
-                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div id="adminModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
-                  <div class="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <p class="m-0 text-white/70 font-bold">Maestría</p>
-                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias Administrativas</h3>
-                    </div>
-                    <button id="closeAdminModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
-                    </button>
-                  </div>
-                  <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border border-white/20 text-white">
-                      <thead class="bg-white/5">
-                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
-                      </thead>
-                      <tbody class="text-white/90">
-                        <tr><td class="p-3 border border-white/20">Gestión Pública</td><td class="p-3 border border-white/20 text-center">S/.467.96</td><td class="p-3 border border-white/20 text-center">S/.183.75</td></tr>
-                        <tr><td class="p-3 border border-white/20">Auditoría y Tributación</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
-                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
-                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div id="educacionModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
-                  <div class="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <p class="m-0 text-white/70 font-bold">Maestría</p>
-                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Educación</h3>
-                    </div>
-                    <button id="closeEducacionModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
-                    </button>
-                  </div>
-                  <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border border-white/20 text-white">
-                      <thead class="bg-white/5">
-                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
-                      </thead>
-                      <tbody class="text-white/90">
-                        <tr><td class="p-3 border border-white/20">Docencia en Educación Superior e Investigación</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                        <tr><td class="p-3 border border-white/20">Docencia y Gerencia Educativa</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                        <tr><td class="p-3 border border-white/20">Psicología Educativa</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
-                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
-                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div id="saludModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
-                  <div class="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <p class="m-0 text-white/70 font-bold">Maestría</p>
-                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Salud</h3>
-                    </div>
-                    <button id="closeSaludModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
-                    </button>
-                  </div>
-                  <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border border-white/20 text-white">
-                      <thead class="bg-white/5">
-                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
-                      </thead>
-                      <tbody class="text-white/90">
-                        <tr><td class="p-3 border border-white/20">Salud Pública y Docencia Universitaria</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                        <tr><td class="p-3 border border-white/20">Odontoestomatología</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                        <tr><td class="p-3 border border-white/20">Gerencia en Servicios de Salud</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
-                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
-                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div id="derechoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-                <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl">
-                  <div class="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <p class="m-0 text-white/70 font-bold">Maestría</p>
-                      <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Derecho y Ciencias Políticas</h3>
-                    </div>
-                    <button id="closeDerechoModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
-                    </button>
-                  </div>
-                  <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse border border-white/20 text-white">
-                      <thead class="bg-white/5">
-                        <tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pension</th><th class="p-3 border border-white/20 text-center">Matricula</th></tr>
-                      </thead>
-                      <tbody class="text-white/90">
-                        <tr><td class="p-3 border border-white/20">Derecho Penal</td><td class="p-3 border border-white/20 text-center">S/.467.96</td><td class="p-3 border border-white/20 text-center">S/.183.75</td></tr>
-                        <tr><td class="p-3 border border-white/20">Derecho Procesal</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                        <tr><td class="p-3 border border-white/20">Derecho Civil y Comercial</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                        <tr><td class="p-3 border border-white/20">Derecho del Trabajo y Seguridad Social</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
-                    <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
-                    <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
-
-        <!-- DERECHA -->
         <div class="masters-panel">
-          <h3 class="masters-panel-title">
-            <span class="masters-accent-bar"></span>
-            Modalidades de Ingreso
-          </h3>
-
+          <h3 class="masters-panel-title"><span class="masters-accent-bar"></span>Modalidades de Ingreso</h3>
           <div class="masters-list">
-            <div class="masters-row">
-              <span>Examen de Admisión General</span>
-              <span class="masters-price">S/ 150.00</span>
-            </div>
-            <div class="masters-row">
-              <span>Traslado Interno</span>
-              <span class="masters-price">S/ 250.00</span>
-            </div>
-            <div class="masters-row">
-              <span>Traslado Externo</span>
-              <span class="masters-price">S/ 350.00</span>
-            </div>
-            <div class="masters-row">
-              <span>Segunda Maestría</span>
-              <span class="masters-price">S/ 150.00</span>
-            </div>
+            <div class="masters-row"><span>Examen de Admisión General</span><span class="masters-price">S/ 150.00</span></div>
+            <div class="masters-row"><span>Traslado Interno</span><span class="masters-price">S/ 250.00</span></div>
+            <div class="masters-row"><span>Traslado Externo</span><span class="masters-price">S/ 350.00</span></div>
+            <div class="masters-row"><span>Segunda Maestría</span><span class="masters-price">S/ 150.00</span></div>
           </div>
-
           <div class="masters-cta">
-            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="masters-btn masters-btn-primary">
-              Ver tasas de pensiones
-            </a>
-
-            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="masters-btn masters-btn-ghost">
-              Ver planes de estudios y malla curricular
-            </a>
+            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="masters-btn masters-btn-primary">Ver tasas de pensiones</a>
+            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="masters-btn masters-btn-ghost">Ver planes de estudios y malla curricular</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-
   <!-- DOCTORADOS -->
   <section id="doctorados" class="doc-section reveal-section">
-    <!-- fondo -->
     <div class="absolute inset-0">
       <img src="assets/img/fondodoc.png" alt="Doctorados" class="w-full h-full object-cover" />
       <div class="absolute inset-0 doc-overlay"></div>
     </div>
-
     <div class="relative container mx-auto px-4 z-10">
       <div class="doc-grid">
-
-        <!-- IZQUIERDA -->
         <div class="doc-copy">
           <span class="doc-chip">Modalidad Presencial</span>
-
           <h2 class="doc-title">Doctorados</h2>
-
-          <p class="doc-subtitle">
-            Selecciona un programa para ver información disponible.
-          </p>
-          <!-- 
-          <div class="masters-video-wrap">
-            <a
-              href="https://youtu.be/Ik7irLhWsyU"
-              target="_blank"
-              class="masters-video-btn"
-              aria-label="Ver video promocional en YouTube"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="masters-video-icon">
-                <path d="M23.5 6.2a2.97 2.97 0 0 0-2.09-2.1C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.41.6A2.97 2.97 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 2.97 2.97 0 0 0 2.09 2.1c1.87.6 9.41.6 9.41.6s7.54 0 9.41-.6a2.97 2.97 0 0 0 2.09-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.75 15.5v-7l6 3.5-6 3.5Z"/>
-              </svg>
-              Ver video
-            </a>
-          </div>
-          -->
+          <p class="doc-subtitle">Selecciona un programa para ver información disponible.</p>
           <div class="doc-mentions">
             <p class="doc-small-label">Selecciona un doctorado:</p>
-
             <div class="doc-row">
               <button class="doc-arrow" type="button" data-dir="-1" aria-label="Anterior">‹</button>
-
-              <div id="phdTrack" class="doc-track">
-                <!-- JS llena aquí los 3 doctorados -->
-              </div>
-
+              <div id="phdTrack" class="doc-track"></div>
               <button class="doc-arrow" type="button" data-dir="1" aria-label="Siguiente">›</button>
             </div>
           </div>
         </div>
-
-        <!-- DERECHA (panel glass) -->
         <div class="doc-panel">
-          <h3 class="doc-panel-title">
-            <span class="doc-accent-bar"></span>
-            Modalidades de Ingreso
-          </h3>
-
+          <h3 class="doc-panel-title"><span class="doc-accent-bar"></span>Modalidades de Ingreso</h3>
           <div class="doc-list">
-            <div class="doc-rowitem">
-              <span>Examen de Admisión General</span>
-              <span class="doc-price">S/ 200.00</span>
-            </div>
-
-            <div class="doc-rowitem">
-              <span>Traslado Interno</span>
-              <span class="doc-price">S/ 250.00</span>
-            </div>
-
-            <div class="doc-rowitem">
-              <span>Traslado Externo</span>
-              <span class="doc-price">S/ 350.00</span>
-            </div>
-
-            <div class="doc-rowitem">
-              <span>Segundo Doctorado</span>
-              <span class="doc-price">S/ 200.00</span>
-            </div>
+            <div class="doc-rowitem"><span>Examen de Admisión General</span><span class="doc-price">S/ 200.00</span></div>
+            <div class="doc-rowitem"><span>Traslado Interno</span><span class="doc-price">S/ 250.00</span></div>
+            <div class="doc-rowitem"><span>Traslado Externo</span><span class="doc-price">S/ 350.00</span></div>
+            <div class="doc-rowitem"><span>Segundo Doctorado</span><span class="doc-price">S/ 200.00</span></div>
           </div>
-
           <div class="doc-cta">
-            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="doc-btn doc-btn-primary">
-              Ver tasas de pensiones
-            </a>
-
-            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="doc-btn doc-btn-ghost">
-              Ver planes de estudios y malla curricular
-            </a>
+            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="doc-btn doc-btn-primary">Ver tasas de pensiones</a>
+            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="doc-btn doc-btn-ghost">Ver planes de estudios y malla curricular</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- SEGUNDA ESPECIALIDAD  -->
+  <!-- SEGUNDA ESPECIALIDAD -->
   <section id="segunda-especialidad" class="se2-section reveal-section">
-    <!-- fondo -->
     <div class="absolute inset-0">
       <img src="assets/img/fondose.png" alt="Segunda Especialidad" class="w-full h-full object-cover" />
       <div class="absolute inset-0 se2-overlay"></div>
     </div>
-
     <div class="relative container mx-auto px-4 z-10">
       <div class="se2-grid">
-
-        <!-- IZQUIERDA -->
         <div class="se2-copy">
           <span class="se2-chip">Modalidad presencial/virtual</span>
-
           <h2 class="se2-title">Segunda Especialidad</h2>
-
-          <p class="se2-subtitle">
-            Selecciona un programa para ver información disponible.
-          </p>
-          <!--  
-          <div class="se2-video-wrap">
-            <a
-              href="https://www.youtube.com/watch?v=3CecBxGEJDA&t=7s"
-              target="_blank"
-              class="se2-video-btn"
-              aria-label="Ver video promocional en YouTube"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="se2-video-icon">
-                <path d="M23.5 6.2a2.97 2.97 0 0 0-2.09-2.1C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.41.6A2.97 2.97 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 2.97 2.97 0 0 0 2.09 2.1c1.87.6 9.41.6 9.41.6s7.54 0 9.41-.6a2.97 2.97 0 0 0 2.09-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.75 15.5v-7l6 3.5-6 3.5Z"/>
-              </svg>
-              Ver video
-            </a>
-          </div>
-          -->
-
+          <p class="se2-subtitle">Selecciona un programa para ver información disponible.</p>
           <div class="se2-mentions">
             <p class="se2-small-label">Selecciona un programa:</p>
-
             <div class="se2-row">
               <button class="se2-arrow" type="button" data-dir="-1" aria-label="Anterior">‹</button>
-
-              <div id="seTrack" class="se2-track">
-                <!-- JS llena aquí los 2 programas -->
-              </div>
-
+              <div id="seTrack" class="se2-track"></div>
               <button class="se2-arrow" type="button" data-dir="1" aria-label="Siguiente">›</button>
             </div>
           </div>
         </div>
-
-        <!-- DERECHA -->
         <div class="se2-panel">
-          <h3 class="se2-panel-title">
-            <span class="se2-accent-bar"></span>
-            Modalidades de Ingreso
-          </h3>
-
+          <h3 class="se2-panel-title"><span class="se2-accent-bar"></span>Modalidades de Ingreso</h3>
           <div class="se2-list">
-            <div class="se2-rowitem">
-              <span>Examen de Admisión General</span>
-              <span class="se2-price">S/ 200.00</span>
-            </div>
-
-            <div class="se2-rowitem">
-              <span>Traslado Externo</span>
-              <span class="se2-price">S/ 350.00</span>
-            </div>
+            <div class="se2-rowitem"><span>Examen de Admisión General</span><span class="se2-price">S/ 200.00</span></div>
+            <div class="se2-rowitem"><span>Traslado Externo</span><span class="se2-price">S/ 350.00</span></div>
           </div>
-
           <div class="se2-cta">
-            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="se2-btn se2-btn-primary">
-              Ver tasas de pensiones
-            </a>
-
-            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="se2-btn se2-btn-ghost">
-              Ver planes de estudios y malla curricular
-            </a>
+            <a href="http://udh.edu.pe/tasas.aspx" target="_blank" class="se2-btn se2-btn-primary">Ver tasas de pensiones</a>
+            <a href="http://www.udh.edu.pe/mallacurricular.aspx" target="_blank" class="se2-btn se2-btn-ghost">Ver planes de estudios y malla curricular</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-<!-- DIPLOMADOS -->
+  <!-- DIPLOMADOS -->
   <section id="diplomados" class="dip-section dip-section--dark reveal-section">
     <div class="dip-bg">
       <img id="dipBgImg" src="assets/img/fondodip.png" alt="Diplomados" />
       <div class="dip-bgOverlay"></div>
     </div>
-
     <div class="relative container mx-auto px-4 z-10">
       <div class="dip-grid">
-        
-        <!-- IZQUIERDA -->
         <div class="dip-copy">
           <span class="dip-kicker">OFERTA ACADÉMICA</span>
           <h2 class="dip-title">Diplomados</h2>
-          <p class="dip-subtitle">
-            Programas orientados al fortalecimiento profesional y al desarrollo de competencias aplicadas.
-          </p>
+          <p class="dip-subtitle">Programas orientados al fortalecimiento profesional y al desarrollo de competencias aplicadas.</p>
         </div>
-
-        <!-- DERECHA -->
         <article class="dip-card dip-card--dark">
           <div class="dip-content">
-            <!-- 
-            <div class="dip-badgeRow">
-              <span class="dip-badge">Certificación</span>
-              <span class="dip-dotSep">•</span>
-              <span class="dip-meta">Modalidad mixta</span>
-            </div>
-            -->
-
-            <h3 class="dip-program">
-              Diplomado en Gestión Estratégica de Proyectos de Desarrollo Social
-            </h3>
-
-            <!-- 
-            <div class="dip-infoGrid">
-              <div class="dip-infoItem">
-                <p class="dip-infoLabel">Duración</p>
-                <p class="dip-infoValue">3 meses</p>
-              </div>
-              <div class="dip-infoItem">
-                <p class="dip-infoLabel">Inicio</p>
-                <p class="dip-infoValue">Próximamente</p>
-              </div>
-              <div class="dip-infoItem">
-                <p class="dip-infoLabel">Horario</p>
-                <p class="dip-infoValue">Flexible</p>
-              </div>
-            </div>
-            -->
+            <h3 class="dip-program">Diplomado en Gestión Estratégica de Proyectos de Desarrollo Social</h3>
             <div class="dip-actions">
-              <!-- <a href="#" class="dip-btn dip-btnPrimary">Ver detalle</a>-->
               <a href="https://wa.me/message/FIMXSUMKAWMPH1" class="dip-btn dip-btnGhost">Hablar con un asesor</a>
             </div>
-
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section> 
-
-  <!-- ¿POR QUÉ ESCOGERNOS? -->
-  <section id="porque-escogernos" class="why-section reveal-section">
-    <div class="why-bg">
-      <div class="why-overlay"></div>
-    </div>
-
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="why-header">
-        <span class="why-chip">VENTAJAS DIFERENCIALES</span>
-        <h2 class="why-title">¿Por qué escogernos?</h2>
-        <p class="why-subtitle">
-          Formamos profesionales con visión actual, respaldo académico y una experiencia de aprendizaje conectada con el mundo real.
-        </p>
-      </div>
-
-      <div class="why-grid">
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="badge-check"></i>
-          </div>
-          <div class="why-content">
-            <h3>Grado Académico reconocido por la SUNEDU</h3>
-            <p>Programas respaldados por reconocimiento oficial y valor académico para tu desarrollo profesional.</p>
-          </div>
-        </article>
-
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="file-badge"></i>
-          </div>
-          <div class="why-content">
-            <h3>Certificación Modular</h3>
-            <p>Certificaciones progresivas que fortalecen tu CV incluso antes de culminar el programa.</p>
-          </div>
-        </article>
-
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="network"></i>
-          </div>
-          <div class="why-content">
-            <h3>Jornadas de Networking</h3>
-            <p>Participa en eventos con referentes nacionales e internacionales y amplía tus oportunidades.</p>
-          </div>
-        </article>
-
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="flask-conical"></i>
-          </div>
-          <div class="why-content">
-            <h3>Acceso a Laboratorios de Innovación</h3>
-            <p>Espacios y recursos orientados a la experimentación, la tecnología y la innovación aplicada.</p>
-          </div>
-        </article>
-
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="globe-2"></i>
-          </div>
-          <div class="why-content">
-            <h3>Seminarios Internacionales</h3>
-            <p>Aprende con experiencias globales, tendencias actuales y enfoques académicos de alcance internacional.</p>
-          </div>
-        </article>
-
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="graduation-cap"></i>
-          </div>
-          <div class="why-content">
-            <h3>Docentes Especialistas</h3>
-            <p>Profesionales con experiencia académica y práctica que conectan la teoría con la realidad profesional.</p>
-          </div>
-        </article>
-
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="refresh-cw"></i>
-          </div>
-          <div class="why-content">
-            <h3>Programas actualizados</h3>
-            <p>Planes de estudio alineados con las demandas del entorno profesional y las nuevas tendencias.</p>
-          </div>
-        </article>
-
-        <article class="why-card">
-          <div class="why-icon">
-            <i data-lucide="lightbulb"></i>
-          </div>
-          <div class="why-content">
-            <h3>Investigación aplicada</h3>
-            <p>Formación orientada al mundo real, con enfoque práctico y soluciones para contextos actuales.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- ¿POR QUÉ ESCOGERNOS? -->
+  <section id="porque-escogernos" class="why-section reveal-section">
+    <div class="why-bg"><div class="why-overlay"></div></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="why-header">
+        <span class="why-chip">VENTAJAS DIFERENCIALES</span>
+        <h2 class="why-title">¿Por qué escogernos?</h2>
+        <p class="why-subtitle">Formamos profesionales con visión actual, respaldo académico y una experiencia de aprendizaje conectada con el mundo real.</p>
+      </div>
+      <div class="why-grid">
+        <article class="why-card"><div class="why-icon"><i data-lucide="badge-check"></i></div><div class="why-content"><h3>Grado Académico reconocido por la SUNEDU</h3><p>Programas respaldados por reconocimiento oficial y valor académico para tu desarrollo profesional.</p></div></article>
+        <article class="why-card"><div class="why-icon"><i data-lucide="file-badge"></i></div><div class="why-content"><h3>Certificación Modular</h3><p>Certificaciones progresivas que fortalecen tu CV incluso antes de culminar el programa.</p></div></article>
+        <article class="why-card"><div class="why-icon"><i data-lucide="network"></i></div><div class="why-content"><h3>Jornadas de Networking</h3><p>Participa en eventos con referentes nacionales e internacionales y amplía tus oportunidades.</p></div></article>
+        <article class="why-card"><div class="why-icon"><i data-lucide="flask-conical"></i></div><div class="why-content"><h3>Acceso a Laboratorios de Innovación</h3><p>Espacios y recursos orientados a la experimentación, la tecnología y la innovación aplicada.</p></div></article>
+        <article class="why-card"><div class="why-icon"><i data-lucide="globe-2"></i></div><div class="why-content"><h3>Seminarios Internacionales</h3><p>Aprende con experiencias globales, tendencias actuales y enfoques académicos de alcance internacional.</p></div></article>
+        <article class="why-card"><div class="why-icon"><i data-lucide="graduation-cap"></i></div><div class="why-content"><h3>Docentes Especialistas</h3><p>Profesionales con experiencia académica y práctica que conectan la teoría con la realidad profesional.</p></div></article>
+        <article class="why-card"><div class="why-icon"><i data-lucide="refresh-cw"></i></div><div class="why-content"><h3>Programas actualizados</h3><p>Planes de estudio alineados con las demandas del entorno profesional y las nuevas tendencias.</p></div></article>
+        <article class="why-card"><div class="why-icon"><i data-lucide="lightbulb"></i></div><div class="why-content"><h3>Investigación aplicada</h3><p>Formación orientada al mundo real, con enfoque práctico y soluciones para contextos actuales.</p></div></article>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <div id="footer-container"></div>
 
+  <!-- ================================================
+       TODOS LOS MODALES AL FINAL DEL BODY
+       (fuera de cualquier sección o contenedor)
+  ================================================ -->
 
-
-  <!-- MODAL BROCHURE -->
+  <!-- MODAL BROCHURE PDF -->
   <div id="pdfModal" class="hidden fixed inset-0 z-[10000] bg-black/80">
     <div class="flex h-full w-full items-center justify-center p-2 sm:p-4">
       <div class="relative h-[95vh] w-[98vw] max-w-6xl rounded-2xl bg-white shadow-2xl overflow-hidden">
-        <button
-          id="closePdfModal"
-          type="button"
-          aria-label="Cerrar brochure"
-          class="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white text-2xl font-bold hover:bg-black"
-        >
-          &times;
-        </button>
-
-        <iframe
-          id="pdfFrame"
-          src="assets/pdf/Brochure/Brochure Admisión Posgrado UDH 2026-1 Oficial.pdf"
-          class="h-full w-full border-0"
-          title="Visor de brochure"
-        ></iframe>
+        <button id="closePdfModal" type="button" aria-label="Cerrar brochure" class="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white text-2xl font-bold hover:bg-black">&times;</button>
+        <iframe id="pdfFrame" src="assets/pdf/Brochure/Brochure Admisión Posgrado UDH 2026-1 Oficial.pdf" class="h-full w-full border-0" title="Visor de brochure"></iframe>
       </div>
     </div>
   </div>
 
-    <!-- MODAL DOCTORADO EN DERECHO -->
-  <div id="doctoradoDerechoModal" class="hidden fixed inset-0 z-[90]">
+  <!-- MODAL MAESTRÍA: INGENIERÍA -->
+  <div id="ingenieriaModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div
-      class="absolute left-1/2 top-1/2 w-[92vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+    <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
       <div class="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <p class="m-0 text-white/70 font-bold">Doctorado</p>
-          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Derecho</h3>
-        </div>
-
-        <button id="closeDoctoradoDerechoModal"
-          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
-          aria-label="Cerrar">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
+        <div><p class="m-0 text-white/70 font-bold">Maestría</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ingeniería</h3></div>
+        <button id="closeIngenieriaModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
-
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse border border-white/20 text-white">
-          <thead class="bg-white/5">
-            <tr>
-              <th class="p-3 border border-white/20">Mención</th>
-              <th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th>
-              <th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th>
-            </tr>
-          </thead>
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20 font-bold text-sm">Menciones</th><th class="p-3 border border-white/20 font-bold text-sm text-center">Pensión</th><th class="p-3 border border-white/20 font-bold text-sm text-center">Matrícula</th></tr></thead>
           <tbody class="text-white/90">
-            <tr>
-              <td class="p-3 border border-white/20">Derecho</td>
-              <td class="p-3 border border-white/20 text-center">S/.534.83</td>
-              <td class="p-3 border border-white/20 text-center">S/.210.00</td>
-            </tr>
+            <tr><td class="p-3 border border-white/20 leading-snug">Gerencia en Sistemas y Tecnologías de Información</td><td class="p-3 border border-white/20 text-center font-medium">S/.401.12</td><td class="p-3 border border-white/20 text-center font-medium">S/.157.50</td></tr>
+            <tr><td class="p-3 border border-white/20 leading-snug">Gestión Ambiental y Desarrollo Sostenible</td><td class="p-3 border border-white/20 text-center font-medium">S/.401.12</td><td class="p-3 border border-white/20 text-center font-medium">S/.157.50</td></tr>
           </tbody>
+        </table>
+      </div>
+      <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+        <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+        <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL MAESTRÍA: CIENCIAS ADMINISTRATIVAS -->
+  <div id="adminModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div><p class="m-0 text-white/70 font-bold">Maestría</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias Administrativas</h3></div>
+        <button id="closeAdminModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pensión</th><th class="p-3 border border-white/20 text-center">Matrícula</th></tr></thead>
+          <tbody class="text-white/90">
+            <tr><td class="p-3 border border-white/20">Gestión Pública</td><td class="p-3 border border-white/20 text-center">S/.467.96</td><td class="p-3 border border-white/20 text-center">S/.183.75</td></tr>
+            <tr><td class="p-3 border border-white/20">Auditoría y Tributación</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+        <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+        <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL MAESTRÍA: CIENCIAS DE LA EDUCACIÓN -->
+  <div id="educacionModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div><p class="m-0 text-white/70 font-bold">Maestría</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Educación</h3></div>
+        <button id="closeEducacionModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pensión</th><th class="p-3 border border-white/20 text-center">Matrícula</th></tr></thead>
+          <tbody class="text-white/90">
+            <tr><td class="p-3 border border-white/20">Docencia en Educación Superior e Investigación</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+            <tr><td class="p-3 border border-white/20">Docencia y Gerencia Educativa</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+            <tr><td class="p-3 border border-white/20">Psicología Educativa</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+        <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+        <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL MAESTRÍA: CIENCIAS DE LA SALUD -->
+  <div id="saludModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div><p class="m-0 text-white/70 font-bold">Maestría</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Salud</h3></div>
+        <button id="closeSaludModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pensión</th><th class="p-3 border border-white/20 text-center">Matrícula</th></tr></thead>
+          <tbody class="text-white/90">
+            <tr><td class="p-3 border border-white/20">Salud Pública y Docencia Universitaria</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+            <tr><td class="p-3 border border-white/20">Odontoestomatología</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+            <tr><td class="p-3 border border-white/20">Gerencia en Servicios de Salud</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+        <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+        <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL MAESTRÍA: DERECHO Y CIENCIAS POLÍTICAS -->
+  <div id="derechoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative bg-jet w-full max-w-lg rounded-3xl border border-white/10 p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div><p class="m-0 text-white/70 font-bold">Maestría</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Derecho y Ciencias Políticas</h3></div>
+        <button id="closeDerechoModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20">Menciones</th><th class="p-3 border border-white/20 text-center">Pensión</th><th class="p-3 border border-white/20 text-center">Matrícula</th></tr></thead>
+          <tbody class="text-white/90">
+            <tr><td class="p-3 border border-white/20">Derecho Penal</td><td class="p-3 border border-white/20 text-center">S/.467.96</td><td class="p-3 border border-white/20 text-center">S/.183.75</td></tr>
+            <tr><td class="p-3 border border-white/20">Derecho Procesal</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+            <tr><td class="p-3 border border-white/20">Derecho Civil y Comercial</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+            <tr><td class="p-3 border border-white/20">Derecho del Trabajo y Seguridad Social</td><td class="p-3 border border-white/20 text-center">S/.401.12</td><td class="p-3 border border-white/20 text-center">S/.157.50</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 space-y-2 text-sm text-white/80 leading-relaxed">
+        <p>– La matrícula se paga al iniciar cada semestre académico (02 veces al año).</p>
+        <p>– Duración de los estudios: 01 año a excepción de las maestrías en Derecho.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DOCTORADO: DERECHO -->
+  <div id="doctoradoDerechoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative w-[92vw] max-w-3xl rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white overflow-y-auto max-h-[90vh]">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div><p class="m-0 text-white/70 font-bold">Doctorado</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Derecho</h3></div>
+        <button id="closeDoctoradoDerechoModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0" aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-white/20 text-white">
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20">Mención</th><th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th><th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th></tr></thead>
+          <tbody class="text-white/90"><tr><td class="p-3 border border-white/20">Derecho</td><td class="p-3 border border-white/20 text-center">S/.534.83</td><td class="p-3 border border-white/20 text-center">S/.210.00</td></tr></tbody>
         </table>
       </div>
       <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed space-y-2">
@@ -866,49 +465,24 @@
     </div>
   </div>
 
-  <!-- MODAL DOCTORADO EN CIENCIAS DE LA EDUCACIÓN -->
-  <div id="doctoradoEducacionModal" class="hidden fixed inset-0 z-[90]">
+  <!-- MODAL DOCTORADO: CIENCIAS DE LA EDUCACIÓN -->
+  <div id="doctoradoEducacionModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div
-      class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+    <div class="relative w-[92vw] max-w-4xl rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white overflow-y-auto max-h-[90vh]">
       <div class="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <p class="m-0 text-white/70 font-bold">Doctorado</p>
-          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Educación</h3>
-        </div>
-
-        <button id="closeDoctoradoEducacionModal"
-          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
-          aria-label="Cerrar">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
+        <div><p class="m-0 text-white/70 font-bold">Doctorado</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Educación</h3></div>
+        <button id="closeDoctoradoEducacionModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0" aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
-
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse border border-white/20 text-white">
-          <thead class="bg-white/5">
-            <tr>
-              <th class="p-3 border border-white/20">Mención</th>
-              <th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th>
-              <th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th>
-            </tr>
-          </thead>
-          <tbody class="text-white/90">
-            <tr>
-              <td class="p-3 border border-white/20">Ciencias de la Educación</td>
-              <td class="p-3 border border-white/20 text-center">S/.534.83</td>
-              <td class="p-3 border border-white/20 text-center">S/.210.00</td>
-            </tr>
-          </tbody>
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20">Mención</th><th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th><th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th></tr></thead>
+          <tbody class="text-white/90"><tr><td class="p-3 border border-white/20">Ciencias de la Educación</td><td class="p-3 border border-white/20 text-center">S/.534.83</td><td class="p-3 border border-white/20 text-center">S/.210.00</td></tr></tbody>
         </table>
       </div>
-
       <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed space-y-2">
-        <p>✓ Clases presenciales</p>
-        <p>✓ Duración: 06 semestres</p>
+        <p>✓ Clases presenciales</p><p>✓ Duración: 06 semestres</p>
         <p>✓ Horarios: Sábados – Mañana: 8:00 a.m. – 12:30 p.m.</p>
         <p>✓ Horarios: Tardes: 4:15 p.m. – 7:15 p.m.</p>
         <p>✓ Domingos: 8:00 a.m. – 12:30 p.m.</p>
@@ -920,49 +494,24 @@
     </div>
   </div>
 
-  <!-- MODAL DOCTORADO EN CIENCIAS DE LA SALUD -->
-  <div id="doctoradoSaludModal" class="hidden fixed inset-0 z-[90]">
+  <!-- MODAL DOCTORADO: CIENCIAS DE LA SALUD -->
+  <div id="doctoradoSaludModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div
-      class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+    <div class="relative w-[92vw] max-w-4xl rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white overflow-y-auto max-h-[90vh]">
       <div class="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <p class="m-0 text-white/70 font-bold">Doctorado</p>
-          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Salud</h3>
-        </div>
-
-        <button id="closeDoctoradoSaludModal"
-          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
-          aria-label="Cerrar">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
+        <div><p class="m-0 text-white/70 font-bold">Doctorado</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">En Ciencias de la Salud</h3></div>
+        <button id="closeDoctoradoSaludModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0" aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
-
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse border border-white/20 text-white">
-          <thead class="bg-white/5">
-            <tr>
-              <th class="p-3 border border-white/20">Mención</th>
-              <th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th>
-              <th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th>
-            </tr>
-          </thead>
-          <tbody class="text-white/90">
-            <tr>
-              <td class="p-3 border border-white/20">Ciencias de la Salud</td>
-              <td class="p-3 border border-white/20 text-center">S/.534.83</td>
-              <td class="p-3 border border-white/20 text-center">S/.210.00</td>
-            </tr>
-          </tbody>
+          <thead class="bg-white/5"><tr><th class="p-3 border border-white/20">Mención</th><th class="p-3 border border-white/20 text-center">Pensión de enseñanza (Mensual)</th><th class="p-3 border border-white/20 text-center">Matrícula (inicio de cada semestre)</th></tr></thead>
+          <tbody class="text-white/90"><tr><td class="p-3 border border-white/20">Ciencias de la Salud</td><td class="p-3 border border-white/20 text-center">S/.534.83</td><td class="p-3 border border-white/20 text-center">S/.210.00</td></tr></tbody>
         </table>
       </div>
-
       <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed space-y-2">
-        <p>✓ Clases presenciales</p>
-        <p>✓ Duración: 06 semestres</p>
+        <p>✓ Clases presenciales</p><p>✓ Duración: 06 semestres</p>
         <p>✓ Horarios: Sábados – Mañana: 8:00 a.m. – 1:00 p.m.</p>
         <p>✓ Horarios: Tardes: 3:00 p.m. – 7:00 p.m.</p>
         <p>✓ Domingos: 8:00 a.m. – 2:00 p.m.</p>
@@ -973,49 +522,30 @@
     </div>
   </div>
 
-
-
   <!-- MODAL SEGUNDA ESPECIALIDAD: ALTO RIESGO OBSTÉTRICO -->
-  <div id="seAltoRiesgoModal" class="hidden fixed inset-0 z-[90]">
+  <div id="seAltoRiesgoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+    <div class="relative w-[92vw] max-w-4xl rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white overflow-y-auto max-h-[90vh]">
       <div class="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <p class="m-0 text-white/70 font-bold">Segunda Especialidad</p>
-          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">Alto Riesgo Obstétrico</h3>
-        </div>
-
-        <button id="closeSeAltoRiesgoModal"
-          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
-          aria-label="Cerrar">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
+        <div><p class="m-0 text-white/70 font-bold">Segunda Especialidad</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">Alto Riesgo Obstétrico</h3></div>
+        <button id="closeSeAltoRiesgoModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0" aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
-
       <div class="grid gap-4 md:grid-cols-2">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
           <p class="font-bold text-white mb-2">Requisitos</p>
           <ul class="space-y-1 list-disc list-inside">
-            <li>Fotocopia ampliada del DNI</li>
-            <li>Fotocopia del título (registrado en SUNEDU)</li>
+            <li>Fotocopia ampliada del DNI</li><li>Fotocopia del título (registrado en SUNEDU)</li>
             <li>Certificado original de estudios universitarios</li>
-            <li>Currículum vitae detallado y documentado (copias)</li>
-            <li>Inscripción S/. 200.00</li>
+            <li>Currículum vitae detallado y documentado (copias)</li><li>Inscripción S/. 200.00</li>
           </ul>
         </div>
-
         <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
           <ul class="space-y-1 list-disc list-inside">
-            <li>Costo pensión mensual: S/. 401.12</li>
-            <li>Matrícula (inicio ciclo): S/. 157.50</li>
-            <li>Clases presenciales</li>
-            <li>Duración: 03 semestres</li>
-            <li>Duración del ciclo: 04 meses</li>
+            <li>Costo pensión mensual: S/. 401.12</li><li>Matrícula (inicio ciclo): S/. 157.50</li>
+            <li>Clases presenciales</li><li>Duración: 03 semestres</li><li>Duración del ciclo: 04 meses</li>
           </ul>
-
           <div class="mt-3">
             <p class="font-bold text-white">Horarios</p>
             <p>Sábado de 8.00 a.m. – 1.00 p.m. y 3.00 p.m. – 7.00 p.m.</p>
@@ -1023,197 +553,102 @@
           </div>
         </div>
       </div>
-
       <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
         <p class="font-semibold text-white">Información sobre el desarrollo de la especialidad</p>
-        <p>Coordinación: 985 279 704</p>
-        <p>Secretaría: 952 075 987</p>
-        <p>Soporte Informático: 962 656 510</p>
+        <p>Coordinación: 985 279 704</p><p>Secretaría: 952 075 987</p><p>Soporte Informático: 962 656 510</p>
       </div>
     </div>
   </div>
 
   <!-- MODAL SEGUNDA ESPECIALIDAD: ORTODONCIA Y ORTOPEDIA MAXILAR -->
-  <div id="seOrtodonciaModal" class="hidden fixed inset-0 z-[90]">
+  <div id="seOrtodonciaModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div class="absolute left-1/2 top-1/2 w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white">
+    <div class="relative w-[92vw] max-w-4xl rounded-3xl border border-white/10 bg-jet p-6 shadow-2xl text-white overflow-y-auto max-h-[90vh]">
       <div class="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <p class="m-0 text-white/70 font-bold">Segunda Especialidad</p>
-          <h3 class="m-0 mt-1 text-2xl font-extrabold text-white">Ortodoncia y Ortopedia Maxilar</h3>
-        </div>
-
-        <button id="closeSeOrtodonciaModal"
-          class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white"
-          aria-label="Cerrar">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
+        <div><p class="m-0 text-white/70 font-bold">Segunda Especialidad</p><h3 class="m-0 mt-1 text-2xl font-extrabold text-white">Ortodoncia y Ortopedia Maxilar</h3></div>
+        <button id="closeSeOrtodonciaModal" class="w-10 h-10 rounded-xl border border-white/20 bg-white/5 flex items-center justify-center text-white flex-shrink-0" aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
-
       <div class="grid gap-4 md:grid-cols-2">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
           <p class="font-bold text-white mb-2">Requisitos</p>
           <ul class="space-y-1 list-disc list-inside">
-            <li>Fotocopia ampliada del DNI</li>
-            <li>Fotocopia del título (registrado en SUNEDU)</li>
+            <li>Fotocopia ampliada del DNI</li><li>Fotocopia del título (registrado en SUNEDU)</li>
             <li>Certificado original de estudios universitarios</li>
-            <li>Currículum vitae detallado y documentado (copias)</li>
-            <li>Inscripción S/. 200.00</li>
+            <li>Currículum vitae detallado y documentado (copias)</li><li>Inscripción S/. 200.00</li>
           </ul>
         </div>
-
         <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
           <ul class="space-y-1 list-disc list-inside">
-            <li>Costo pensión mensual: S/. 1337.06</li>
-            <li>Matrícula (inicio ciclo): S/. 525.00</li>
+            <li>Costo pensión mensual: S/. 1337.06</li><li>Matrícula (inicio ciclo): S/. 525.00</li>
             <li>Duración: 36 meses (03 años)</li>
             <li>Clases teóricas en virtuales dos veces por semana a partir de las 7.00 p.m. (dependiendo del curso)</li>
             <li>Clases presenciales prácticas se desarrollan un fin de semana al mes: viernes (tarde), sábado (todo el día), domingo (medio día)</li>
           </ul>
         </div>
       </div>
-
       <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/85 leading-relaxed">
         <p class="font-semibold text-white">Información desarrollo de la especialidad</p>
-        <p>Coordinación: 985 003 399</p>
-        <p>Secretaría: 952 075 987</p>
+        <p>Coordinación: 985 003 399</p><p>Secretaría: 952 075 987</p>
       </div>
     </div>
   </div>
 
-  
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger);
-
     window.addEventListener("load", () => {
       function animateNavbarWhenReady() {
         const navbar = document.querySelector("#navbar");
-
         if (navbar) {
-          gsap.fromTo(
-            navbar,
-            { opacity: 0, y: -18 },
-            { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }
-          );
-        } else {
-          setTimeout(animateNavbarWhenReady, 200);
-        }
+          gsap.fromTo(navbar, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" });
+        } else { setTimeout(animateNavbarWhenReady, 200); }
       }
-
       gsap.set(".hero-title-line-inner", { opacity: 0, yPercent: 115, rotateX: -12, transformOrigin: "0% 100%" });
       gsap.set(".hero-animate-text", { opacity: 0, y: 28 });
       gsap.set(".hero-animate-actions .hero-btn", { opacity: 0, y: 22 });
       gsap.set(".hero-animate-card", { opacity: 0, y: 30, scale: 0.96 });
-
       const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
       heroTl
-        .to(".hero-title-line-inner", {
-          opacity: 1,
-          yPercent: 0,
-          rotateX: 0,
-          duration: 0.9,
-          stagger: 0.12
-        })
-        .to(".hero-animate-text", {
-          opacity: 1,
-          y: 0,
-          duration: 0.7
-        }, "-=0.42")
-        .to(".hero-animate-actions .hero-btn", {
-          opacity: 1,
-          y: 0,
-          duration: 0.58,
-          stagger: 0.11
-        }, "-=0.28")
-        .to(".hero-animate-card", {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.62
-        }, "-=0.2");
-
+        .to(".hero-title-line-inner", { opacity: 1, yPercent: 0, rotateX: 0, duration: 0.9, stagger: 0.12 })
+        .to(".hero-animate-text", { opacity: 1, y: 0, duration: 0.7 }, "-=0.42")
+        .to(".hero-animate-actions .hero-btn", { opacity: 1, y: 0, duration: 0.58, stagger: 0.11 }, "-=0.28")
+        .to(".hero-animate-card", { opacity: 1, y: 0, scale: 1, duration: 0.62 }, "-=0.2");
       gsap.to(".hero-parallax-bg", {
-        yPercent: 10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".hero-section",
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
+        yPercent: 10, ease: "none",
+        scrollTrigger: { trigger: ".hero-section", start: "top top", end: "bottom top", scrub: true }
       });
-
       gsap.utils.toArray(".reveal-section").forEach((section) => {
         gsap.from(section, {
-          opacity: 0,
-          y: 42,
-          duration: 0.88,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 84%",
-            toggleActions: "play none none none"
-          }
+          opacity: 0, y: 42, duration: 0.88, ease: "power2.out",
+          scrollTrigger: { trigger: section, start: "top 84%", toggleActions: "play none none none" }
         });
       });
-
       const internalReveals = [
         { trigger: ".masters-section", left: ".masters-copy", right: ".masters-panel", items: ".mention-card" },
-        { trigger: ".doc-section", left: ".doc-copy", right: ".doc-panel", items: "#phdTrack > *" },
-        { trigger: ".se2-section", left: ".se2-copy", right: ".se2-panel", items: "#seTrack > *" }
+        { trigger: ".doc-section",     left: ".doc-copy",     right: ".doc-panel",     items: "#phdTrack > *" },
+        { trigger: ".se2-section",     left: ".se2-copy",     right: ".se2-panel",     items: "#seTrack > *"  }
       ];
-
       internalReveals.forEach(({ trigger, left, right, items }) => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger,
-            start: "top 72%",
-            toggleActions: "play none none none"
-          }
-        });
-
+        const tl = gsap.timeline({ scrollTrigger: { trigger, start: "top 72%", toggleActions: "play none none none" } });
         tl
-          .from(left, { opacity: 0, x: -34, duration: 0.7, ease: "power2.out" })
-          .from(right, { opacity: 0, x: 34, duration: 0.7, ease: "power2.out" }, "-=0.48");
-
+          .from(left,  { opacity: 0, x: -34, duration: 0.7, ease: "power2.out" })
+          .from(right, { opacity: 0, x:  34, duration: 0.7, ease: "power2.out" }, "-=0.48");
         if (document.querySelector(items)) {
-          tl.from(items, {
-            opacity: 0,
-            y: 16,
-            duration: 0.45,
-            stagger: 0.08,
-            ease: "power2.out"
-          }, "-=0.3");
+          tl.from(items, { opacity: 0, y: 16, duration: 0.45, stagger: 0.08, ease: "power2.out" }, "-=0.3");
         }
       });
-
       gsap.from(".why-card", {
-        opacity: 0,
-        y: 24,
-        duration: 0.58,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".why-section",
-          start: "top 75%",
-          toggleActions: "play none none none"
-        }
+        opacity: 0, y: 24, duration: 0.58, stagger: 0.1, ease: "power2.out",
+        scrollTrigger: { trigger: ".why-section", start: "top 75%", toggleActions: "play none none none" }
       });
       animateNavbarWhenReady();
     });
-    
   </script>
-  <script>
-    lucide.createIcons();
-  </script>
+  <script>lucide.createIcons();</script>
 </body>
-
 </html>

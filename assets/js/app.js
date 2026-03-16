@@ -282,15 +282,66 @@ function initHeroReadMore() {
    Maestrías
 ========================= */
 function initMentions() {
-  // INGENIERIA
   const track = document.getElementById("mentionsTrack");
   if (!track) return;
-  
+
   const cards = Array.from(track.querySelectorAll(".mention-card"));
   const arrows = document.querySelectorAll("#maestrias .mention-arrow");
-  const ingenieriaModal = document.getElementById("ingenieriaModal");
-  const closeBtn = document.getElementById("closeIngenieriaModal");
 
+  // Mapa: índice de card → id del modal correspondiente
+  const modalMap = {
+    0: "ingenieriaModal",
+    1: "adminModal",
+    2: "educacionModal",
+    3: "saludModal",
+    4: "derechoModal",
+  };
+
+  // Mapa: id modal → id botón de cierre
+  const closeMap = {
+    ingenieriaModal:  "closeIngenieriaModal",
+    adminModal:       "closeAdminModal",
+    educacionModal:   "closeEducacionModal",
+    saludModal:       "closeSaludModal",
+    derechoModal:     "closeDerechoModal",
+  };
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  function closeAllMaestrias() {
+    Object.values(modalMap).forEach(closeModal);
+  }
+
+  // Registrar cierre para cada modal
+  Object.entries(closeMap).forEach(([modalId, btnId]) => {
+    const modal = document.getElementById(modalId);
+    const btn   = document.getElementById(btnId);
+
+    btn?.addEventListener("click", () => closeModal(modalId));
+
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal(modalId);
+    });
+  });
+
+  // Escape cierra todos
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAllMaestrias();
+  });
+
+  // Activar card y abrir modal
   const setActive = (idx) => {
     cards.forEach((b) => b.classList.remove("active"));
     if (cards[idx]) {
@@ -302,146 +353,24 @@ function initMentions() {
   cards.forEach((btn, index) => {
     btn.addEventListener("click", () => {
       setActive(index);
-     
-      if (index === 0) {
-        ingenieriaModal?.classList.remove("hidden");
-        document.body.style.overflow = "hidden"; 
-      }
+      const modalId = modalMap[index];
+      if (modalId) openModal(modalId);
     });
   });
 
-  // ADMINISTRATIVAS
-  const adminModal = document.getElementById("adminModal");
-  const btnAdmin = document.querySelector('.mention-card[data-index="1"]');
-  const closeAdminBtn = document.getElementById("closeAdminModal");
-
-  
-  btnAdmin?.addEventListener("click", () => {
-    adminModal?.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-  });
-
-  
-  closeAdminBtn?.addEventListener("click", () => {
-    adminModal?.classList.add("hidden");
-    document.body.style.overflow = "";
-  });
-
-  
-  adminModal?.addEventListener("click", (e) => {
-    if (e.target === adminModal) {
-      adminModal.classList.add("hidden");
-      document.body.style.overflow = "";
-    }
-  });
-
-  // EDUCACION
-  const educacionModal = document.getElementById("educacionModal");
-  const btnEducacion = document.querySelector('.mention-card[data-index="2"]');
-  const closeEducacionBtn = document.getElementById("closeEducacionModal");
-
-  btnEducacion?.addEventListener("click", () => {
-    educacionModal?.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-  });
-
-  closeEducacionBtn?.addEventListener("click", () => {
-    educacionModal?.classList.add("hidden");
-    document.body.style.overflow = "";
-  });
-
-
-  educacionModal?.addEventListener("click", (e) => {
-    if (e.target === educacionModal) {
-      educacionModal.classList.add("hidden");
-      document.body.style.overflow = "";
-    }
-  });
-
-  //SALUD
-  const saludModal = document.getElementById("saludModal");
-  const btnSalud = document.querySelector('.mention-card[data-index="3"]');
-  const closeSaludBtn = document.getElementById("closeSaludModal");
-
-  btnSalud?.addEventListener("click", () => {
-    saludModal?.classList.remove("hidden");
-    document.body.style.overflow = "hidden"; 
-  });
-
-  closeSaludBtn?.addEventListener("click", () => {
-    saludModal?.classList.add("hidden");
-    document.body.style.overflow = ""; 
-  });
-
-  
-  saludModal?.addEventListener("click", (e) => {
-    if (e.target === saludModal) {
-      saludModal.classList.add("hidden");
-      document.body.style.overflow = "";
-    }
-  });
-
-  //DERECHO
-  const derechoModal = document.getElementById("derechoModal");
-  const btnDerecho = document.querySelector('.mention-card[data-index="4"]');
-  const closeDerechoBtn = document.getElementById("closeDerechoModal");
-
-  btnDerecho?.addEventListener("click", () => {
-    derechoModal?.classList.remove("hidden");
-    document.body.style.overflow = "hidden"; 
-  });
-
-  closeDerechoBtn?.addEventListener("click", () => {
-    derechoModal?.classList.add("hidden");
-    document.body.style.overflow = ""; 
-  });
-
-  derechoModal?.addEventListener("click", (e) => {
-    if (e.target === derechoModal) {
-      derechoModal.classList.add("hidden");
-      document.body.style.overflow = "";
-    }
-  });
-
+  // Flechas — solo navegan, NO abren modal
   arrows.forEach((arrow) => {
     arrow.addEventListener("click", (e) => {
-      e.preventDefault(); 
+      e.preventDefault();
       e.stopImmediatePropagation();
-      
-      const dir = Number(arrow.dataset.dir); 
+      const dir      = Number(arrow.dataset.dir);
       const activeIdx = cards.findIndex((c) => c.classList.contains("active"));
-      
-      let next = activeIdx + dir;
-      
-      if (next < 0) {
-        next = cards.length - 1; 
-      } else if (next >= cards.length) {
-        next = 0; 
-      }
-      
+      const next     = (activeIdx + dir + cards.length) % cards.length;
+      closeAllMaestrias();
       setActive(next);
-      
-      if (next === 0) {
-      } else {
-        const ingenieriaModal = document.getElementById("ingenieriaModal");
-        ingenieriaModal?.classList.add("hidden");
-        document.body.style.overflow = "";
-      }
     });
   });
-
-  const closeModal = () => {
-    ingenieriaModal?.classList.add("hidden");
-    document.body.style.overflow = ""; 
-  };
-
-  closeBtn?.addEventListener("click", closeModal);
-  ingenieriaModal?.addEventListener("click", (e) => {
-    if (e.target === ingenieriaModal) closeModal();
-  });
 }
-
-document.addEventListener('DOMContentLoaded', initMentions);
 
 
 /* =========================
@@ -731,6 +660,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadComponent("navbar-container", basePath + "components/navbar.html"),
     loadComponent("footer-container", basePath + "components/footer.html"),
   ]);
+
+  if (!isIndex) {
+    document.querySelectorAll(".only-home").forEach((el) => el.remove());
+  }
 
   initNavbar();
   initDrawer();

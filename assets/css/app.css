@@ -69,6 +69,10 @@
   background: transparent;
   transition: all 0.3s ease;
 }
+
+body.has-top-admission #navbar{
+  top: 64px;
+}
 #navbar::before{
   display: none;
 }
@@ -93,6 +97,54 @@
 #navbar.iscrolled nav a,
 #navbar.iscrolled nav button{
   color: rgba(61,60,59,0.92);
+}
+
+
+.top-admission-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
+  padding: .9rem 1rem;
+  background: linear-gradient(90deg, rgba(236,193,56,.98), rgba(255,220,105,.98));
+  color: #2f2e2d;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(0,0,0,.16);
+  border-bottom: 1px solid rgba(61,60,59,.12);
+}
+
+.top-admission-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .42rem .78rem;
+  border-radius: 999px;
+  background: rgba(61,60,59,.92);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.top-admission-text{
+  font-weight: 800;
+  text-align: center;
+}
+
+.top-admission-cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .55rem 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.78);
+  font-weight: 900;
+  white-space: nowrap;
 }
 
 /* =========================
@@ -164,7 +216,7 @@
   min-height: 92vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 84px; 
+  padding: 188px 0 84px; 
   color: rgba(255,255,255,0.92);
 }
 
@@ -1955,3 +2007,59 @@
   height: 22px;
   flex-shrink: 0;
 }
+
+.hero-stat-highlight{
+  text-decoration: none;
+  color: inherit;
+  border-color: rgba(236,193,56,.55);
+  background: linear-gradient(135deg, rgba(236,193,56,.22), rgba(255,255,255,.10));
+}
+
+.hero-stat-link{
+  display: inline-flex;
+  margin-top: .55rem;
+  font-weight: 900;
+  color: #fff0af;
+}
+
+@media (max-width: 900px){
+  .top-admission-bar{
+    gap: .65rem;
+    padding: .8rem .85rem;
+    flex-wrap: wrap;
+  }
+
+  body.has-top-admission #navbar{
+    top: 88px;
+  }
+
+  .hero-section{
+    padding-top: 210px;
+  }
+}
+
+@media (max-width: 640px){
+  .top-admission-bar{
+    padding: .75rem .75rem;
+  }
+
+  .top-admission-text{
+    font-size: .92rem;
+    line-height: 1.35;
+  }
+
+  .top-admission-cta{
+    width: 100%;
+  }
+
+  body.has-top-admission #navbar{
+    top: 122px;
+  }
+
+  .hero-section{
+    padding-top: 250px;
+  }
+}
+
+
+.only-home{ display:inline-flex; }
