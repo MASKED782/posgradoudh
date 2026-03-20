@@ -132,38 +132,54 @@ function initNavbar() {
    Mobile Drawer
 ========================= */
 function initDrawer() {
+  if (!document.body.classList.contains("page-index")) return;
+
+  const drawer = document.getElementById("drawerOverlay");
+  const btn = document.getElementById("menuBtn");
 
   function openDrawer() {
-    const drawer = document.getElementById("drawerOverlay");
-    const btn = document.getElementById("menuBtn");
     if (!drawer) return;
     drawer.classList.remove("hidden");
     document.body.style.overflow = "hidden";
-    if (btn) btn.innerHTML = "&#10005;"; 
+    document.body.classList.add("drawer-open");
+    if (btn) btn.innerHTML = "&#10005;";
   }
 
   function closeDrawer() {
-    const drawer = document.getElementById("drawerOverlay");
-    const btn = document.getElementById("menuBtn");
     if (!drawer) return;
     drawer.classList.add("hidden");
     document.body.style.overflow = "";
-    if (btn) btn.innerHTML = "&#9776;"; 
+    document.body.classList.remove("drawer-open");
+    if (btn) btn.innerHTML = "&#9776;";
   }
 
   function isDrawerOpen() {
-    const drawer = document.getElementById("drawerOverlay");
     return drawer && !drawer.classList.contains("hidden");
   }
 
-  
   document.addEventListener("click", (e) => {
     if (e.target.closest("#menuBtn")) {
       isDrawerOpen() ? closeDrawer() : openDrawer();
       return;
     }
-    if (e.target.id === "drawerBackdrop") { closeDrawer(); return; }
-    if (e.target.closest(".drawerLink")) { closeDrawer(); return; }
+
+    if (e.target.id === "drawerBackdrop" || e.target.closest("#drawerBackdrop")) {
+      closeDrawer();
+      return;
+    }
+
+    if (
+      e.target.closest("#drawerCloseBtn") ||
+      e.target.closest('[aria-label="Cerrar menú"]')
+    ) {
+      closeDrawer();
+      return;
+    }
+
+    if (e.target.closest(".drawerLink")) {
+      closeDrawer();
+      return;
+    }
   });
 
   document.addEventListener("keydown", (e) => {

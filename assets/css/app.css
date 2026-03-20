@@ -2063,3 +2063,197 @@ body.has-top-admission #navbar{
 
 
 .only-home{ display:inline-flex; }
+
+/* ===== PARCHE RESPONSIVE PARA BARRA DE ADMISIÓN + NAV ===== */
+
+@media (max-width: 768px){
+
+  .top-admission-bar{
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    padding: 12px 14px !important;
+    gap: 10px !important;
+    text-align: center !important;
+    box-shadow: none !important;
+  }
+
+  .top-admission-badge{
+    font-size: 12px !important;
+    padding: 8px 14px !important;
+  }
+
+  .top-admission-text{
+    width: 100%;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+  }
+
+  .top-admission-actions{
+    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  .top-admission-cta{
+    width: 100%;
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+  }
+
+  #navbar,
+  .site-navbar{
+    top: 0 !important;
+    position: sticky !important;
+  }
+
+  .site-navbar__inner,
+  #navbar .container{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    min-height: 64px !important;
+  }
+
+  .udh-logo{
+    height: 42px !important;
+    width: auto !important;
+  }
+
+  main,
+  .hero,
+  .hero-section,
+  .page-hero{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 768px){
+
+  /* barra amarilla normal */
+  .top-admission-bar{
+    position: relative !important;
+    z-index: 1200;
+  }
+
+  /* nav transparente */
+  #navbar{
+    position: relative !important;
+    top: 0 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    z-index: 1201;
+  }
+
+  #navbar .container{
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* subir el hero detrás del nav */
+  .hero-section{
+    margin-top: -84px !important;
+    padding-top: 84px !important;
+  }
+
+  /* botón hamburguesa visible */
+  #menuBtn{
+    background: rgba(0,0,0,.18) !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    color: #fff !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .udh-logo{
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,.2));
+  }
+}
+
+
+/* ===== FIX SOLO PARA INDEX EN MOBILE ===== */
+@media (max-width: 768px){
+  body.page-index #drawerOverlay{
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+  }
+
+  body.page-index #drawerBackdrop{
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(0,0,0,.45) !important;
+    z-index: 99999 !important;
+  }
+
+  body.page-index #drawerPanel,
+  body.page-index .drawer-panel,
+  body.page-index .mobile-drawer{
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 100vh !important;
+    width: min(86vw, 360px) !important;
+    z-index: 100000 !important;
+    background: #f5f5f5 !important;
+    box-shadow: -18px 0 40px rgba(0,0,0,.18) !important;
+    overflow-y: auto !important;
+  }
+
+  body.page-index.drawer-open .top-admission-bar{
+    pointer-events: none !important;
+    z-index: 100 !important;
+  }
+}
+
+/* ===== FIX SOLO PARA INDEX EN MOBILE ===== */
+@media (max-width: 768px){
+  body.page-index #drawerOverlay{
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+  }
+
+  body.page-index #drawerBackdrop{
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+    background: rgba(0,0,0,.45) !important;
+    pointer-events: auto !important;
+  }
+
+  body.page-index #drawerOverlay > div:last-child{
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 100vh !important;
+    width: min(320px, 90vw) !important;
+    z-index: 100000 !important;
+    background: #f5f5f5 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    box-shadow: -18px 0 40px rgba(0,0,0,.18) !important;
+    overflow-y: auto !important;
+  }
+
+  body.page-index #drawerOverlay > div:last-child *{
+    pointer-events: auto !important;
+  }
+
+  /* La barra sigue visible, pero queda detrás */
+  body.page-index.drawer-open .top-admission-bar{
+    pointer-events: none !important;
+    z-index: 100 !important;
+  }
+}
