@@ -132,29 +132,27 @@ function initNavbar() {
    Mobile Drawer
 ========================= */
 function initDrawer() {
-  if (!document.body.classList.contains("page-index")) return;
-
   const drawer = document.getElementById("drawerOverlay");
   const btn = document.getElementById("menuBtn");
 
+  if (!drawer || !btn) return;
+
   function openDrawer() {
-    if (!drawer) return;
     drawer.classList.remove("hidden");
     document.body.style.overflow = "hidden";
     document.body.classList.add("drawer-open");
-    if (btn) btn.innerHTML = "&#10005;";
+    btn.innerHTML = "&#10005;";
   }
 
   function closeDrawer() {
-    if (!drawer) return;
     drawer.classList.add("hidden");
     document.body.style.overflow = "";
     document.body.classList.remove("drawer-open");
-    if (btn) btn.innerHTML = "&#9776;";
+    btn.innerHTML = "&#9776;";
   }
 
   function isDrawerOpen() {
-    return drawer && !drawer.classList.contains("hidden");
+    return !drawer.classList.contains("hidden");
   }
 
   document.addEventListener("click", (e) => {

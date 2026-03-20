@@ -2257,3 +2257,28 @@ body.has-top-admission #navbar{
     z-index: 100 !important;
   }
 }
+
+/* Quitar blur raro del drawer mobile */
+@media (max-width: 768px){
+  #drawerOverlay,
+  #drawerBackdrop,
+  #drawerOverlay > div:last-child,
+  #drawerOverlay > div:last-child *{
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+  }
+
+  #drawerOverlay > div:last-child{
+    box-shadow: none !important;
+    border-left: 1px solid rgba(0,0,0,.08) !important;
+    background: #f5f5f5 !important;
+    transform: none !important;
+  }
+
+  body.drawer-open #navbar{
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+}
