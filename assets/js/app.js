@@ -516,6 +516,10 @@ const sePrograms = [
     tab: "ORTODONCIA Y ORTOPEDIA MAXILAR",
     modal: "seOrtodonciaModal"
   },
+  {
+    tab: "MONITOREO FETAL Y ECOGRAFÍA OBSTÉTRICA"
+    // modal: "seMonitoreoModal"
+  },
 ];
 
 function initSegundaEspecialidad() {
@@ -523,17 +527,18 @@ function initSegundaEspecialidad() {
   if (!track) return;
 
   track.innerHTML = sePrograms
-  .map(
-    (p, i) =>
-      `<button 
-        class="se2-pill ${i === 0 ? "active" : ""}" 
-        type="button" 
-        data-index="${i}" 
-        data-modal="${p.modal}">
-        ${p.tab}
-      </button>`
-  )
-  .join("");
+    .map(
+      (p, i) =>
+        `<button 
+          class="se2-pill ${i === 0 ? "active" : ""}" 
+          type="button" 
+          data-index="${i}" 
+          ${p.modal ? `data-modal="${p.modal}"` : ""}
+        >
+          ${p.tab}
+        </button>`
+    )
+    .join("");
 
   const pills = Array.from(track.querySelectorAll(".se2-pill"));
   if (!pills.length) return;
@@ -551,6 +556,8 @@ function initSegundaEspecialidad() {
       setActive(Number(btn.dataset.index));
 
       const modalId = btn.dataset.modal;
+      if (!modalId) return; // Si aún no tiene modal, no hace nada
+
       const modal = document.getElementById(modalId);
 
       if (modal) {
@@ -575,8 +582,14 @@ function initSegundaEspecialidadModals() {
   const altoRiesgoModal = document.getElementById("seAltoRiesgoModal");
   const ortodonciaModal = document.getElementById("seOrtodonciaModal");
 
+  // Futuro modal de Monitoreo Fetal y Ecografía Obstétrica
+  // const monitoreoModal = document.getElementById("seMonitoreoModal");
+
   const closeAltoRiesgo = document.getElementById("closeSeAltoRiesgoModal");
   const closeOrtodoncia = document.getElementById("closeSeOrtodonciaModal");
+
+  // Futuro botón de cierre
+  // const closeMonitoreo = document.getElementById("closeSeMonitoreoModal");
 
   const closeModal = (modal) => {
     if (!modal) return;
@@ -587,6 +600,8 @@ function initSegundaEspecialidadModals() {
   closeAltoRiesgo?.addEventListener("click", () => closeModal(altoRiesgoModal));
   closeOrtodoncia?.addEventListener("click", () => closeModal(ortodonciaModal));
 
+  // closeMonitoreo?.addEventListener("click", () => closeModal(monitoreoModal));
+
   altoRiesgoModal?.addEventListener("click", (e) => {
     if (e.target === altoRiesgoModal) closeModal(altoRiesgoModal);
   });
@@ -595,10 +610,15 @@ function initSegundaEspecialidadModals() {
     if (e.target === ortodonciaModal) closeModal(ortodonciaModal);
   });
 
+  // monitoreoModal?.addEventListener("click", (e) => {
+  //   if (e.target === monitoreoModal) closeModal(monitoreoModal);
+  // });
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeModal(altoRiesgoModal);
       closeModal(ortodonciaModal);
+      // closeModal(monitoreoModal);
     }
   });
 }
