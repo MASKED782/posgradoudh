@@ -2,6 +2,9 @@
    Tokens / base
 ========================= */
 :root{
+
+  --admission-bar-height: 0px;
+
   color-scheme: light;
 
   /* Paleta corporativa */
@@ -60,9 +63,9 @@
   );
 }
 
-#navbar{
+#navbar {
   position: fixed;
-  top: 0;
+  top: var(--admission-bar-height); 
   left: 0;
   right: 0;
   z-index: 1000;
@@ -70,9 +73,6 @@
   transition: all 0.3s ease;
 }
 
-body.has-top-admission #navbar{
-  top: 64px;
-}
 #navbar::before{
   display: none;
 }
@@ -101,7 +101,7 @@ body.has-top-admission #navbar{
 
 
 .top-admission-bar{
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
