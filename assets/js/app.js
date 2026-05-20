@@ -712,7 +712,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initHeroReadMore();
   //initProgramsSlider();
   initYear();
-  //initWelcomeModal();
+  initWelcomeModal();
 
   window.history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
