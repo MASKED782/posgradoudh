@@ -17,7 +17,8 @@ export const site = {
   horario: "Lunes a viernes de 8:00 a.m. – 1:00 p.m. y 4:00 p.m. – 7:00 p.m.",
 
   // Anuncio emergente de la página de inicio (se muestra una vez por sesión). null = desactivado
-  anuncio: { imagen: "assets/img/admision-2026-2.webp", alt: "Examen de admisión virtual — Posgrado UDH" },
+  // Ejemplo: anuncio: { imagen: "assets/img/admision-2026-2.webp", alt: "Examen de admisión virtual — Posgrado UDH" },
+  anuncio: null,
   brochure: "assets/pdf/brochure-admision-2026-1.pdf",
   examen: { etiqueta: "Examen de admisión", fecha: "08 de agosto" },
 };
