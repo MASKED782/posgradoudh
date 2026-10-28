@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UDH - Maestrías</title>
+  <link rel="icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="shortcut icon" href="assets/img/icon.png?v=2" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/icon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+
+  <style>
+    :root { --nav-h: 80px; }
+
+    body { background:#faf7f0; }
+
+    #navbar { transition:.3s ease; }
+    #navbar.is-scrolled,
+    #navbar.iscrolled {
+      background:rgba(250,247,240,.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(61,60,59,.16);
+    }
+
+    .doc-link {
+      display:block;
+      width:100%;
+      text-align:left;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:700;
+      color:rgba(255,255,255,.75);
+      transition:.2s ease;
+      cursor:pointer;
+      user-select:none;
+      line-height:1.45;
+    }
+    .doc-link:hover {
+      background:rgba(255,255,255,.1);
+      color:#fff;
+    }
+    .doc-link.is-active {
+      background:rgba(236,193,56,0.25);
+      color:#fff;
+    }
+
+    .viewer-card {
+      background:white;
+      border-radius:24px;
+      padding:30px;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
+      border:1px solid rgba(61,60,59,.12);
+    }
+
+    .mobile-nav-select {
+      display:none;
+      position:relative;
+      margin-bottom:24px;
+    }
+
+    .mobile-nav-btn {
+      width:100%;
+      padding:14px 18px;
+      background:#3d3c3b;
+      color:#fff;
+      border:none;
+      border-radius:14px;
+      font-size:15px;
+      font-weight:700;
+      font-family:inherit;
+      text-align:left;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    .mobile-nav-btn .chevron {
+      font-size:18px;
+      transition:transform 0.2s ease;
+      opacity:0.7;
+    }
+    .mobile-nav-btn .chevron.open {
+      transform:rotate(180deg);
+    }
+
+    .mobile-nav-menu {
+      display:none;
+      position:absolute;
+      top:calc(100% + 6px);
+      left:0;
+      right:0;
+      background:#3d3c3b;
+      border-radius:14px;
+      overflow:hidden;
+      z-index:100;
+      box-shadow:0 12px 32px rgba(0,0,0,0.22);
+      max-height:360px;
+      overflow-y:auto;
+    }
+    .mobile-nav-menu.is-open {
+      display:block;
+    }
+
+    .mobile-nav-option {
+      display:block;
+      width:100%;
+      padding:13px 18px;
+      background:none;
+      border:none;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      color:rgba(255,255,255,0.75);
+      font-size:14px;
+      font-weight:700;
+      font-family:inherit;
+      text-align:left;
+      cursor:pointer;
+      transition:background 0.15s, color 0.15s;
+      line-height:1.45;
+    }
+    .mobile-nav-option:last-child { border-bottom:none; }
+    .mobile-nav-option:hover { background:rgba(255,255,255,0.08); color:#fff; }
+    .mobile-nav-option.is-active { background:rgba(236,193,56,0.25); color:#fff; }
+
+    .helper-text {
+      margin-top:20px;
+      color:rgba(61,60,59,.68);
+      line-height:1.6;
+    }
+
+    .top-actions {
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .soft-link {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      border:1px solid rgba(61,60,59,.14);
+      color:#3d3c3b;
+      background:white;
+      transition:.2s ease;
+    }
+    .soft-link:hover {
+      background:#f4efe4;
+      transform:translateY(-1px);
+    }
+
+    @media (max-width: 1023px) {
+      .mobile-nav-select { display:block; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+</head>
+
+<body class="font-sans text-[#3d3c3b]">
+
+  <div id="navbar-container"></div>
+
+  <main style="padding-top: var(--nav-h);">
+    <section class="grid lg:grid-cols-[340px_1fr] min-h-screen">
+
+      <aside class="hidden lg:flex flex-col justify-between bg-[#3d3c3b] text-white p-10 sticky overflow-y-auto"
+            style="top: var(--nav-h); height: calc(100vh - var(--nav-h));">
+        <div>
+          <p class="text-xs tracking-widest text-white/50">Repositorio</p>
+          <h2 class="text-3xl font-extrabold mt-4">Maestrías<br>posgrado</h2>
+
+          <nav class="mt-8 space-y-2" id="docsnav">
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/gerencia_sistemas_tecnologias_informacion.pdf">Maestría en Gerencia en Sistemas y Tecnologías de Información</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/gestion_ambiental_desarrollo_sostenible.pdf">Maestría en Gestión Ambiental y Desarrollo Sostenible</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/gestion_publica.pdf">Maestría en Gestión Pública</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/auditoria_tributacion.pdf">Maestría en Auditoría y Tributación</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/derecho_civil.pdf">Maestría en Derecho Civil y Comercial</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/docencia_gerencia_educativa.pdf">Maestría en Docencia y Gerencia Educativa</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/psicologia_educativa.pdf">Maestría en Psicología Educativa</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/salud_publica_docencia_universitaria.pdf">Maestría en Salud Pública y Docencia Universitaria</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/odontoestomatologia.pdf">Maestría en Odontoestomatología</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/gerencia_servicios_salud.pdf">Maestría en Gerencia en Servicios de Salud</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/derecho_penal.pdf">Maestría en Derecho Penal</button>
+              <button type="button" class="doc-link" data-pdf="./assets/pdf/maestrias/derecho_procesal.pdf">Maestría en Derecho Procesal</button>
+          </nav>
+        </div>
+
+        <div class="mt-10">
+          <p class="text-xs text-white/50">© 2026 universidad de huánuco — posgrado</p>
+        </div>
+      </aside>
+
+      <div class="p-6 lg:p-10 max-w-5xl">
+        <h1 class="text-5xl font-extrabold">Maestrías</h1>
+        <div class="w-16 h-2 rounded mt-4" style="background:#ECC138;"></div>
+
+        <p class="helper-text">
+          Elige una opción para visualizar su documento.
+        </p>
+
+        <div class="top-actions">
+          <a href="index.html" class="soft-link">Volver al inicio</a>
+          <a href="requisitos.html" class="soft-link">Ir a requisitos</a>
+        </div>
+
+        <div class="mobile-nav-select mt-8" id="mobileDocsNav">
+          <button class="mobile-nav-btn" id="mobileDocsBtn" type="button">
+            <span id="mobileDocs_label">Selecciona una maestría</span>
+            <span class="chevron" id="mobileDocs_chevron">▾</span>
+          </button>
+          <div class="mobile-nav-menu" id="mobileDocs_menu">
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/gerencia_sistemas_tecnologias_informacion.pdf">Maestría en Gerencia en Sistemas y Tecnologías de Información</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/gestion_ambiental_desarrollo_sostenible.pdf">Maestría en Gestión Ambiental y Desarrollo Sostenible</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/gestion_publica.pdf">Maestría en Gestión Pública</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/auditoria_tributacion.pdf">Maestría en Auditoría y Tributación</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/derecho_civil.pdf">Maestría en Derecho Civil y Comercial</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/docencia_gerencia_educativa.pdf">Maestría en Docencia y Gerencia Educativa</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/psicologia_educativa.pdf">Maestría en Psicología Educativa</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/salud_publica_docencia_universitaria.pdf">Maestría en Salud Pública y Docencia Universitaria</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/odontoestomatologia.pdf">Maestría en Odontoestomatología</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/gerencia_servicios_salud.pdf">Maestría en Gerencia en Servicios de Salud</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/derecho_penal.pdf">Maestría en Derecho Penal</button>
+              <button class="mobile-nav-option" data-pdf="./assets/pdf/maestrias/derecho_procesal.pdf">Maestría en Derecho Procesal</button>
+          </div>
+        </div>
+
+        <div class="viewer-card mt-6 lg:mt-10">
+          <div id="pdfcontainer" data-accent="#ECC138" data-open-bg="#3d3c3b" data-radius="12px" class="w-full h-[70vh] min-h-[520px] bg-gray-100 rounded-xl flex items-center justify-center text-gray-500 text-center px-6">
+            Selecciona un documento de maestrías del panel izquierdo
+          </div>
+
+          <div class="mt-8 text-center">
+            <a id="downloadbtn"
+              href=""
+              target="_blank"
+              rel="noopener"
+              class="hidden inline-flex items-center justify-center gap-3
+                      text-white font-semibold
+                      px-8 py-3 rounded-full
+                      shadow-md hover:shadow-lg
+                      transition-all duration-300"
+              style="background:#ECC138;">
+              descargar pdf
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentcolor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 16v-8m0 8l-3-3m3 3l3-3m-10 7h14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

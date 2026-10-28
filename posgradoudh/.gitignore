@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+
+# Compilado (se genera con "npm run build" y es lo que se sube a cPanel)
+dist/
+posgradoudh-cpanel.zip
+
+# Logs
+*.log
+npm-debug.log*
+
+# Entorno y editor
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
