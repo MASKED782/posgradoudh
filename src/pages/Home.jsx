@@ -66,8 +66,8 @@ function Hero({ onAnuncio, onBrochure }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55, ease }}
           >
-            Transforma tu experiencia en liderazgo y competitividad. Con nuestras maestrías, doctorados y especializaciones
-            alcanzarás nuevos estándares de excelencia para destacar en el mercado global.
+            Transforma tu experiencia en liderazgo y competitividad. Con nuestra oferta de maestrías, doctorados y
+            certificaciones, alcanzarás nuevos estándares de excelencia para destacar en el mercado global.
           </motion.p>
 
           <motion.div
@@ -143,7 +143,7 @@ function Cifras() {
     [totalMenciones(maestrias), "Menciones de maestría", "en 5 áreas del conocimiento"],
     [doctorados.areas.length, "Doctorados", "Educación, Salud y Derecho"],
     [segundaEspecialidad.areas.length, "Segundas especialidades", "en ciencias de la salud"],
-    ["SUNEDU", "Grados reconocidos", "con validez oficial"],
+    ["SUNEDU", "Grado académico reconocido", "por la SUNEDU"],
   ];
   return (
     <section className="relative z-10 -mt-20">
@@ -334,8 +334,8 @@ function Proceso() {
     <section className="section">
       <div className="container">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading eyebrow="Admisión" title="Postular es simple">
-            Sigue estos pasos desde el Portal del Postulante. Nuestros asesores te acompañan en todo el proceso.
+          <SectionHeading eyebrow="Admisión" title="Proceso de admisión">
+            Sigue estos pasos para postular desde el Portal del Postulante.
           </SectionHeading>
           <Link to="/admision" className="btn-outline shrink-0">
             Ver guía completa <ArrowRight className="h-4 w-4" />

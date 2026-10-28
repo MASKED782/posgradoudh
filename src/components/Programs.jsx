@@ -40,7 +40,7 @@ export function AreaCard({ area, tipo, index = 0, onOpen }) {
             <p className="font-display text-2xl font-bold text-ink">{desde}</p>
           </div>
         ) : (
-          <p className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold-dark">Próximamente</p>
+          <p className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold-dark">Consultar costos</p>
         )}
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-sand text-ink transition group-hover:bg-gold">
           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -79,7 +79,7 @@ export function AreaModal({ area, tipo, onClose }) {
           {area.proximamente ? (
             <div className="rounded-2xl bg-cream p-6 text-center">
               <p className="text-jet/80">
-                La información de este programa estará disponible pronto. Escríbenos y un asesor te dará los detalles.
+                Para conocer los costos y horarios de este programa, comunícate con un asesor de admisión.
               </p>
               <a href={site.whatsappAsesor} target="_blank" rel="noopener" className="btn-dark mt-5">
                 <MessageCircle className="h-4 w-4" /> Solicitar información

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -19,6 +19,18 @@ import {
   preguntasFrecuentes,
   requisitos,
 } from "./data/documentos.js";
+
+// Direcciones del sitio anterior (también se redirigen en el .htaccess)
+const rutasAntiguas = {
+  "maestrias.html": "/maestrias",
+  "doctorados.html": "/doctorados",
+  "segunda_especialidad.html": "/segunda-especialidad",
+  "requisitos.html": "/requisitos",
+  "documentos.html": "/documentos",
+  "faq.html": "/preguntas-frecuentes",
+  "admision.html": "/admision",
+  "contacto.html": "/contacto",
+};
 
 /* Al cambiar de página: arriba del todo, o a la sección indicada en el #hash */
 function ScrollManager() {
@@ -82,13 +94,16 @@ export default function App() {
               <LibraryPage
                 eyebrow="Ayuda"
                 titulo="Preguntas frecuentes"
-                descripcion="Resolvemos las dudas más comunes sobre maestrías y doctorados."
+                descripcion="Preguntas frecuentes sobre el proceso de admisión a maestrías, doctorados y segunda especialidad."
                 documentos={preguntasFrecuentes}
               />
             }
           />
           <Route path="/admision" element={<Admision />} />
           <Route path="/contacto" element={<Contacto />} />
+          {Object.entries(rutasAntiguas).map(([antigua, nueva]) => (
+            <Route key={antigua} path={`/${antigua}`} element={<Navigate to={nueva} replace />} />
+          ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

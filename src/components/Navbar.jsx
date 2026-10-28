@@ -11,8 +11,8 @@ const menus = [
     items: [
       { to: "/maestrias", label: "Maestrías", desc: "14 menciones en 5 áreas", icon: GraduationCap },
       { to: "/doctorados", label: "Doctorados", desc: "Educación, Salud y Derecho", icon: Award },
-      { to: "/segunda-especialidad", label: "Segunda Especialidad", desc: "Especialidades clínicas", icon: Stethoscope },
-      { to: "/#diplomados", label: "Diplomados", desc: "Formación continua", icon: BookOpen },
+      { to: "/segunda-especialidad", label: "Segunda Especialidad", desc: "Obstetricia y odontología", icon: Stethoscope },
+      { to: "/#diplomados", label: "Diplomados", desc: "Proyectos de desarrollo social", icon: BookOpen },
     ],
   },
   { label: "Admisión", to: "/admision" },

@@ -31,7 +31,7 @@ export default function ProgramPage({ programa, planes }) {
       <section className="section">
         <div className="container">
           <SectionHeading eyebrow="Costos" title="Menciones y pensiones">
-            Haz clic en un programa para ver el detalle de pensión, matrícula, horarios y contactos.
+            Haz clic en un programa para ver el detalle de pensión, matrícula y la información disponible.
           </SectionHeading>
           <div className="mt-12">
             <AreaGrid programa={programa} tipo={tipos[programa.id]} />

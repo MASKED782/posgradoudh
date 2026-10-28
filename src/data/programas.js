@@ -12,7 +12,7 @@ export const maestrias = {
   titulo: "Maestrías",
   modalidad: "A distancia / Presencial",
   descripcion:
-    "Especialízate en tu campo profesional con programas orientados a la gestión, la investigación y la toma de decisiones.",
+    "Menciones en Ingeniería, Ciencias Administrativas, Ciencias de la Educación, Ciencias de la Salud y Derecho y Ciencias Políticas.",
   imagen: "assets/img/fondom2.webp",
   ingreso: [
     ["Examen de admisión general", "S/ 150.00"],
@@ -71,8 +71,8 @@ export const maestrias = {
 const horariosDoctorado = (manana, tarde, domingo) => [
   "Clases presenciales",
   "Duración: 06 semestres",
-  `Sábados (mañana): ${manana}`,
-  `Sábados (tarde): ${tarde}`,
+  `Horarios: sábados – mañana: ${manana}`,
+  `Horarios: tardes: ${tarde}`,
   `Domingos: ${domingo}`,
 ];
 
@@ -81,7 +81,7 @@ export const doctorados = {
   titulo: "Doctorados",
   modalidad: "Presencial",
   descripcion:
-    "Formación doctoral para liderar la investigación, generar conocimiento y aportar soluciones a tu disciplina.",
+    "Doctorados en Ciencias de la Educación, Ciencias de la Salud y Derecho.",
   imagen: "assets/img/fondodoc.webp",
   ingreso: [
     ["Examen de admisión general", "S/ 200.00"],
@@ -132,7 +132,7 @@ export const segundaEspecialidad = {
   titulo: "Segunda Especialidad",
   modalidad: "Presencial / Semipresencial",
   descripcion:
-    "Profundiza tu práctica profesional en áreas clínicas de alta demanda con docentes especialistas.",
+    "Alto Riesgo Obstétrico, Ortodoncia y Ortopedia Maxilar, y Monitoreo Fetal y Ecografía Obstétrica.",
   imagen: "assets/img/fondose.webp",
   ingreso: [
     ["Examen de admisión general", "S/ 200.00"],
@@ -173,7 +173,7 @@ export const segundaEspecialidad = {
 export const diplomados = {
   id: "diplomados",
   titulo: "Diplomados",
-  modalidad: "Formación continua",
+  modalidad: "Oferta académica",
   descripcion:
     "Programas orientados al fortalecimiento profesional y al desarrollo de competencias aplicadas.",
   imagen: "assets/img/fondodip.webp",
