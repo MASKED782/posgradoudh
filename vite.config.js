@@ -1,50 +1,90 @@
 import { defineConfig } from "vite";
-import { readFileSync, readdirSync } from "node:fs";
-import { resolve } from "node:path";
+import react from "@vitejs/plugin-react";
 
-const root = import.meta.dirname;
+// Carpeta donde se publicará el sitio. Por defecto la raíz del dominio ("/").
+// Para una subcarpeta: BASE_PATH=/posgrado/ npm run build
+const base = process.env.BASE_PATH || "/";
 
-// Todas las páginas .html de la raíz se compilan como entradas
-const pages = Object.fromEntries(
-  readdirSync(root)
-    .filter((f) => f.endsWith(".html"))
-    .map((f) => [f.replace(".html", ""), resolve(root, f)])
-);
+// Páginas del sitio anterior (.html) → nuevas rutas. Mantiene funcionando los enlaces antiguos.
+const legacyRoutes = {
+  "maestrias.html": "maestrias",
+  "doctorados.html": "doctorados",
+  "segunda_especialidad.html": "segunda-especialidad",
+  "requisitos.html": "requisitos",
+  "documentos.html": "documentos",
+  "faq.html": "preguntas-frecuentes",
+  "admision.html": "admision",
+  "contacto.html": "contacto",
+};
 
 /* =========================
-   Inserta components/navbar.html y components/footer.html
-   dentro de <div id="navbar-container"></div> y <div id="footer-container"></div>
-   al compilar (ya no hace falta fetch en el navegador).
+   Genera dist/.htaccess para Apache (cPanel):
+   - redirige las URLs antiguas .html
+   - envía todas las rutas a index.html (React Router)
+   - caché y compresión
 ========================= */
-function partials() {
-  const read = (name) => readFileSync(resolve(root, "components", `${name}.html`), "utf8");
+function htaccess() {
+  const redirects = Object.entries(legacyRoutes)
+    .map(([from, to]) => `RewriteRule ^${from.replace(".", "\\.")}$ ${base}${to} [R=301,L]`)
+    .join("\n");
+
+  const source = `# Generado automáticamente por vite.config.js — no editar en el servidor
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase ${base}
+
+# Enlaces del sitio anterior
+${redirects}
+
+# Rutas de la aplicación → index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . ${base}index.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript image/svg+xml application/json
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # JS/CSS compilados llevan hash en el nombre: caché de 1 año
+  <FilesMatch "\\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\\.(webp|png|jpe?g|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+`;
 
   return {
-    name: "udh-partials",
-    transformIndexHtml: {
-      order: "pre",
-      handler: (html) =>
-        html.replace(
-          /<div id="(navbar|footer)-container"><\/div>/g,
-          (_, name) => `<div id="${name}-container">${read(name)}</div>`
-        ),
-    },
-    handleHotUpdate({ file, server }) {
-      if (file.replaceAll("\\", "/").includes("/components/")) {
-        server.ws.send({ type: "full-reload" });
-      }
+    name: "udh-htaccess",
+    apply: "build",
+    generateBundle() {
+      this.emitFile({ type: "asset", fileName: ".htaccess", source });
     },
   };
 }
 
 export default defineConfig({
-  // Rutas relativas: el sitio funciona en la raíz de public_html o en una subcarpeta
-  base: "./",
-  plugins: [partials()],
+  base,
+  plugins: [react(), htaccess()],
   build: {
     outDir: "dist",
     assetsDir: "build",
     emptyOutDir: true,
-    rollupOptions: { input: pages },
   },
 });

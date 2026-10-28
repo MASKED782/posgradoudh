@@ -1,8 +1,8 @@
 # Posgrado UDH
 
-Sitio web de la Escuela de Posgrado de la Universidad de Huánuco: diplomados, maestrías, doctorados y segunda especialidad.
+Sitio web de la Escuela de Posgrado de la Universidad de Huánuco: maestrías, doctorados, segunda especialidad y diplomados.
 
-Hecho con **HTML + [Tailwind CSS](https://tailwindcss.com) + JavaScript**, compilado con **[Vite](https://vite.dev)**. Las animaciones usan [GSAP](https://gsap.com) y los íconos [Lucide](https://lucide.dev).
+Hecho con **[React](https://react.dev)** + **[Vite](https://vite.dev)** + **[Tailwind CSS](https://tailwindcss.com)**, con animaciones de [Framer Motion](https://motion.dev) e íconos [Lucide](https://lucide.dev).
 
 ## Requisitos
 
@@ -17,42 +17,67 @@ npm run build      # genera la carpeta dist/ lista para publicar
 npm run preview    # revisa localmente la versión compilada de dist/
 ```
 
+## Dónde editar el contenido
+
+No hace falta tocar el diseño para actualizar información:
+
+| Qué quieres cambiar | Archivo |
+| --- | --- |
+| Enlaces (portal, WhatsApp, tasas), correo, teléfono, horario, fecha del examen, anuncio emergente, brochure | `src/lib/site.js` |
+| Menciones, pensiones, matrículas, modalidades de ingreso, horarios | `src/data/programas.js` |
+| PDFs de planes de estudio, requisitos, reglamentos, vacantes, FAQ | `src/data/documentos.js` |
+| Ventajas, pasos de admisión, asesores y teléfonos | `src/data/institucional.js` |
+
+Los archivos (imágenes y PDFs) van en `public/assets/img` y `public/assets/pdf`. En los datos se escriben sin `public/`, por ejemplo `assets/pdf/temario.pdf`. Usa nombres sin tildes ni espacios.
+
+Para desactivar el anuncio emergente, pon `anuncio: null` en `src/lib/site.js`.
+
 ## Estructura
 
 ```
-*.html                  Páginas del sitio (index, maestrías, doctorados, ...)
-components/             navbar.html y footer.html (se insertan en cada página al compilar)
-public/assets/css/app.css Estilos propios (se copian tal cual, mismo orden que antes)
-assets/css/tailwind.css Tailwind (configuración en tailwind.config.js)
-assets/js/main.js       Entrada común: íconos + app.js + visor de PDF
-assets/js/app.js        Navbar, menú móvil, modales y carruseles
-assets/js/pdf-viewer.js Visor de PDF de las páginas de documentos
-assets/js/home.js       Animaciones de la página de inicio
-public/assets/img       Imágenes (se copian tal cual)
-public/assets/pdf       PDFs (se copian tal cual)
-public/.htaccess        Caché y compresión para Apache/cPanel
-scripts/                Herramientas (optimizar imágenes)
+src/
+  main.jsx            Punto de entrada
+  App.jsx             Rutas de las páginas
+  index.css           Estilos base y botones
+  components/         Navbar, Footer, Modal, visor de PDFs, tarjetas de programas
+  pages/              Inicio, Maestrías/Doctorados/Segunda Especialidad, Admisión, Contacto, bibliotecas de PDFs
+  data/               Contenido del sitio (ver tabla de arriba)
+  lib/                Datos generales y utilidades
+public/assets/        Imágenes y PDFs (se copian tal cual)
+scripts/              Herramienta para optimizar imágenes
+tailwind.config.js    Colores y tipografías de la marca
 ```
-
-Para referenciar una imagen o PDF desde el HTML usa la ruta sin `public/`, por ejemplo `assets/img/fondo1.webp`.
 
 ## Agregar imágenes nuevas
 
-Las fotos de cámara o los PNG grandes pesan varios MB. Antes de subirlas, conviértelas a WebP:
+Las fotos de cámara o los PNG grandes pesan varios MB. Conviértelas a WebP antes de usarlas:
 
 ```bash
 npm run optimizar-imagenes -- public/assets/img/mi-foto.jpg
 ```
 
-Se crea `mi-foto.webp` (máx. 1920 px de ancho). Usa ese archivo en el HTML y borra el original.
+Se crea `mi-foto.webp` (máx. 1920 px de ancho). Usa ese archivo y borra el original.
 
 ## Publicar en cPanel
 
 1. Ejecuta `npm run build`.
-2. Entra a cPanel → **Administrador de archivos** → `public_html` (o la subcarpeta del sitio).
-3. Sube **el contenido** de la carpeta `dist/`, no la carpeta en sí. Lo más rápido es comprimir el contenido de `dist/` en un `.zip`, subirlo y usar **Extraer**.
-4. Activa "Mostrar archivos ocultos" en el Administrador de archivos y verifica que `.htaccess` se haya subido.
+2. En cPanel abre el **Administrador de archivos** y entra a `public_html`.
+3. Sube **el contenido** de `dist/` (no la carpeta en sí). Lo más rápido: comprímelo en `.zip`, súbelo y usa **Extraer**.
+4. Activa "Mostrar archivos ocultos" y verifica que se subió `.htaccess`. Es imprescindible: hace que funcionen las rutas como `/maestrias` y redirige los enlaces antiguos (`maestrias.html`, etc.).
 
-Al actualizar, borra antes la carpeta `build/` del servidor: los nombres de los JS/CSS cambian en cada compilación.
+Al actualizar, borra antes la carpeta `build/` del servidor (los nombres de los JS/CSS cambian en cada compilación).
 
-> El sitio usa rutas relativas, así que funciona tanto en la raíz del dominio como en una subcarpeta.
+**Si el sitio va en una subcarpeta** (por ejemplo `udh.edu.pe/posgrado/`), compila indicando la carpeta:
+
+```bash
+BASE_PATH=/posgrado/ npm run build
+```
+
+En Windows (PowerShell): `$env:BASE_PATH="/posgrado/"; npm run build`
+
+## Guardar cambios en GitHub (GitHub Desktop)
+
+1. Abre GitHub Desktop: verás los archivos modificados en la pestaña **Changes**.
+2. Escribe un resumen abajo a la izquierda y pulsa **Commit to &lt;rama&gt;**.
+3. Pulsa **Push origin** (o **Publish branch** la primera vez que subes una rama).
+4. Para pasar los cambios a `main`, pulsa **Create Pull Request**, revísalo en GitHub y haz **Merge**.
