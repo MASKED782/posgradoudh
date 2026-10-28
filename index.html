@@ -12,23 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/app.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            jet: '#3D3C3B', zomp: '#5A9E8D', saffron: '#ECC138', primary: '#ECC138',
-            background: '#FAF7F0', card: 'rgba(255,255,255,0.72)', border: 'rgba(61,60,59,0.16)',
-            muted: 'rgba(90,158,141,0.10)', foreground: '#3D3C3B',
-            'muted-foreground': 'rgba(61,60,59,0.72)', 'primary-foreground': '#3D3C3B'
-          },
-          boxShadow: { soft: '0 12px 30px rgba(61,60,59,0.22)' }
-        }
-      }
-    }
-  </script>
   <style>
     .hero-title-line { display: block; overflow: hidden; }
     .hero-title-line-inner { display: inline-block; will-change: transform, opacity; }
@@ -42,6 +25,7 @@
     .hero-stat { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
     .hero-stat:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0,0,0,.14); }
   </style>
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
 </head>
 <body class="page-index font-sans bg-background text-foreground has-top-admission">
 
@@ -79,7 +63,7 @@
     <div class="w-full h-full flex items-center justify-center p-4 sm:p-5">
       <div id="welcome-box" class="relative modal-anuncio max-w-[92vw] sm:max-w-[85vw] md:max-w-3xl lg:max-w-4xl">
         <button id="close-welcome-modal" class="absolute -top-3 -right-3 z-10 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-black text-2xl font-bold shadow-lg hover:scale-110 transition" aria-label="Cerrar" type="button">&times;</button>
-        <img id="welcome-image" src="assets/img/adminsion 2026-2.jpeg" alt="Anuncio Posgrado UDH" class="block w-auto max-w-full max-h-[82vh] sm:max-h-[85vh] rounded-2xl shadow-2xl cursor-pointer object-contain" />
+        <img id="welcome-image" src="assets/img/admision-2026-2.webp" alt="Anuncio Posgrado UDH" class="block w-auto max-w-full max-h-[82vh] sm:max-h-[85vh] rounded-2xl shadow-2xl cursor-pointer object-contain" />
       </div>
     </div>
   </div>
@@ -90,7 +74,7 @@
   <!-- HERO -->
   <section class="hero-section" aria-label="Presentación">
     <div class="hero-bg">
-      <img src="assets/img/fondo1.JPG" alt="" class="hero-parallax-bg" />
+      <img src="assets/img/fondo1.webp" alt="" class="hero-parallax-bg" />
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-inner container mx-auto px-4">
@@ -131,7 +115,7 @@
   <!-- MAESTRÍAS -->
   <section id="maestrias" class="masters-section reveal-section">
     <div class="absolute inset-0">
-      <img src="assets/img/fondom2.png" alt="Maestrías" class="w-full h-full object-cover" />
+      <img src="assets/img/fondom2.webp" alt="Maestrías" class="w-full h-full object-cover" />
       <div class="absolute inset-0 masters-overlay"></div>
     </div>
     <div class="relative container mx-auto px-4 z-10">
@@ -172,7 +156,7 @@
   <!-- DOCTORADOS -->
   <section id="doctorados" class="doc-section reveal-section">
     <div class="absolute inset-0">
-      <img src="assets/img/fondodoc.png" alt="Doctorados" class="w-full h-full object-cover" />
+      <img src="assets/img/fondodoc.webp" alt="Doctorados" class="w-full h-full object-cover" />
       <div class="absolute inset-0 doc-overlay"></div>
     </div>
     <div class="relative container mx-auto px-4 z-10">
@@ -210,7 +194,7 @@
   <!-- SEGUNDA ESPECIALIDAD -->
   <section id="segunda-especialidad" class="se2-section reveal-section">
     <div class="absolute inset-0">
-      <img src="assets/img/fondose.png" alt="Segunda Especialidad" class="w-full h-full object-cover" />
+      <img src="assets/img/fondose.webp" alt="Segunda Especialidad" class="w-full h-full object-cover" />
       <div class="absolute inset-0 se2-overlay"></div>
     </div>
     <div class="relative container mx-auto px-4 z-10">
@@ -246,7 +230,7 @@
   <!-- DIPLOMADOS -->
   <section id="diplomados" class="dip-section dip-section--dark reveal-section">
     <div class="dip-bg">
-      <img id="dipBgImg" src="assets/img/fondodip.png" alt="Diplomados" />
+      <img id="dipBgImg" src="assets/img/fondodip.webp" alt="Diplomados" />
       <div class="dip-bgOverlay"></div>
     </div>
     <div class="relative container mx-auto px-4 z-10">
@@ -303,7 +287,7 @@
     <div class="flex h-full w-full items-center justify-center p-2 sm:p-4">
       <div class="relative h-[95vh] w-[98vw] max-w-6xl rounded-2xl bg-white shadow-2xl overflow-hidden">
         <button id="closePdfModal" type="button" aria-label="Cerrar brochure" class="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white text-2xl font-bold hover:bg-black">&times;</button>
-        <iframe id="pdfFrame" src="assets/pdf/Brochure/Brochure Admisión Posgrado UDH 2026-1 Oficial.pdf" class="h-full w-full border-0" title="Visor de brochure"></iframe>
+        <iframe id="pdfFrame" data-src="assets/pdf/Brochure/Brochure Admisión Posgrado UDH 2026-1 Oficial.pdf" class="h-full w-full border-0" title="Visor de brochure"></iframe>
       </div>
     </div>
   </div>
@@ -595,60 +579,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-    window.addEventListener("load", () => {
-      function animateNavbarWhenReady() {
-        const navbar = document.querySelector("#navbar");
-        if (navbar) {
-          gsap.fromTo(navbar, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" });
-        } else { setTimeout(animateNavbarWhenReady, 200); }
-      }
-      gsap.set(".hero-title-line-inner", { opacity: 0, yPercent: 115, rotateX: -12, transformOrigin: "0% 100%" });
-      gsap.set(".hero-animate-text", { opacity: 0, y: 28 });
-      gsap.set(".hero-animate-actions .hero-btn", { opacity: 0, y: 22 });
-      gsap.set(".hero-animate-card", { opacity: 0, y: 30, scale: 0.96 });
-      const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      heroTl
-        .to(".hero-title-line-inner", { opacity: 1, yPercent: 0, rotateX: 0, duration: 0.9, stagger: 0.12 })
-        .to(".hero-animate-text", { opacity: 1, y: 0, duration: 0.7 }, "-=0.42")
-        .to(".hero-animate-actions .hero-btn", { opacity: 1, y: 0, duration: 0.58, stagger: 0.11 }, "-=0.28")
-        .to(".hero-animate-card", { opacity: 1, y: 0, scale: 1, duration: 0.62 }, "-=0.2");
-      gsap.to(".hero-parallax-bg", {
-        yPercent: 10, ease: "none",
-        scrollTrigger: { trigger: ".hero-section", start: "top top", end: "bottom top", scrub: true }
-      });
-      gsap.utils.toArray(".reveal-section").forEach((section) => {
-        gsap.from(section, {
-          opacity: 0, y: 42, duration: 0.88, ease: "power2.out",
-          scrollTrigger: { trigger: section, start: "top 84%", toggleActions: "play none none none" }
-        });
-      });
-      const internalReveals = [
-        { trigger: ".masters-section", left: ".masters-copy", right: ".masters-panel", items: ".mention-card" },
-        { trigger: ".doc-section",     left: ".doc-copy",     right: ".doc-panel",     items: "#phdTrack > *" },
-        { trigger: ".se2-section",     left: ".se2-copy",     right: ".se2-panel",     items: "#seTrack > *"  }
-      ];
-      internalReveals.forEach(({ trigger, left, right, items }) => {
-        const tl = gsap.timeline({ scrollTrigger: { trigger, start: "top 72%", toggleActions: "play none none none" } });
-        tl
-          .from(left,  { opacity: 0, x: -34, duration: 0.7, ease: "power2.out" })
-          .from(right, { opacity: 0, x:  34, duration: 0.7, ease: "power2.out" }, "-=0.48");
-        if (document.querySelector(items)) {
-          tl.from(items, { opacity: 0, y: 16, duration: 0.45, stagger: 0.08, ease: "power2.out" }, "-=0.3");
-        }
-      });
-      gsap.from(".why-card", {
-        opacity: 0, y: 24, duration: 0.58, stagger: 0.1, ease: "power2.out",
-        scrollTrigger: { trigger: ".why-section", start: "top 75%", toggleActions: "play none none none" }
-      });
-      animateNavbarWhenReady();
-    });
-  </script>
-  <script>lucide.createIcons();</script>
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/home.js"></script>
 </body>
 </html>

@@ -10,26 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/app.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontfamily: { sans: ['inter','system-ui','sans-serif'] },
-          colors: {
-            jet:'#3d3c3b',
-            primary:'#ecc138',
-            background:'#faf7f0',
-            border:'rgba(61,60,59,0.16)',
-            foreground:'#3d3c3b',
-            muted:'rgba(61,60,59,0.72)',
-            tealbtn:'#5a9e8d'
-          }
-        }
-      }
-    }
-  </script>
 
   <style>
     :root{
@@ -139,6 +120,7 @@
     }
     .softbtn:hover{ background:rgba(195, 195, 195, 0.874); opacity:1; }
   </style>
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
 </head>
 
 <body class="font-sans text-foreground">
@@ -412,7 +394,6 @@
       });
     })();
   </script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-<script src="./assets/js/app.js"></script>
+<script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

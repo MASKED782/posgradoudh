@@ -1,0 +1,4 @@
+# Archivos compilados con hash en el nombre: caché de 1 año
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
