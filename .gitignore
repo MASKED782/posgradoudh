@@ -3,7 +3,7 @@ node_modules/
 
 # Compilado (se genera con "npm run build" y es lo que se sube a cPanel)
 dist/
-posgradoudh-cpanel.zip
+*.zip
 
 # Logs
 *.log

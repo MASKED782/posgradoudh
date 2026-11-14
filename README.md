@@ -44,7 +44,7 @@ src/
   data/               Contenido del sitio (ver tabla de arriba)
   lib/                Datos generales y utilidades
 public/assets/        Imágenes y PDFs (se copian tal cual)
-scripts/              Herramienta para optimizar imágenes
+scripts/              Herramientas para optimizar imágenes y PDFs
 tailwind.config.js    Colores y tipografías de la marca
 ```
 
@@ -58,14 +58,28 @@ npm run optimizar-imagenes -- public/assets/img/mi-foto.jpg
 
 Se crea `mi-foto.webp` (máx. 1920 px de ancho). Usa ese archivo y borra el original.
 
+## Agregar PDFs nuevos
+
+Antes de subir un PDF, redúcele el peso (recomprime sus imágenes; el texto no cambia):
+
+```bash
+npm run optimizar-pdfs -- public/assets/pdf/nuevo.pdf
+```
+
+También acepta una carpeta: `npm run optimizar-pdfs -- public/assets/pdf`. Solo reemplaza el archivo si queda más liviano.
+
 ## Publicar en cPanel
 
 1. Ejecuta `npm run build`.
-2. En cPanel abre el **Administrador de archivos** y entra a `public_html`.
-3. Sube **el contenido** de `dist/` (no la carpeta en sí). Lo más rápido: comprímelo en `.zip`, súbelo y usa **Extraer**.
+2. Comprime **el contenido** de `dist/` (no la carpeta en sí, y sin olvidar `.htaccess`).
+   - **Primera vez**: todo `dist/` (~37 MB).
+   - **Actualizaciones**: si no cambiaste PDFs, deja fuera `assets/pdf` (~1 MB).
+3. En cPanel abre el **Administrador de archivos**, entra a `public_html`, sube el zip y usa **Extraer**.
 4. Activa "Mostrar archivos ocultos" y verifica que se subió `.htaccess`. Es imprescindible: hace que funcionen las rutas como `/maestrias` y redirige los enlaces antiguos (`maestrias.html`, etc.).
 
 Al actualizar, borra antes la carpeta `build/` del servidor (los nombres de los JS/CSS cambian en cada compilación).
+
+No comprimas la carpeta del proyecto completa: incluye `node_modules` y el código fuente, pesa cientos de MB y no funciona en cPanel.
 
 **Si el sitio va en una subcarpeta** (por ejemplo `udh.edu.pe/posgrado/`), compila indicando la carpeta:
 
@@ -80,4 +94,4 @@ En Windows (PowerShell): `$env:BASE_PATH="/posgrado/"; npm run build`
 1. Abre GitHub Desktop: verás los archivos modificados en la pestaña **Changes**.
 2. Escribe un resumen abajo a la izquierda y pulsa **Commit to &lt;rama&gt;**.
 3. Pulsa **Push origin** (o **Publish branch** la primera vez que subes una rama).
-4. Para pasar los cambios a `main`, pulsa **Create Pull Request**, revísalo en GitHub y haz **Merge**.
+4. Si trabajas en otra rama, para pasar los cambios a `main` pulsa **Create Pull Request**, revísalo en GitHub y haz **Merge**. GitHub muestra `main` por defecto.
